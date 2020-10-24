@@ -1711,6 +1711,7 @@ export type SiteFieldsEnum =
   | 'buildTime'
   | 'siteMetadata___title'
   | 'siteMetadata___description'
+  | 'siteMetadata___keywords'
   | 'port'
   | 'host'
   | 'polyfill'
@@ -2338,11 +2339,13 @@ export type SitePluginSortInput = {
 export type SiteSiteMetadata = {
   title?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
+  keywords?: Maybe<Scalars['String']>;
 };
 
 export type SiteSiteMetadataFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
+  keywords?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SiteSortInput = {
@@ -2362,6 +2365,11 @@ export type StringQueryOperatorInput = {
   regex?: Maybe<Scalars['String']>;
   glob?: Maybe<Scalars['String']>;
 };
+
+export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'keywords'>> }> };
 
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
