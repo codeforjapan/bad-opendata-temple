@@ -10,7 +10,15 @@ module.exports = {
         path: `${__dirname}/src/contents/markdown`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `hitokoto`,
+        path: `${__dirname}/src/contents/hitokoto`,
+      },
+    },
     `gatsby-transformer-remark`,
+    `gatsby-transformer-csv`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {
