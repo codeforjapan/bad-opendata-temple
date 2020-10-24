@@ -1,13 +1,13 @@
-import * as React from 'react';
-import Link from 'gatsby-link';
-import { graphql, useStaticQuery } from 'gatsby';
+import * as React from 'react'
+import Link from 'gatsby-link'
+import { graphql, useStaticQuery } from 'gatsby'
 
 interface HeaderPageProps {
   site: {
     siteMetadata: {
-      title: string;
-    };
-  };
+      title: string
+    }
+  }
 }
 
 export default () => {
@@ -20,8 +20,8 @@ export default () => {
           }
         }
       }
-    `,
-  );
+    `
+  )
   return (
     <div
       style={{
@@ -49,5 +49,5 @@ export default () => {
         </h1>
       </div>
     </div>
-  );
-};
+  )
+}
