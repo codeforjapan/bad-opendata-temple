@@ -2,8 +2,6 @@ import * as React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import './index.css'
-
 const Header = () => (
   <div
     style={{
@@ -34,9 +32,6 @@ const Header = () => (
 )
 
 interface DefaultLayoutProps extends React.HTMLProps<HTMLDivElement> {
-  location: {
-    pathname: string
-  }
   children: any
 }
 
@@ -60,7 +55,7 @@ class DefaultLayout extends React.PureComponent<DefaultLayoutProps, void> {
             paddingTop: 0,
           }}
         >
-          {this.props.children()}
+          {this.props.children}
         </div>
       </div>
     )
