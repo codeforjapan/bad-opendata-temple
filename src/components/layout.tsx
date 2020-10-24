@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Header from './header';
-import Helmet from 'react-helmet';
+import * as React from 'react'
+import Header from './header'
+import Helmet from 'react-helmet'
 
 interface DefaultLayoutProps extends React.HTMLProps<HTMLDivElement> {
-  children: any;
+  children: any
 }
 
 class DefaultLayout extends React.PureComponent<DefaultLayoutProps> {
@@ -29,8 +29,8 @@ class DefaultLayout extends React.PureComponent<DefaultLayoutProps> {
           {this.props.children}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default DefaultLayout;
+export default DefaultLayout
