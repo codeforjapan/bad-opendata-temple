@@ -10,7 +10,7 @@ interface HeaderPageProps {
   }
 }
 
-export default () => {
+const Header = () => {
   const data: HeaderPageProps = useStaticQuery(
     graphql`
       query {
@@ -51,3 +51,4 @@ export default () => {
     </div>
   )
 }
+export default Header
