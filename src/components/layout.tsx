@@ -35,7 +35,7 @@ interface DefaultLayoutProps extends React.HTMLProps<HTMLDivElement> {
   children: any
 }
 
-class DefaultLayout extends React.PureComponent<DefaultLayoutProps, void> {
+class DefaultLayout extends React.PureComponent<DefaultLayoutProps> {
   public render() {
     return (
       <div>
