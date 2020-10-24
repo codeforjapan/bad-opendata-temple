@@ -388,6 +388,7 @@ export type File = Node & {
   children: Array<Node>;
   internal: Internal;
   childMarkdownRemark?: Maybe<MarkdownRemark>;
+  childrenIndexCsv?: Maybe<Array<Maybe<IndexCsv>>>;
 };
 
 
@@ -649,7 +650,47 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___internal___ignoreType'
   | 'childMarkdownRemark___internal___mediaType'
   | 'childMarkdownRemark___internal___owner'
-  | 'childMarkdownRemark___internal___type';
+  | 'childMarkdownRemark___internal___type'
+  | 'childrenIndexCsv'
+  | 'childrenIndexCsv___id'
+  | 'childrenIndexCsv___parent___id'
+  | 'childrenIndexCsv___parent___parent___id'
+  | 'childrenIndexCsv___parent___parent___children'
+  | 'childrenIndexCsv___parent___children'
+  | 'childrenIndexCsv___parent___children___id'
+  | 'childrenIndexCsv___parent___children___children'
+  | 'childrenIndexCsv___parent___internal___content'
+  | 'childrenIndexCsv___parent___internal___contentDigest'
+  | 'childrenIndexCsv___parent___internal___description'
+  | 'childrenIndexCsv___parent___internal___fieldOwners'
+  | 'childrenIndexCsv___parent___internal___ignoreType'
+  | 'childrenIndexCsv___parent___internal___mediaType'
+  | 'childrenIndexCsv___parent___internal___owner'
+  | 'childrenIndexCsv___parent___internal___type'
+  | 'childrenIndexCsv___children'
+  | 'childrenIndexCsv___children___id'
+  | 'childrenIndexCsv___children___parent___id'
+  | 'childrenIndexCsv___children___parent___children'
+  | 'childrenIndexCsv___children___children'
+  | 'childrenIndexCsv___children___children___id'
+  | 'childrenIndexCsv___children___children___children'
+  | 'childrenIndexCsv___children___internal___content'
+  | 'childrenIndexCsv___children___internal___contentDigest'
+  | 'childrenIndexCsv___children___internal___description'
+  | 'childrenIndexCsv___children___internal___fieldOwners'
+  | 'childrenIndexCsv___children___internal___ignoreType'
+  | 'childrenIndexCsv___children___internal___mediaType'
+  | 'childrenIndexCsv___children___internal___owner'
+  | 'childrenIndexCsv___children___internal___type'
+  | 'childrenIndexCsv___internal___content'
+  | 'childrenIndexCsv___internal___contentDigest'
+  | 'childrenIndexCsv___internal___description'
+  | 'childrenIndexCsv___internal___fieldOwners'
+  | 'childrenIndexCsv___internal___ignoreType'
+  | 'childrenIndexCsv___internal___mediaType'
+  | 'childrenIndexCsv___internal___owner'
+  | 'childrenIndexCsv___internal___type'
+  | 'childrenIndexCsv___word';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -691,6 +732,7 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+  childrenIndexCsv?: Maybe<IndexCsvFilterListInput>;
 };
 
 export type FileGroupConnection = {
@@ -716,6 +758,156 @@ export type FloatQueryOperatorInput = {
   lte?: Maybe<Scalars['Float']>;
   in?: Maybe<Array<Maybe<Scalars['Float']>>>;
   nin?: Maybe<Array<Maybe<Scalars['Float']>>>;
+};
+
+export type IndexCsv = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  word?: Maybe<Scalars['String']>;
+};
+
+export type IndexCsvConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<IndexCsvEdge>;
+  nodes: Array<IndexCsv>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<IndexCsvGroupConnection>;
+};
+
+
+export type IndexCsvConnectionDistinctArgs = {
+  field: IndexCsvFieldsEnum;
+};
+
+
+export type IndexCsvConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: IndexCsvFieldsEnum;
+};
+
+export type IndexCsvEdge = {
+  next?: Maybe<IndexCsv>;
+  node: IndexCsv;
+  previous?: Maybe<IndexCsv>;
+};
+
+export type IndexCsvFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'word';
+
+export type IndexCsvFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  word?: Maybe<StringQueryOperatorInput>;
+};
+
+export type IndexCsvFilterListInput = {
+  elemMatch?: Maybe<IndexCsvFilterInput>;
+};
+
+export type IndexCsvGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<IndexCsvEdge>;
+  nodes: Array<IndexCsv>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type IndexCsvSortInput = {
+  fields?: Maybe<Array<Maybe<IndexCsvFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
 export type Internal = {
@@ -1071,6 +1263,8 @@ export type Query = {
   allSitePage: SitePageConnection;
   markdownRemark?: Maybe<MarkdownRemark>;
   allMarkdownRemark: MarkdownRemarkConnection;
+  indexCsv?: Maybe<IndexCsv>;
+  allIndexCsv: IndexCsvConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -1118,6 +1312,7 @@ export type QueryFileArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+  childrenIndexCsv?: Maybe<IndexCsvFilterListInput>;
 };
 
 
@@ -1248,6 +1443,23 @@ export type QueryMarkdownRemarkArgs = {
 export type QueryAllMarkdownRemarkArgs = {
   filter?: Maybe<MarkdownRemarkFilterInput>;
   sort?: Maybe<MarkdownRemarkSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryIndexCsvArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  word?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllIndexCsvArgs = {
+  filter?: Maybe<IndexCsvFilterInput>;
+  sort?: Maybe<IndexCsvSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2158,6 +2370,11 @@ export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'keywords'>> }> };
+
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_1_Query = { allIndexCsv: { nodes: Array<Pick<IndexCsv, 'word'>> } };
 
 export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
