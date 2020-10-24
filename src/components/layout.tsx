@@ -11,10 +11,10 @@ class DefaultLayout extends React.PureComponent<DefaultLayoutProps> {
     return (
       <div>
         <Helmet
-          title="Gatsby Default Starter"
+          title="BADオープンデータ供養寺"
           meta={[
-            { name: 'description', content: 'Sample' },
-            { name: 'keywords', content: 'sample, something' },
+            { name: 'description', content: '「BADオープンデータ供養寺」は世の中に災厄をもたらすBADなデータが二度とこの世を彷徨わないように「供養（データクレンジング）」するために建立されました。' },
+            { name: 'keywords', content: 'オープンデータ, データ活用, データクレンジング, データエンジニアリング, データマネジメント, シビックテック, Code for Japan' },
           ]}
         />
         <Header />
