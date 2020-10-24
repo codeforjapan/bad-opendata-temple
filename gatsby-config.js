@@ -3,7 +3,14 @@ module.exports = {
     title: `Gatsby Typescript Starter`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-contents`,
+        path: `${__dirname}/src/contsnts/markdown`,
+      },
+    },
+      `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`
   ],
 }

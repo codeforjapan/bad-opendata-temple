@@ -10,6 +10,7 @@
     "gatsby-link": "^2.4.16",
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-typescript": "^2.4.24",
+    "gatsby-source-filesystem": "^2.3.35",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
