@@ -7,7 +7,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-contents`,
-        path: `${__dirname}/src/contsnts/markdown`,
+        path: `${__dirname}/src/contents/markdown`,
       },
     },
       `gatsby-plugin-react-helmet`,
