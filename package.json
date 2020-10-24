@@ -11,6 +11,7 @@
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-typescript": "^2.4.24",
     "gatsby-source-filesystem": "^2.3.35",
+    "gatsby-transformer-remark": "^2.8.46",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
