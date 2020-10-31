@@ -28,6 +28,7 @@ module.exports = {
       options: {
         fileName: `types/graphql-types.d.ts`,
       },
-    }
+    },
   ],
+  pathPrefix: `/bad-opendata-temple`
 }
