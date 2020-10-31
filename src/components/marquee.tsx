@@ -1,6 +1,12 @@
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
 
+type PropsTypes = {
+  text: string;
+  duration: string | null;
+  delay: string | null;
+}
+
 const MarqueeWrap = styled.div`
   padding: 0.5em 0;
   overflow: hidden;
@@ -20,8 +26,9 @@ const Paragraph = styled.p`
   white-space: nowrap;
   animation-name: ${marqueeAnimation};
   animation-timing-function: linear;
-  animation-duration: 18s;
+  animation-duration: ${(props: PropsTypes) => props.duration ? props.duration : '18s'};
   animation-iteration-count: infinite;
+  animation-delay: ${(props: PropsTypes) => props.delay ? props.delay : '0s'};
   &::after {
     content: "";
     white-space: nowrap;
@@ -29,10 +36,10 @@ const Paragraph = styled.p`
   }
 `
 
-const Marquee = () => {
+const Marquee = (props: PropsTypes) => {
   return (
     <MarqueeWrap>
-      <Paragraph>BADデータを作ってしまうとその除霊や供養にはその何倍ものコストがかかります。お金は大切に。</Paragraph>
+      <Paragraph {...props}>{ props.text }</Paragraph>
     </MarqueeWrap>
   )
 }
