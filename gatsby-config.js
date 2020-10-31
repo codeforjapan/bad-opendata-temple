@@ -28,6 +28,7 @@ module.exports = {
       options: {
         fileName: `types/graphql-types.d.ts`,
       },
-    }
+    },
+    `gatsby-plugin-styled-components`,
   ],
 }

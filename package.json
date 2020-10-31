@@ -6,10 +6,13 @@
   "dependencies": {
     "@types/node": "^8.0.7",
     "@types/react-helmet": "^5.0.14",
+    "@types/styled-components": "^5.1.4",
+    "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.24.85",
     "gatsby-link": "^2.4.16",
     "gatsby-plugin-graphql-codegen": "^2.7.1",
     "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-styled-components": "^3.3.14",
     "gatsby-plugin-typescript": "^2.4.24",
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-transformer-csv": "^2.3.14",
@@ -17,6 +20,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
+    "styled-components": "^5.2.1",
     "typescript": "^3.7.2"
   },
   "keywords": [
@@ -28,7 +32,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.ts*\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'skip tests (there is no test)'"
   },
   "devDependencies": {
     "prettier": "^1.8.2"
