@@ -3,7 +3,7 @@ import Header from './header'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from "gatsby"
 import { SiteTitleQuery } from "../../types/graphql-types"
-
+import "./layout.css"
 
 const Layout: React.FC<{ data: SiteTitleQuery }> = ({ children }) => {
   const data = useStaticQuery(graphql`
