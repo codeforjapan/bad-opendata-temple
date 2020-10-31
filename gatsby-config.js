@@ -19,6 +19,13 @@ module.exports = {
         path: `${__dirname}/src/contents/hitokoto`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `images`,
+          path: `${__dirname}/src/contents/images`,
+        },
+    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-csv`,
     `gatsby-plugin-react-helmet`,
@@ -39,5 +46,7 @@ module.exports = {
         }
       }
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 }
