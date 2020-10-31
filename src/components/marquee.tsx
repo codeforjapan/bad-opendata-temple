@@ -1,10 +1,10 @@
 import * as React from 'react'
 import styled, { keyframes } from 'styled-components'
 
-type PropsTypes = {
+type Props = {
   text: string;
-  duration: string | null;
-  delay: string | null;
+  duration?: string;
+  delay?: string;
 }
 
 const MarqueeWrap = styled.div`
@@ -26,9 +26,9 @@ const Paragraph = styled.p`
   white-space: nowrap;
   animation-name: ${marqueeAnimation};
   animation-timing-function: linear;
-  animation-duration: ${(props: PropsTypes) => props.duration ? props.duration : '18s'};
+  animation-duration: ${(props: Props) => props.duration ? props.duration : '18s'};
   animation-iteration-count: infinite;
-  animation-delay: ${(props: PropsTypes) => props.delay ? props.delay : '0s'};
+  animation-delay: ${(props: Props) => props.delay ? props.delay : '0s'};
   &::after {
     content: "";
     white-space: nowrap;
@@ -36,7 +36,7 @@ const Paragraph = styled.p`
   }
 `
 
-const Marquee = (props: PropsTypes) => {
+const Marquee = (props: Props) => {
   return (
     <MarqueeWrap>
       <Paragraph {...props}>{ props.text }</Paragraph>
