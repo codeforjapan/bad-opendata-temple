@@ -30,5 +30,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        custom: {
+          families: ['PixelMplus10'],
+          urls: ['/fonts/fonts.css']
+        }
+      }
+    },
   ],
 }
