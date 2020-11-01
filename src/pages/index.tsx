@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import Layout from '../components/layout'
+import ContentWrap from '../components/contentWrap'
 
 // Please note that you can use https://github.com/dotansimha/graphql-code-generator
 // to generate all types from graphQL schema
@@ -21,7 +22,7 @@ export default class extends React.Component<IndexPageProps, {}> {
   public render() {
     return (
       <Layout>
-        <div>
+        <ContentWrap>
           <h1>Hi people</h1>
           <p>
             Welcome to your new{' '}
@@ -29,7 +30,7 @@ export default class extends React.Component<IndexPageProps, {}> {
           </p>
           <p>Now go build something great.</p>
           <Link to="/page-2/">Go to page 2</Link>
-        </div>
+        </ContentWrap>
       </Layout>
     )
   }
