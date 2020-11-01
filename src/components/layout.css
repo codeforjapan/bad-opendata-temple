@@ -1,3 +1,55 @@
 html {
   font-family: PixelMplus10, serif;
+  cursor: url('../contents/images/rousoku_1.gif') 16 12,  auto;
+  animation: default 2s ease 0s infinite alternate;
+}
+
+input {
+  cursor: url('../contents/images/text_1.gif') 16 12,  auto;
+  animation: text 2s ease 0s infinite alternate;
+}
+
+a,input[type='button'],input[type='radio'],input[type='checkbox'] {
+  cursor: url('../contents/images/pointer_1.gif') 16 12,  auto;
+  animation: pointer 2s ease 0s infinite alternate;
+}
+
+  
+@keyframes default {
+  0% {cursor: url('../contents/images/rousoku_1.gif') 16 12,  auto;}
+  10% {cursor: url('../contents/images/rousoku_2.gif') 16 12,  auto;}
+  20% {cursor: url('../contents/images/rousoku_4.gif') 16 12,  auto;}
+  30% {cursor: url('../contents/images/rousoku_2.gif') 16 12,  auto;}
+  40% {cursor: url('../contents/images/rousoku_1.gif') 16 12,  auto;}
+  50% {cursor: url('../contents/images/rousoku_2.gif') 16 12,  auto;}
+  60% {cursor: url('../contents/images/rousoku_4.gif') 16 12,  auto;}
+  70% {cursor: url('../contents/images/rousoku_3.gif') 16 12,  auto;}
+  80% {cursor: url('../contents/images/rousoku_2.gif') 16 12,  auto;}
+  90% {cursor: url('../contents/images/rousoku_4.gif') 16 12,  auto;}
+}
+
+@keyframes text {
+  0% {cursor: url('../contents/images/text_1.gif') 16 12,  auto;}
+  10% {cursor: url('../contents/images/text_4.gif') 16 12,  auto;}
+  20% {cursor: url('../contents/images/text_1.gif') 16 12,  auto;}
+  30% {cursor: url('../contents/images/text_4.gif') 16 12,  auto;}
+  40% {cursor: url('../contents/images/text_2.gif') 16 12,  auto;}
+  50% {cursor: url('../contents/images/text_3.gif') 16 12,  auto;}
+  60% {cursor: url('../contents/images/text_1.gif') 16 12,  auto;}
+  70% {cursor: url('../contents/images/text_4.gif') 16 12,  auto;}
+  80% {cursor: url('../contents/images/text_2.gif') 16 12,  auto;}
+  90% {cursor: url('../contents/images/text_3.gif') 16 12,  auto;}
+}
+
+@keyframes pointer {
+  0% {cursor: url('../contents/images/pointer_1.gif') 16 12,  auto;}
+  10% {cursor: url('../contents/images/pointer_2.gif') 16 12,  auto;}
+  20% {cursor: url('../contents/images/pointer_1.gif') 16 12,  auto;}
+  30% {cursor: url('../contents/images/pointer_3.gif') 16 12,  auto;}
+  40% {cursor: url('../contents/images/pointer_4.gif') 16 12,  auto;}
+  50% {cursor: url('../contents/images/pointer_3.gif') 16 12,  auto;}
+  60% {cursor: url('../contents/images/pointer_1.gif') 16 12,  auto;}
+  70% {cursor: url('../contents/images/pointer_2.gif') 16 12,  auto;}
+  80% {cursor: url('../contents/images/pointer_1.gif') 16 12,  auto;}
+  90% {cursor: url('../contents/images/pointer_3.gif') 16 12,  auto;}
 }
