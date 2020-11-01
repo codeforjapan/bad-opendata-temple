@@ -9,7 +9,7 @@ input {
   animation: text 2s ease 0s infinite alternate;
 }
 
-a,input[type='button'],input[type='radio'],input[type='checkbox'] {
+a,button,input[type='button'],input[type='radio'],input[type='checkbox'] {
   cursor: url('../contents/images/pointer_1.gif') 16 12,  auto;
   animation: pointer 2s ease 0s infinite alternate;
 }
