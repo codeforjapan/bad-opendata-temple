@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import WordCalendar from '../components/word-calendar'
 import Marquee from '../components/marquee';
 import Button from '../components/button'
+import BellSoundButton from '../components/bellSoundButton'
 
 const SecondPage = () => (
   <Layout>
@@ -19,6 +20,7 @@ const SecondPage = () => (
       <input type="checkbox"></input>
       <Marquee text="BADデータを作ってしまうとその除霊や供養にはその何倍ものコストがかかります。お金は大切に。" />
       <Marquee text="何でもかんでも紙に印刷する時代はもう終わりです。紙前提のフォーマットから抜け出しましょう。" delay="1s" duration="15s" />
+      <BellSoundButton />
     </div>
   </Layout>
 )
