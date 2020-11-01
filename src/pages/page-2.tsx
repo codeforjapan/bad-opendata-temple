@@ -12,6 +12,10 @@ const SecondPage = () => (
       <Link to="/">Go back to the homepage</Link>
       <WordCalendar />
       <Marquee />
+      <input type="text"></input>
+      <input type="button"></input>
+      <input type="radio"></input>
+      <input type="checkbox"></input>
     </div>
   </Layout>
 )
