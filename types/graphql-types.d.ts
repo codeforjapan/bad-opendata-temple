@@ -3050,7 +3050,7 @@ export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSite
 export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_3_Query = { allIndexCsv: { nodes: Array<Pick<IndexCsv, 'word'>> } };
+export type Unnamed_3_Query = { allIndexCsv: { nodes: Array<Pick<IndexCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
 
 export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
