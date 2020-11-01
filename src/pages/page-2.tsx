@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Link from 'gatsby-link'
 import Layout from '../components/layout'
-import WordCalendar from '../components/word-calendar'
+import RandomWord from '../components/randomWord'
 import Marquee from '../components/marquee';
 import Button from '../components/button'
 
@@ -12,7 +12,7 @@ const SecondPage = () => (
       <Button text="marquee" />
       <p>Welcome to page 2</p>
       <Link to="/">Go back to the homepage</Link>
-      <WordCalendar />
+      <RandomWord />
       <input type="text"></input>
       <input type="button"></input>
       <input type="radio"></input>

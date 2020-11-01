@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 
-const WordCalendar = () => {
+const RandomWord = () => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -25,4 +25,4 @@ const WordCalendar = () => {
   )
 }
 
-export default WordCalendar;
+export default RandomWord;
