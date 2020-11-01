@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
 
 const AccessCounter: React.FC = (): ReactElement => {
