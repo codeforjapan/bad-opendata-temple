@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import Link from 'gatsby-link'
 import Layout from '../components/layout'
 import ContentWrap from '../components/contentWrap'
