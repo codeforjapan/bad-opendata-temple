@@ -6,7 +6,6 @@ const BackGroundWrap = styled.div`
   background-color: #078282;
   background-image: url(${bgImg});
   background-repeat: repeat;
-  padding: 30px;
 `
 
 
