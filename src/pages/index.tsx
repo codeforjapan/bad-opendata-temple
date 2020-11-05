@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import "../components/layout.css"
+import '../components/layout.css'
 import ContentWrap from '../components/contentWrap'
 import GlobalNavigation from '../components/globalNavigation'
 import Header from '../components/header'

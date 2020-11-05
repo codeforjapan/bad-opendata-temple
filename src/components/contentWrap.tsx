@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from 'gatsby'
 
 type Props = {
   bgImg: string;

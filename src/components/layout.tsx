@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Header from './header'
 import Helmet from 'react-helmet'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
-import "./layout.css"
+import './layout.css'
 import GlobalNavigation from './globalNavigation'
 
 const Container = styled.div`
