@@ -3035,22 +3035,27 @@ export type StringQueryOperatorInput = {
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { file?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }> };
+export type Unnamed_1_Query = { orin?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }>, stick?: Maybe<Pick<File, 'publicURL'>>, stickTaped?: Maybe<Pick<File, 'publicURL'>> };
 
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type Unnamed_2_Query = { bgImg?: Maybe<Pick<File, 'publicURL'>> };
+
+export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
 
-export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_3_Query = { allIndexCsv: { nodes: Array<Pick<IndexCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_4_Query = { allIndexCsv: { nodes: Array<Pick<IndexCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
 
 export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

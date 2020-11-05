@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
-import { graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import { globalHistory } from '@reach/router'
 import styled from 'styled-components'
 import BellSoundButton from './bellSoundButton'
 
@@ -47,7 +47,7 @@ const Header = () => {
   )
 
   const Title = () => {
-    return location.pathname === '/' ?
+    return globalHistory.location.pathname === '/' ?
       <Heading>{data.site.siteMetadata.title}</Heading> :
       <HeadingLink to="/">
         {data.site.siteMetadata.title}
