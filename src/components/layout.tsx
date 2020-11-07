@@ -1,18 +1,31 @@
 import * as React from 'react'
 import Header from './header'
 import Helmet from 'react-helmet'
-import { useStaticQuery, graphql } from "gatsby"
-import { SiteTitleQuery } from "../../types/graphql-types"
-import "./layout.css"
+import { useStaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+import './layout.css'
+import GlobalNavigation from './globalNavigation'
 
-const Layout: React.FC<{ data: SiteTitleQuery }> = ({ children }) => {
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 1080px;
+`
+
+const MainContents = styled.div`
+  padding: 30px 30px 60px;
+`
+
+interface Prop {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<Prop> = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitle {
       site {
         siteMetadata {
           title,
-          description,
-          keywords
+          description
         }
       }
     }
@@ -23,20 +36,17 @@ const Layout: React.FC<{ data: SiteTitleQuery }> = ({ children }) => {
         title={data.site.siteMetadata.title}
         meta={[
           { name: 'description', content: data.site.siteMetadata.description },
-          { name: 'keywords', content: data.site.siteMetadata.description },
         ]}
       />
-      <Header />
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '0px 1.0875rem 1.45rem',
-          paddingTop: 0,
-        }}
-      >
-        {children}
-      </div>
+      <Container>
+        <Header />
+        <GlobalNavigation />
+        <main>
+          <MainContents>
+            {children}
+          </MainContents>
+        </main>
+      </Container>
     </div>
   )
 }
