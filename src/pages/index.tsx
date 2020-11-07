@@ -6,6 +6,7 @@ import '../components/layout.css'
 import ContentWrap from '../components/contentWrap'
 import GlobalNavigation from '../components/globalNavigation'
 import Header from '../components/header'
+import Hero from '../components/hero'
 import Marquee from '../components/marquee'
 import AccessCounter from '../components/accessCounter'
 import DaysFromFoundation from '../components/daysFromFoundation'
@@ -67,6 +68,7 @@ export default class extends React.Component<IndexPageProps, {}> {
         />
         <Container>
           <Header />
+          <Hero />
           <GlobalNavigation />
           <ContentWrap>
             <main>
