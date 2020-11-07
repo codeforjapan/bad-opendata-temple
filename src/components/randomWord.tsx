@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 const RandomWordWrap = styled.div`
@@ -13,6 +13,11 @@ const RandomWordWrap = styled.div`
 
 const ImgWrap = styled.div`
   padding: 16px;
+`
+
+const Title = styled.h2`
+  font-size: 30px;
+  font-weight: normal;
 `
 
 const ParagraphWrap = styled.div`
@@ -48,7 +53,7 @@ const RandomWord = () => {
       <ImgWrap>
         <img src={data.file.publicURL} alt="住職" />
       </ImgWrap>
-      <h2>今日の住職のひとこと</h2>
+      <Title>今日の住職のひとこと</Title>
       <ParagraphWrap>
         <p>{ node[number].word }</p>
       </ParagraphWrap>

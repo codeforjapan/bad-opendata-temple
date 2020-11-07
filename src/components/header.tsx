@@ -1,6 +1,29 @@
 import * as React from 'react'
-import Link from 'gatsby-link'
-import { graphql, useStaticQuery } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import { globalHistory } from '@reach/router'
+import styled from 'styled-components'
+import BellSoundButton from './bellSoundButton'
+
+const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rebeccapurple;
+`
+
+const Heading = styled.h1`
+  font-size: 24px;
+  color: #fff;
+  margin: 0;
+`
+
+const HeadingLink = styled(props => <Link {...props} />)`
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+`
 
 interface HeaderPageProps {
   site: {
@@ -22,33 +45,20 @@ const Header = () => {
       }
     `
   )
+
+  const Title = () => {
+    return globalHistory.location.pathname === '/' ?
+      <Heading>{data.site.siteMetadata.title}</Heading> :
+      <HeadingLink to="/">
+        {data.site.siteMetadata.title}
+      </HeadingLink>
+  }
+
   return (
-    <div
-      style={{
-        background: 'rebeccapurple',
-        marginBottom: '1.45rem',
-      }}
-    >
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '1.45rem 1.0875rem',
-        }}
-      >
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            {data.site.siteMetadata.title}
-          </Link>
-        </h1>
-      </div>
-    </div>
+    <HeaderContainer>
+      <Title />
+      <BellSoundButton />
+    </HeaderContainer>
   )
 }
 export default Header
