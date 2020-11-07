@@ -1,7 +1,13 @@
-html {
-  font-family: PixelMplus10, serif;
+:root {
+  box-sizing: border-box;
+  font-family: PixelMplus10, sans-serif;
+  line-height: 1.5;
   cursor: url('../contents/images/rousoku_1.gif') 16 12,  auto;
   animation: default 2s ease 0s infinite alternate;
+}
+
+body {
+  margin: 0;
 }
 
 input {
@@ -14,7 +20,7 @@ a,button,input[type='button'],input[type='radio'],input[type='checkbox'] {
   animation: pointer 2s ease 0s infinite alternate;
 }
 
-  
+
 @keyframes default {
   0% {cursor: url('../contents/images/rousoku_1.gif') 16 12,  auto;}
   10% {cursor: url('../contents/images/rousoku_2.gif') 16 12,  auto;}

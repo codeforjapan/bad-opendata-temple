@@ -8,10 +8,9 @@ type Props = {
 }
 
 const MarqueeWrap = styled.div`
-  padding: 0.5em 0;
+  padding: 16px 0;
   overflow: hidden;
   background-color: #000;
-  margin-bottom: 10px;
   position: relative;
 `
 const marqueeAnimation = keyframes`
