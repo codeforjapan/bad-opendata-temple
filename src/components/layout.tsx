@@ -9,6 +9,7 @@ import GlobalNavigation from './globalNavigation'
 const Container = styled.div`
   margin: 0 auto;
   max-width: 1080px;
+  background-color: #fff;
 `
 
 const MainContents = styled.div`
