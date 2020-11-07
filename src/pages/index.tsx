@@ -10,6 +10,7 @@ import Marquee from '../components/marquee'
 import AccessCounter from '../components/accessCounter'
 import DaysFromFoundation from '../components/daysFromFoundation'
 import RandomWord from '../components/randomWord'
+import Footer from '../components/footer'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -92,6 +93,7 @@ export default class extends React.Component<IndexPageProps, {}> {
               </MainContents>
             </main>
           </ContentWrap>
+          <Footer />
         </Container>
       </div>
     )

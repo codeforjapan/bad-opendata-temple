@@ -5,6 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import './layout.css'
 import GlobalNavigation from './globalNavigation'
+import Footer from './footer'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -46,6 +47,7 @@ const Layout: React.FC<Prop> = ({ children }) => {
             {children}
           </MainContents>
         </main>
+        <Footer />
       </Container>
     </div>
   )
