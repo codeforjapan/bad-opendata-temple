@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
@@ -39,6 +39,13 @@ const LogoContainer = styled.div`
   }
 `
 
+const ButtonContainer = styled.div`
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  right: 0;
+`
+
 const Hero = () => {
   const data = useStaticQuery(
     graphql`
@@ -64,8 +71,15 @@ const Hero = () => {
     `
   )
 
+  const [isUnderConstruction, setIsUnderConstruction] = useState(true)
+
   return (
     <HeroContainer>
+      <ButtonContainer>
+        <button onClick={() => setIsUnderConstruction(!isUnderConstruction)}>
+          {isUnderConstruction ? '竣工' : '建設中'}
+        </button>
+      </ButtonContainer>
       <LogoContainer>
         <div>
           <img src={data.logo.publicURL} alt="BADオープンデータ供養寺ロゴ" />
@@ -73,7 +87,7 @@ const Hero = () => {
       </LogoContainer>
       <ScaffoldContainer>
         <div>
-          <Img fluid={data.scaffold.childImageSharp.fluid} />
+          {isUnderConstruction && <Img fluid={data.scaffold.childImageSharp.fluid} />}
         </div>
       </ScaffoldContainer>
       <Img fluid={data.templeNight.childImageSharp.fluid} />
