@@ -46,7 +46,7 @@ const FlexWrap = styled.div.attrs((props: IndexPageProps) => ({
   justify-content: space-around;
   flex-direction: ${props => props.isMobile ? 'column' : 'row'};
   > * {
-    margin: 0 16px;
+    margin: 16px;
   }
 `
 
