@@ -70,7 +70,7 @@ const Header = () => {
       <Title />
       <FlexWrap>
         <ButtonContainer>
-          <button onClick={() => window.open('/dedication', '奉納', params)}>奉納</button>
+          <button onClick={() => window.open('/dedication', 'dedication', params)}>奉納</button>
         </ButtonContainer>
         <BellSoundButton />
       </FlexWrap>
