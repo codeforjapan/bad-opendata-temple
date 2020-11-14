@@ -1,14 +1,28 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 import styled from 'styled-components'
 
-const RandomWordWrap = styled.div`
+type Props = {
+  isMobile: boolean
+}
+
+const RandomWordWrap = styled.div.attrs((props: Props) => ({
+  isMobile: props.isMobile
+}))`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  h2 {
-    margin: 0 16px;
-  }
+  flex-direction: ${props => props.isMobile ? 'column' : 'row'};
+`
+
+const FlexWrap = styled.div.attrs((props: Props) => ({
+  isMobile: props.isMobile
+}))`
+  flex: 0 0 ${props => props.isMobile ? '100%' : '50%'};
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 `
 
 const ImgWrap = styled.div`
@@ -18,15 +32,20 @@ const ImgWrap = styled.div`
 const Title = styled.h2`
   font-size: 30px;
   font-weight: normal;
+  margin: 0 16px;
 `
 
-const ParagraphWrap = styled.div`
-  flex: 0 0 50%;
+const ParagraphWrap = styled.div.attrs((props: Props) => ({
+  isMobile: props.isMobile
+}))`
+  flex: 0 0 ${props => props.isMobile ? '100%' : '50%'};
   display: flex;
   align-content: center;
-  padding: 16px;
   background-color: #30F3FF;
   box-shadow: 4px 4px rgb(0,0,0,0.75);
+  p {
+    padding: 16px;
+  }
 `
 
 const RandomWord = () => {
@@ -44,17 +63,19 @@ const RandomWord = () => {
       }
     `
   )
-
+  const breakpoints = useBreakpoint()
   const node = data.allIndexCsv.nodes;
   const number = Math.floor( Math.random()*node.length );
 
   return (
-    <RandomWordWrap>
-      <ImgWrap>
-        <img src={data.file.publicURL} alt="住職" />
-      </ImgWrap>
-      <Title>今日の住職のひとこと</Title>
-      <ParagraphWrap>
+    <RandomWordWrap isMobile={breakpoints.sm}>
+      <FlexWrap>
+        <ImgWrap>
+          <img src={data.file.publicURL} alt="住職" />
+        </ImgWrap>
+        <Title>今日の住職のひとこと</Title>
+      </FlexWrap>
+      <ParagraphWrap isMobile={breakpoints.sm}>
         <p>{ node[number].word }</p>
       </ParagraphWrap>
     </RandomWordWrap>

@@ -983,6 +983,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.11.0":
+  version "7.12.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.5.tgz#410e7e487441e1b360c29be715d870d9b985882e"
+  integrity sha512-plcc+hbExy3McchJCEQG3knOsuh3HH+Prx1P6cLIkET/0dLuQDEnrT+s27Axgc9bqfsmNUNHfscgMUdBpC9xfg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/standalone@^7.11.6":
   version "7.12.4"
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.12.4.tgz#1493960e765308cc06e9a75ba1affbe65a11124b"
@@ -7069,6 +7076,13 @@ gatsby-page-utils@^0.2.28:
     glob "^7.1.6"
     lodash "^4.17.20"
     micromatch "^4.0.2"
+
+gatsby-plugin-breakpoints@^1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-breakpoints/-/gatsby-plugin-breakpoints-1.2.4.tgz#ba59539228805409eca05d7f9982e1ef135d2380"
+  integrity sha512-hUOwV+Xr0pf4vVQTGrbgeqjo9mcB2RM1K+By8GITwMMZu8ZDPvF6ls0MNdhQJQmdKm3PxerYTnpPPhV6GCplCQ==
+  dependencies:
+    "@babel/runtime" "^7.11.0"
 
 gatsby-plugin-graphql-codegen@^2.7.1:
   version "2.7.1"

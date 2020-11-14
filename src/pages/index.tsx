@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
+import { useBreakpoint } from 'gatsby-plugin-breakpoints'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import '../components/layout.css'
@@ -38,9 +39,15 @@ const ComponentWrap = styled.div`
   margin: 30px 0;
 `
 
-const FlexWrap = styled.div`
+const FlexWrap = styled.div.attrs((props: IndexPageProps) => ({
+  isMobile: props.isMobile
+}))`
   display: flex;
   justify-content: space-around;
+  flex-direction: ${props => props.isMobile ? 'column' : 'row'};
+  > * {
+    margin: 16px;
+  }
 `
 
 interface IndexPageProps {
@@ -51,56 +58,56 @@ interface IndexPageProps {
         description: string
       }
     }
-  }
+  },
+  isMobile: boolean
 }
 
-export default class extends React.Component<IndexPageProps, {}> {
-  constructor(props: IndexPageProps, context: any) {
-    super(props, context)
-  }
-  public render() {
-    return (
-      <div>
-        <Helmet
-          title={this.props.data.site.siteMetadata.title}
-          meta={[
-            { name: 'description', content: this.props.data.site.siteMetadata.description },
-          ]}
-        />
-        <Container>
-          <Header />
-          <Hero />
-          <GlobalNavigation />
-          <ContentWrap>
-            <main>
-              <Marquee text="BADデータを作ってしまうとその除霊や供養にはその何倍ものコストがかかります。お金は大切に。" />
-              <MainContents>
-                <CatchTextWrap>
-                  <p>
-                    BADオープンデータ供養寺は、<br />
-                    世の中に災厄をもたらすBADなオープンデータが二度とこの世を彷徨わないように<br />
-                    「供養（データクレンジング）」するために建立されました。
-                  </p>
-                </CatchTextWrap>
-                <ComponentWrap>
-                  <FlexWrap>
-                    <AccessCounter />
-                    <DaysFromFoundation />
-                  </FlexWrap>
-                </ComponentWrap>
-                <ComponentWrap>
-                  <RandomWord />
-                </ComponentWrap>
-                <Link to="/page-2/">Go to page 2</Link>
-              </MainContents>
-            </main>
-          </ContentWrap>
-          <Footer />
-        </Container>
-      </div>
-    )
-  }
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+  const breakpoints = useBreakpoint()
+
+  return (
+    <div>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: data.site.siteMetadata.description },
+        ]}
+      />
+      <Container>
+        <Header />
+        <Hero />
+        <GlobalNavigation />
+        <ContentWrap>
+          <main>
+            <Marquee text="BADデータを作ってしまうとその除霊や供養にはその何倍ものコストがかかります。お金は大切に。" />
+            <MainContents>
+              <CatchTextWrap>
+                <p>
+                  BADオープンデータ供養寺は、<br />
+                  世の中に災厄をもたらすBADなオープンデータが二度とこの世を彷徨わないように<br />
+                  「供養（データクレンジング）」するために建立されました。
+                </p>
+              </CatchTextWrap>
+              <ComponentWrap>
+                <FlexWrap isMobile={breakpoints.sm}>
+                  <AccessCounter />
+                  <DaysFromFoundation />
+                </FlexWrap>
+              </ComponentWrap>
+              <ComponentWrap>
+                <RandomWord />
+              </ComponentWrap>
+              <Link to="/page-2/">Go to page 2</Link>
+            </MainContents>
+          </main>
+        </ContentWrap>
+        <Footer />
+      </Container>
+    </div>
+  )
 }
+
+export default IndexPage
 
 export const pageQuery = graphql`
   query IndexQuery {

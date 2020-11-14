@@ -1,3 +1,10 @@
+const customQueries = {
+  xs: '(max-width: 320px)',
+  sm: '(max-width: 600px)',
+  md: '(max-width: 1024px)',
+  l: '(max-width: 1536px)',
+}
+
 module.exports = {
   siteMetadata: {
     title: `BADオープンデータ供養寺`,
@@ -53,6 +60,12 @@ module.exports = {
       options: {
         trackingId: 'G-QBEEGLVETR'
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-breakpoints`,
+      options: {
+        queries: customQueries,
+      },
+    },
   ],
 }
