@@ -28,6 +28,7 @@ const List = styled.ul`
 const Item = styled.li`
   display: flex;
   align-items: center;
+  background-color: #4CA6A6;
   border-bottom: 2px solid #00D645;
   &:last-child {
     border-bottom: none;
