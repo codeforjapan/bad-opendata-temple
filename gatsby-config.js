@@ -33,7 +33,20 @@ module.exports = {
           path: `${__dirname}/src/contents/images`,
         },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `public/static`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-csv`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
