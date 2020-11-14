@@ -3,6 +3,17 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
+const WordArtContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: #808080;
+  padding: 16px;
+`
+
+const WordArtImg = styled(props => <Img {...props} />)`
+  flex: 1 1 auto;
+`
+
 const ContactContainer = styled.div`
   display: flex;
   align-items: flex-end;
@@ -38,12 +49,22 @@ const Footer = () => {
             ...GatsbyImageSharpFixed
           }
         }
+      },
+      wordart: file(relativePath: { eq: "wordart.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
     }
   `)
 
   return (
     <footer>
+      <WordArtContainer>
+        <WordArtImg fluid={data.wordart.childImageSharp.fluid} />
+      </WordArtContainer>
       <ContactContainer>
         <AddressContainer>
           <h2>寺務所</h2>
