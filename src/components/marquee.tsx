@@ -25,9 +25,9 @@ const Paragraph = styled.p`
   white-space: nowrap;
   animation-name: ${marqueeAnimation};
   animation-timing-function: linear;
-  animation-duration: ${(props: Props) => props.duration ? props.duration : '18s'};
+  animation-duration: ${(props: Props) => props.duration || '18s'};
   animation-iteration-count: infinite;
-  animation-delay: ${(props: Props) => props.delay ? props.delay : '0s'};
+  animation-delay: ${(props: Props) => props.delay || '0s'};
   &::after {
     content: "";
     white-space: nowrap;

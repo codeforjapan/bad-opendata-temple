@@ -4,6 +4,7 @@
   line-height: 1.5;
   cursor: url('../contents/images/rousoku_1.gif') 16 12,  auto;
   animation: default 2s ease 0s infinite alternate;
+  background-color: #000;
 }
 
 body {

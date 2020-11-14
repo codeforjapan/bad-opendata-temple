@@ -25,6 +25,15 @@ const HeadingLink = styled(props => <Link {...props} />)`
   text-decoration: none;
 `
 
+const FlexWrap = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const ButtonContainer = styled.div`
+  margin: 0 16px;
+`
+
 interface HeaderPageProps {
   site: {
     siteMetadata: {
@@ -54,10 +63,17 @@ const Header = () => {
       </HeadingLink>
   }
 
+  const params = `width=350,height=300`;
+
   return (
     <HeaderContainer>
       <Title />
-      <BellSoundButton />
+      <FlexWrap>
+        <ButtonContainer>
+          <button onClick={() => window.open('/dedication', 'dedication', params)}>奉納</button>
+        </ButtonContainer>
+        <BellSoundButton />
+      </FlexWrap>
     </HeaderContainer>
   )
 }

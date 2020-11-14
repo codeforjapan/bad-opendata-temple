@@ -1,3 +1,10 @@
+const customQueries = {
+  xs: '(max-width: 320px)',
+  sm: '(max-width: 600px)',
+  md: '(max-width: 1024px)',
+  l: '(max-width: 1536px)',
+}
+
 module.exports = {
   siteMetadata: {
     title: `BADオープンデータ供養寺`,
@@ -15,8 +22,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `hitokoto`,
-        path: `${__dirname}/src/contents/hitokoto`,
+        name: `csv-contents`,
+        path: `${__dirname}/src/contents/csv`,
       },
     },
     {
@@ -26,7 +33,26 @@ module.exports = {
           path: `${__dirname}/src/contents/images`,
         },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              destinationDir: `static`,
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1080,
+            },
+          },
+        ],
+      },
+    },
     `gatsby-transformer-csv`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
@@ -53,6 +79,12 @@ module.exports = {
       options: {
         trackingId: 'G-QBEEGLVETR'
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-breakpoints`,
+      options: {
+        queries: customQueries,
+      },
+    },
   ],
 }
