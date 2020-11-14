@@ -20,6 +20,8 @@
     "gatsby-plugin-styled-components": "^3.3.14",
     "gatsby-plugin-typescript": "^2.4.24",
     "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-remark-copy-linked-files": "^2.4.0",
+    "gatsby-remark-images": "^3.5.1",
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-transformer-csv": "^2.3.14",
     "gatsby-transformer-remark": "^2.8.46",
