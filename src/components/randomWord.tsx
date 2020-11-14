@@ -57,7 +57,7 @@ const RandomWord = () => {
             word
           }
         },
-        file(relativePath: {eq: "jushoku.svg"}) {
+        file(relativePath: {eq: "jushoku.gif"}) {
           publicURL
         }
       }
