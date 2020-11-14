@@ -10,11 +10,13 @@ const Container = styled.div`
 `
 
 const TextContainer = styled.div`
-  flex: 1 0 auto;
+  flex: 0 1 auto;
   padding-right: 12px;
+  overflow: hidden;
 `
 
 const ImgContainer = styled.div`
+  flex: 1 0 auto;
   color: #fff;
   font-size: 12px;
   text-align: center;
