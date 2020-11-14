@@ -395,8 +395,8 @@ export type File = Node & {
   children: Array<Node>;
   internal: Internal;
   childMarkdownRemark?: Maybe<MarkdownRemark>;
-  childrenHitokotoCsv?: Maybe<Array<Maybe<HitokotoCsv>>>;
   childInformationCsv?: Maybe<InformationCsv>;
+  childrenHitokotoCsv?: Maybe<Array<Maybe<HitokotoCsv>>>;
 };
 
 
@@ -750,46 +750,6 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___internal___mediaType'
   | 'childMarkdownRemark___internal___owner'
   | 'childMarkdownRemark___internal___type'
-  | 'childrenHitokotoCsv'
-  | 'childrenHitokotoCsv___id'
-  | 'childrenHitokotoCsv___parent___id'
-  | 'childrenHitokotoCsv___parent___parent___id'
-  | 'childrenHitokotoCsv___parent___parent___children'
-  | 'childrenHitokotoCsv___parent___children'
-  | 'childrenHitokotoCsv___parent___children___id'
-  | 'childrenHitokotoCsv___parent___children___children'
-  | 'childrenHitokotoCsv___parent___internal___content'
-  | 'childrenHitokotoCsv___parent___internal___contentDigest'
-  | 'childrenHitokotoCsv___parent___internal___description'
-  | 'childrenHitokotoCsv___parent___internal___fieldOwners'
-  | 'childrenHitokotoCsv___parent___internal___ignoreType'
-  | 'childrenHitokotoCsv___parent___internal___mediaType'
-  | 'childrenHitokotoCsv___parent___internal___owner'
-  | 'childrenHitokotoCsv___parent___internal___type'
-  | 'childrenHitokotoCsv___children'
-  | 'childrenHitokotoCsv___children___id'
-  | 'childrenHitokotoCsv___children___parent___id'
-  | 'childrenHitokotoCsv___children___parent___children'
-  | 'childrenHitokotoCsv___children___children'
-  | 'childrenHitokotoCsv___children___children___id'
-  | 'childrenHitokotoCsv___children___children___children'
-  | 'childrenHitokotoCsv___children___internal___content'
-  | 'childrenHitokotoCsv___children___internal___contentDigest'
-  | 'childrenHitokotoCsv___children___internal___description'
-  | 'childrenHitokotoCsv___children___internal___fieldOwners'
-  | 'childrenHitokotoCsv___children___internal___ignoreType'
-  | 'childrenHitokotoCsv___children___internal___mediaType'
-  | 'childrenHitokotoCsv___children___internal___owner'
-  | 'childrenHitokotoCsv___children___internal___type'
-  | 'childrenHitokotoCsv___internal___content'
-  | 'childrenHitokotoCsv___internal___contentDigest'
-  | 'childrenHitokotoCsv___internal___description'
-  | 'childrenHitokotoCsv___internal___fieldOwners'
-  | 'childrenHitokotoCsv___internal___ignoreType'
-  | 'childrenHitokotoCsv___internal___mediaType'
-  | 'childrenHitokotoCsv___internal___owner'
-  | 'childrenHitokotoCsv___internal___type'
-  | 'childrenHitokotoCsv___word'
   | 'childInformationCsv___id'
   | 'childInformationCsv___parent___id'
   | 'childInformationCsv___parent___parent___id'
@@ -830,7 +790,47 @@ export type FileFieldsEnum =
   | 'childInformationCsv___internal___type'
   | 'childInformationCsv___date'
   | 'childInformationCsv___text'
-  | 'childInformationCsv___url';
+  | 'childInformationCsv___url'
+  | 'childrenHitokotoCsv'
+  | 'childrenHitokotoCsv___id'
+  | 'childrenHitokotoCsv___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___children'
+  | 'childrenHitokotoCsv___parent___children'
+  | 'childrenHitokotoCsv___parent___children___id'
+  | 'childrenHitokotoCsv___parent___children___children'
+  | 'childrenHitokotoCsv___parent___internal___content'
+  | 'childrenHitokotoCsv___parent___internal___contentDigest'
+  | 'childrenHitokotoCsv___parent___internal___description'
+  | 'childrenHitokotoCsv___parent___internal___fieldOwners'
+  | 'childrenHitokotoCsv___parent___internal___ignoreType'
+  | 'childrenHitokotoCsv___parent___internal___mediaType'
+  | 'childrenHitokotoCsv___parent___internal___owner'
+  | 'childrenHitokotoCsv___parent___internal___type'
+  | 'childrenHitokotoCsv___children'
+  | 'childrenHitokotoCsv___children___id'
+  | 'childrenHitokotoCsv___children___parent___id'
+  | 'childrenHitokotoCsv___children___parent___children'
+  | 'childrenHitokotoCsv___children___children'
+  | 'childrenHitokotoCsv___children___children___id'
+  | 'childrenHitokotoCsv___children___children___children'
+  | 'childrenHitokotoCsv___children___internal___content'
+  | 'childrenHitokotoCsv___children___internal___contentDigest'
+  | 'childrenHitokotoCsv___children___internal___description'
+  | 'childrenHitokotoCsv___children___internal___fieldOwners'
+  | 'childrenHitokotoCsv___children___internal___ignoreType'
+  | 'childrenHitokotoCsv___children___internal___mediaType'
+  | 'childrenHitokotoCsv___children___internal___owner'
+  | 'childrenHitokotoCsv___children___internal___type'
+  | 'childrenHitokotoCsv___internal___content'
+  | 'childrenHitokotoCsv___internal___contentDigest'
+  | 'childrenHitokotoCsv___internal___description'
+  | 'childrenHitokotoCsv___internal___fieldOwners'
+  | 'childrenHitokotoCsv___internal___ignoreType'
+  | 'childrenHitokotoCsv___internal___mediaType'
+  | 'childrenHitokotoCsv___internal___owner'
+  | 'childrenHitokotoCsv___internal___type'
+  | 'childrenHitokotoCsv___word';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -873,8 +873,8 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
   childInformationCsv?: Maybe<InformationCsvFilterInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 export type FileGroupConnection = {
@@ -2084,10 +2084,10 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  informationCsv?: Maybe<InformationCsv>;
-  allInformationCsv: InformationCsvConnection;
   hitokotoCsv?: Maybe<HitokotoCsv>;
   allHitokotoCsv: HitokotoCsvConnection;
+  informationCsv?: Maybe<InformationCsv>;
+  allInformationCsv: InformationCsvConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2136,8 +2136,8 @@ export type QueryFileArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
   childInformationCsv?: Maybe<InformationCsvFilterInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 
@@ -2226,15 +2226,15 @@ export type QuerySitePageArgs = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 
@@ -2295,6 +2295,23 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryHitokotoCsvArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  word?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllHitokotoCsvArgs = {
+  filter?: Maybe<HitokotoCsvFilterInput>;
+  sort?: Maybe<HitokotoCsvSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryInformationCsvArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2309,23 +2326,6 @@ export type QueryInformationCsvArgs = {
 export type QueryAllInformationCsvArgs = {
   filter?: Maybe<InformationCsvFilterInput>;
   sort?: Maybe<InformationCsvSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryHitokotoCsvArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  word?: Maybe<StringQueryOperatorInput>;
-};
-
-
-export type QueryAllHitokotoCsvArgs = {
-  filter?: Maybe<HitokotoCsvFilterInput>;
-  sort?: Maybe<HitokotoCsvSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2698,15 +2698,15 @@ export type SitePage = Node & {
   internalComponentName: Scalars['String'];
   componentChunkName: Scalars['String'];
   matchPath?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
   isCreatedByStatefulCreatePages?: Maybe<Scalars['Boolean']>;
   context?: Maybe<SitePageContext>;
   pluginCreator?: Maybe<SitePlugin>;
   pluginCreatorId?: Maybe<Scalars['String']>;
   componentPath?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
 };
 
 export type SitePageConnection = {
@@ -2750,82 +2750,6 @@ export type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
-  | 'isCreatedByStatefulCreatePages'
-  | 'context___slug'
-  | 'pluginCreator___id'
-  | 'pluginCreator___parent___id'
-  | 'pluginCreator___parent___parent___id'
-  | 'pluginCreator___parent___parent___children'
-  | 'pluginCreator___parent___children'
-  | 'pluginCreator___parent___children___id'
-  | 'pluginCreator___parent___children___children'
-  | 'pluginCreator___parent___internal___content'
-  | 'pluginCreator___parent___internal___contentDigest'
-  | 'pluginCreator___parent___internal___description'
-  | 'pluginCreator___parent___internal___fieldOwners'
-  | 'pluginCreator___parent___internal___ignoreType'
-  | 'pluginCreator___parent___internal___mediaType'
-  | 'pluginCreator___parent___internal___owner'
-  | 'pluginCreator___parent___internal___type'
-  | 'pluginCreator___children'
-  | 'pluginCreator___children___id'
-  | 'pluginCreator___children___parent___id'
-  | 'pluginCreator___children___parent___children'
-  | 'pluginCreator___children___children'
-  | 'pluginCreator___children___children___id'
-  | 'pluginCreator___children___children___children'
-  | 'pluginCreator___children___internal___content'
-  | 'pluginCreator___children___internal___contentDigest'
-  | 'pluginCreator___children___internal___description'
-  | 'pluginCreator___children___internal___fieldOwners'
-  | 'pluginCreator___children___internal___ignoreType'
-  | 'pluginCreator___children___internal___mediaType'
-  | 'pluginCreator___children___internal___owner'
-  | 'pluginCreator___children___internal___type'
-  | 'pluginCreator___internal___content'
-  | 'pluginCreator___internal___contentDigest'
-  | 'pluginCreator___internal___description'
-  | 'pluginCreator___internal___fieldOwners'
-  | 'pluginCreator___internal___ignoreType'
-  | 'pluginCreator___internal___mediaType'
-  | 'pluginCreator___internal___owner'
-  | 'pluginCreator___internal___type'
-  | 'pluginCreator___resolve'
-  | 'pluginCreator___name'
-  | 'pluginCreator___version'
-  | 'pluginCreator___pluginOptions___name'
-  | 'pluginCreator___pluginOptions___path'
-  | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___custom___families'
-  | 'pluginCreator___pluginOptions___custom___urls'
-  | 'pluginCreator___pluginOptions___trackingId'
-  | 'pluginCreator___pluginOptions___queries___xs'
-  | 'pluginCreator___pluginOptions___queries___sm'
-  | 'pluginCreator___pluginOptions___queries___md'
-  | 'pluginCreator___pluginOptions___queries___l'
-  | 'pluginCreator___pluginOptions___pathCheck'
-  | 'pluginCreator___nodeAPIs'
-  | 'pluginCreator___browserAPIs'
-  | 'pluginCreator___ssrAPIs'
-  | 'pluginCreator___pluginFilepath'
-  | 'pluginCreator___packageJson___name'
-  | 'pluginCreator___packageJson___description'
-  | 'pluginCreator___packageJson___version'
-  | 'pluginCreator___packageJson___main'
-  | 'pluginCreator___packageJson___author'
-  | 'pluginCreator___packageJson___license'
-  | 'pluginCreator___packageJson___dependencies'
-  | 'pluginCreator___packageJson___dependencies___name'
-  | 'pluginCreator___packageJson___dependencies___version'
-  | 'pluginCreator___packageJson___devDependencies'
-  | 'pluginCreator___packageJson___devDependencies___name'
-  | 'pluginCreator___packageJson___devDependencies___version'
-  | 'pluginCreator___packageJson___peerDependencies'
-  | 'pluginCreator___packageJson___peerDependencies___name'
-  | 'pluginCreator___packageJson___peerDependencies___version'
-  | 'pluginCreator___packageJson___keywords'
-  | 'pluginCreatorId'
-  | 'componentPath'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2911,7 +2835,83 @@ export type SitePageFieldsEnum =
   | 'internal___ignoreType'
   | 'internal___mediaType'
   | 'internal___owner'
-  | 'internal___type';
+  | 'internal___type'
+  | 'isCreatedByStatefulCreatePages'
+  | 'context___slug'
+  | 'pluginCreator___id'
+  | 'pluginCreator___parent___id'
+  | 'pluginCreator___parent___parent___id'
+  | 'pluginCreator___parent___parent___children'
+  | 'pluginCreator___parent___children'
+  | 'pluginCreator___parent___children___id'
+  | 'pluginCreator___parent___children___children'
+  | 'pluginCreator___parent___internal___content'
+  | 'pluginCreator___parent___internal___contentDigest'
+  | 'pluginCreator___parent___internal___description'
+  | 'pluginCreator___parent___internal___fieldOwners'
+  | 'pluginCreator___parent___internal___ignoreType'
+  | 'pluginCreator___parent___internal___mediaType'
+  | 'pluginCreator___parent___internal___owner'
+  | 'pluginCreator___parent___internal___type'
+  | 'pluginCreator___children'
+  | 'pluginCreator___children___id'
+  | 'pluginCreator___children___parent___id'
+  | 'pluginCreator___children___parent___children'
+  | 'pluginCreator___children___children'
+  | 'pluginCreator___children___children___id'
+  | 'pluginCreator___children___children___children'
+  | 'pluginCreator___children___internal___content'
+  | 'pluginCreator___children___internal___contentDigest'
+  | 'pluginCreator___children___internal___description'
+  | 'pluginCreator___children___internal___fieldOwners'
+  | 'pluginCreator___children___internal___ignoreType'
+  | 'pluginCreator___children___internal___mediaType'
+  | 'pluginCreator___children___internal___owner'
+  | 'pluginCreator___children___internal___type'
+  | 'pluginCreator___internal___content'
+  | 'pluginCreator___internal___contentDigest'
+  | 'pluginCreator___internal___description'
+  | 'pluginCreator___internal___fieldOwners'
+  | 'pluginCreator___internal___ignoreType'
+  | 'pluginCreator___internal___mediaType'
+  | 'pluginCreator___internal___owner'
+  | 'pluginCreator___internal___type'
+  | 'pluginCreator___resolve'
+  | 'pluginCreator___name'
+  | 'pluginCreator___version'
+  | 'pluginCreator___pluginOptions___name'
+  | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___fileName'
+  | 'pluginCreator___pluginOptions___custom___families'
+  | 'pluginCreator___pluginOptions___custom___urls'
+  | 'pluginCreator___pluginOptions___trackingId'
+  | 'pluginCreator___pluginOptions___queries___xs'
+  | 'pluginCreator___pluginOptions___queries___sm'
+  | 'pluginCreator___pluginOptions___queries___md'
+  | 'pluginCreator___pluginOptions___queries___l'
+  | 'pluginCreator___pluginOptions___pathCheck'
+  | 'pluginCreator___nodeAPIs'
+  | 'pluginCreator___browserAPIs'
+  | 'pluginCreator___ssrAPIs'
+  | 'pluginCreator___pluginFilepath'
+  | 'pluginCreator___packageJson___name'
+  | 'pluginCreator___packageJson___description'
+  | 'pluginCreator___packageJson___version'
+  | 'pluginCreator___packageJson___main'
+  | 'pluginCreator___packageJson___author'
+  | 'pluginCreator___packageJson___license'
+  | 'pluginCreator___packageJson___dependencies'
+  | 'pluginCreator___packageJson___dependencies___name'
+  | 'pluginCreator___packageJson___dependencies___version'
+  | 'pluginCreator___packageJson___devDependencies'
+  | 'pluginCreator___packageJson___devDependencies___name'
+  | 'pluginCreator___packageJson___devDependencies___version'
+  | 'pluginCreator___packageJson___peerDependencies'
+  | 'pluginCreator___packageJson___peerDependencies___name'
+  | 'pluginCreator___packageJson___peerDependencies___version'
+  | 'pluginCreator___packageJson___keywords'
+  | 'pluginCreatorId'
+  | 'componentPath';
 
 export type SitePageFilterInput = {
   path?: Maybe<StringQueryOperatorInput>;
@@ -2919,15 +2919,15 @@ export type SitePageFilterInput = {
   internalComponentName?: Maybe<StringQueryOperatorInput>;
   componentChunkName?: Maybe<StringQueryOperatorInput>;
   matchPath?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages?: Maybe<BooleanQueryOperatorInput>;
   context?: Maybe<SitePageContextFilterInput>;
   pluginCreator?: Maybe<SitePluginFilterInput>;
   pluginCreatorId?: Maybe<StringQueryOperatorInput>;
   componentPath?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
 };
 
 export type SitePageGroupConnection = {
