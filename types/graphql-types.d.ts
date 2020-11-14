@@ -3294,7 +3294,7 @@ export type Unnamed_2_Query = { bgImg?: Maybe<Pick<File, 'publicURL'>> };
 export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_3_Query = { temple?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }> };
+export type Unnamed_3_Query = { temple?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }>, wordart?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
 
