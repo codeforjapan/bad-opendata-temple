@@ -4,14 +4,8 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const WordArtContainer = styled.div`
-  display: flex;
-  justify-content: center;
   background-color: #808080;
   padding: 16px;
-`
-
-const WordArtImg = styled(props => <Img {...props} />)`
-  flex: 1 1 auto;
 `
 
 const ContactContainer = styled.div`
@@ -63,7 +57,7 @@ const Footer = () => {
   return (
     <footer>
       <WordArtContainer>
-        <WordArtImg fluid={data.wordart.childImageSharp.fluid} />
+        <Img fluid={data.wordart.childImageSharp.fluid} />
       </WordArtContainer>
       <ContactContainer>
         <AddressContainer>
