@@ -22,8 +22,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `hitokoto`,
-        path: `${__dirname}/src/contents/hitokoto`,
+        name: `csv-contents`,
+        path: `${__dirname}/src/contents/csv`,
       },
     },
     {

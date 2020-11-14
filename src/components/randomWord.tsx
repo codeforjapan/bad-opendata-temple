@@ -52,7 +52,7 @@ const RandomWord = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allIndexCsv {
+        allHitokotoCsv {
           nodes {
             word
           }
@@ -64,7 +64,7 @@ const RandomWord = () => {
     `
   )
   const breakpoints = useBreakpoint()
-  const node = data.allIndexCsv.nodes;
+  const node = data.allHitokotoCsv.nodes;
   const number = Math.floor( Math.random()*node.length );
 
   return (
