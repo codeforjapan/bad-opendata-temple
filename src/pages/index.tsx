@@ -8,6 +8,7 @@ import ContentWrap from '../components/contentWrap'
 import GlobalNavigation from '../components/globalNavigation'
 import Header from '../components/header'
 import Hero from '../components/hero'
+import DownloadMochi from '../components/downloadMochi'
 import Marquee from '../components/marquee'
 import AccessCounter from '../components/accessCounter'
 import DaysFromFoundation from '../components/daysFromFoundation'
@@ -77,6 +78,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
       <Container>
         <Header />
         <Hero />
+        <DownloadMochi />
         <GlobalNavigation />
         <ContentWrap>
           <main>

@@ -3294,32 +3294,37 @@ export type Unnamed_2_Query = { bgImg?: Maybe<Pick<File, 'publicURL'>> };
 export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_3_Query = { temple?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }>, wordart?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+export type Unnamed_3_Query = { red?: Maybe<Pick<File, 'publicURL'>>, white?: Maybe<Pick<File, 'publicURL'>> };
 
 export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_4_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type Unnamed_4_Query = { temple?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }>, wordart?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type Unnamed_5_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_5_Query = { logo?: Maybe<Pick<File, 'publicURL'>>, scaffold?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templeNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+export type Unnamed_5_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_6_Query = { allInformationCsv: { nodes: Array<Pick<InformationCsv, 'date' | 'text' | 'url'>> } };
+export type Unnamed_6_Query = { logo?: Maybe<Pick<File, 'publicURL'>>, scaffold?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templeNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+
+export type Unnamed_7_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_7_Query = { allInformationCsv: { nodes: Array<Pick<InformationCsv, 'date' | 'text' | 'url'>> } };
 
 export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
 
-export type Unnamed_7_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_8_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_7_Query = { allHitokotoCsv: { nodes: Array<Pick<HitokotoCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_8_Query = { allHitokotoCsv: { nodes: Array<Pick<HitokotoCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
 
 export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
