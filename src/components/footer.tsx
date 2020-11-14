@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 
 const WordArtContainer = styled.div`
-  background-color: #808080;
+  background-color: rebeccapurple;
   padding: 16px;
 `
 
