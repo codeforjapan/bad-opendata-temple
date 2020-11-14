@@ -1997,6 +1997,8 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2150,6 +2152,8 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>;
   port?: Maybe<Scalars['Int']>;
   host?: Maybe<Scalars['String']>;
+  polyfill?: Maybe<Scalars['Boolean']>;
+  pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
@@ -2352,6 +2356,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___keywords'
   | 'port'
   | 'host'
+  | 'polyfill'
+  | 'pathPrefix'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -2444,6 +2450,8 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
   port?: Maybe<IntQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
+  polyfill?: Maybe<BooleanQueryOperatorInput>;
+  pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2652,6 +2660,10 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___custom___families'
   | 'pluginCreator___pluginOptions___custom___urls'
   | 'pluginCreator___pluginOptions___trackingId'
+  | 'pluginCreator___pluginOptions___queries___xs'
+  | 'pluginCreator___pluginOptions___queries___sm'
+  | 'pluginCreator___pluginOptions___queries___md'
+  | 'pluginCreator___pluginOptions___queries___l'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -2846,6 +2858,10 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___custom___families'
   | 'pluginOptions___custom___urls'
   | 'pluginOptions___trackingId'
+  | 'pluginOptions___queries___xs'
+  | 'pluginOptions___queries___sm'
+  | 'pluginOptions___queries___md'
+  | 'pluginOptions___queries___l'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -2967,6 +2983,7 @@ export type SitePluginPluginOptions = {
   fileName?: Maybe<Scalars['String']>;
   custom?: Maybe<SitePluginPluginOptionsCustom>;
   trackingId?: Maybe<Scalars['String']>;
+  queries?: Maybe<SitePluginPluginOptionsQueries>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -2986,7 +3003,22 @@ export type SitePluginPluginOptionsFilterInput = {
   fileName?: Maybe<StringQueryOperatorInput>;
   custom?: Maybe<SitePluginPluginOptionsCustomFilterInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
+  queries?: Maybe<SitePluginPluginOptionsQueriesFilterInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsQueries = {
+  xs?: Maybe<Scalars['String']>;
+  sm?: Maybe<Scalars['String']>;
+  md?: Maybe<Scalars['String']>;
+  l?: Maybe<Scalars['String']>;
+};
+
+export type SitePluginPluginOptionsQueriesFilterInput = {
+  xs?: Maybe<StringQueryOperatorInput>;
+  sm?: Maybe<StringQueryOperatorInput>;
+  md?: Maybe<StringQueryOperatorInput>;
+  l?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginSortInput = {
