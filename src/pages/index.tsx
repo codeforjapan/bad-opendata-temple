@@ -12,6 +12,7 @@ import Marquee from '../components/marquee'
 import AccessCounter from '../components/accessCounter'
 import DaysFromFoundation from '../components/daysFromFoundation'
 import RandomWord from '../components/randomWord'
+import Information from '../components/information'
 import Footer from '../components/footer'
 
 const Container = styled.div`
@@ -96,6 +97,9 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
               </ComponentWrap>
               <ComponentWrap>
                 <RandomWord />
+              </ComponentWrap>
+              <ComponentWrap>
+                <Information />
               </ComponentWrap>
               <Link to="/page-2/">Go to page 2</Link>
             </MainContents>
