@@ -40,8 +40,14 @@ module.exports = {
           {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
-              destinationDir: `public/static`,
+              destinationDir: `static`,
               ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1080,
             },
           },
         ],
