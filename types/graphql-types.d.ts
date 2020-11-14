@@ -395,7 +395,8 @@ export type File = Node & {
   children: Array<Node>;
   internal: Internal;
   childMarkdownRemark?: Maybe<MarkdownRemark>;
-  childrenIndexCsv?: Maybe<Array<Maybe<IndexCsv>>>;
+  childInformationCsv?: Maybe<InformationCsv>;
+  childrenHitokotoCsv?: Maybe<Array<Maybe<HitokotoCsv>>>;
 };
 
 
@@ -749,46 +750,87 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___internal___mediaType'
   | 'childMarkdownRemark___internal___owner'
   | 'childMarkdownRemark___internal___type'
-  | 'childrenIndexCsv'
-  | 'childrenIndexCsv___id'
-  | 'childrenIndexCsv___parent___id'
-  | 'childrenIndexCsv___parent___parent___id'
-  | 'childrenIndexCsv___parent___parent___children'
-  | 'childrenIndexCsv___parent___children'
-  | 'childrenIndexCsv___parent___children___id'
-  | 'childrenIndexCsv___parent___children___children'
-  | 'childrenIndexCsv___parent___internal___content'
-  | 'childrenIndexCsv___parent___internal___contentDigest'
-  | 'childrenIndexCsv___parent___internal___description'
-  | 'childrenIndexCsv___parent___internal___fieldOwners'
-  | 'childrenIndexCsv___parent___internal___ignoreType'
-  | 'childrenIndexCsv___parent___internal___mediaType'
-  | 'childrenIndexCsv___parent___internal___owner'
-  | 'childrenIndexCsv___parent___internal___type'
-  | 'childrenIndexCsv___children'
-  | 'childrenIndexCsv___children___id'
-  | 'childrenIndexCsv___children___parent___id'
-  | 'childrenIndexCsv___children___parent___children'
-  | 'childrenIndexCsv___children___children'
-  | 'childrenIndexCsv___children___children___id'
-  | 'childrenIndexCsv___children___children___children'
-  | 'childrenIndexCsv___children___internal___content'
-  | 'childrenIndexCsv___children___internal___contentDigest'
-  | 'childrenIndexCsv___children___internal___description'
-  | 'childrenIndexCsv___children___internal___fieldOwners'
-  | 'childrenIndexCsv___children___internal___ignoreType'
-  | 'childrenIndexCsv___children___internal___mediaType'
-  | 'childrenIndexCsv___children___internal___owner'
-  | 'childrenIndexCsv___children___internal___type'
-  | 'childrenIndexCsv___internal___content'
-  | 'childrenIndexCsv___internal___contentDigest'
-  | 'childrenIndexCsv___internal___description'
-  | 'childrenIndexCsv___internal___fieldOwners'
-  | 'childrenIndexCsv___internal___ignoreType'
-  | 'childrenIndexCsv___internal___mediaType'
-  | 'childrenIndexCsv___internal___owner'
-  | 'childrenIndexCsv___internal___type'
-  | 'childrenIndexCsv___word';
+  | 'childInformationCsv___id'
+  | 'childInformationCsv___parent___id'
+  | 'childInformationCsv___parent___parent___id'
+  | 'childInformationCsv___parent___parent___children'
+  | 'childInformationCsv___parent___children'
+  | 'childInformationCsv___parent___children___id'
+  | 'childInformationCsv___parent___children___children'
+  | 'childInformationCsv___parent___internal___content'
+  | 'childInformationCsv___parent___internal___contentDigest'
+  | 'childInformationCsv___parent___internal___description'
+  | 'childInformationCsv___parent___internal___fieldOwners'
+  | 'childInformationCsv___parent___internal___ignoreType'
+  | 'childInformationCsv___parent___internal___mediaType'
+  | 'childInformationCsv___parent___internal___owner'
+  | 'childInformationCsv___parent___internal___type'
+  | 'childInformationCsv___children'
+  | 'childInformationCsv___children___id'
+  | 'childInformationCsv___children___parent___id'
+  | 'childInformationCsv___children___parent___children'
+  | 'childInformationCsv___children___children'
+  | 'childInformationCsv___children___children___id'
+  | 'childInformationCsv___children___children___children'
+  | 'childInformationCsv___children___internal___content'
+  | 'childInformationCsv___children___internal___contentDigest'
+  | 'childInformationCsv___children___internal___description'
+  | 'childInformationCsv___children___internal___fieldOwners'
+  | 'childInformationCsv___children___internal___ignoreType'
+  | 'childInformationCsv___children___internal___mediaType'
+  | 'childInformationCsv___children___internal___owner'
+  | 'childInformationCsv___children___internal___type'
+  | 'childInformationCsv___internal___content'
+  | 'childInformationCsv___internal___contentDigest'
+  | 'childInformationCsv___internal___description'
+  | 'childInformationCsv___internal___fieldOwners'
+  | 'childInformationCsv___internal___ignoreType'
+  | 'childInformationCsv___internal___mediaType'
+  | 'childInformationCsv___internal___owner'
+  | 'childInformationCsv___internal___type'
+  | 'childInformationCsv___date'
+  | 'childInformationCsv___text'
+  | 'childInformationCsv___url'
+  | 'childrenHitokotoCsv'
+  | 'childrenHitokotoCsv___id'
+  | 'childrenHitokotoCsv___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___children'
+  | 'childrenHitokotoCsv___parent___children'
+  | 'childrenHitokotoCsv___parent___children___id'
+  | 'childrenHitokotoCsv___parent___children___children'
+  | 'childrenHitokotoCsv___parent___internal___content'
+  | 'childrenHitokotoCsv___parent___internal___contentDigest'
+  | 'childrenHitokotoCsv___parent___internal___description'
+  | 'childrenHitokotoCsv___parent___internal___fieldOwners'
+  | 'childrenHitokotoCsv___parent___internal___ignoreType'
+  | 'childrenHitokotoCsv___parent___internal___mediaType'
+  | 'childrenHitokotoCsv___parent___internal___owner'
+  | 'childrenHitokotoCsv___parent___internal___type'
+  | 'childrenHitokotoCsv___children'
+  | 'childrenHitokotoCsv___children___id'
+  | 'childrenHitokotoCsv___children___parent___id'
+  | 'childrenHitokotoCsv___children___parent___children'
+  | 'childrenHitokotoCsv___children___children'
+  | 'childrenHitokotoCsv___children___children___id'
+  | 'childrenHitokotoCsv___children___children___children'
+  | 'childrenHitokotoCsv___children___internal___content'
+  | 'childrenHitokotoCsv___children___internal___contentDigest'
+  | 'childrenHitokotoCsv___children___internal___description'
+  | 'childrenHitokotoCsv___children___internal___fieldOwners'
+  | 'childrenHitokotoCsv___children___internal___ignoreType'
+  | 'childrenHitokotoCsv___children___internal___mediaType'
+  | 'childrenHitokotoCsv___children___internal___owner'
+  | 'childrenHitokotoCsv___children___internal___type'
+  | 'childrenHitokotoCsv___internal___content'
+  | 'childrenHitokotoCsv___internal___contentDigest'
+  | 'childrenHitokotoCsv___internal___description'
+  | 'childrenHitokotoCsv___internal___fieldOwners'
+  | 'childrenHitokotoCsv___internal___ignoreType'
+  | 'childrenHitokotoCsv___internal___mediaType'
+  | 'childrenHitokotoCsv___internal___owner'
+  | 'childrenHitokotoCsv___internal___type'
+  | 'childrenHitokotoCsv___word';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -831,7 +873,8 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenIndexCsv?: Maybe<IndexCsvFilterListInput>;
+  childInformationCsv?: Maybe<InformationCsvFilterInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 export type FileGroupConnection = {
@@ -857,6 +900,156 @@ export type FloatQueryOperatorInput = {
   lte?: Maybe<Scalars['Float']>;
   in?: Maybe<Array<Maybe<Scalars['Float']>>>;
   nin?: Maybe<Array<Maybe<Scalars['Float']>>>;
+};
+
+export type HitokotoCsv = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  word?: Maybe<Scalars['String']>;
+};
+
+export type HitokotoCsvConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<HitokotoCsvEdge>;
+  nodes: Array<HitokotoCsv>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<HitokotoCsvGroupConnection>;
+};
+
+
+export type HitokotoCsvConnectionDistinctArgs = {
+  field: HitokotoCsvFieldsEnum;
+};
+
+
+export type HitokotoCsvConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: HitokotoCsvFieldsEnum;
+};
+
+export type HitokotoCsvEdge = {
+  next?: Maybe<HitokotoCsv>;
+  node: HitokotoCsv;
+  previous?: Maybe<HitokotoCsv>;
+};
+
+export type HitokotoCsvFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'word';
+
+export type HitokotoCsvFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  word?: Maybe<StringQueryOperatorInput>;
+};
+
+export type HitokotoCsvFilterListInput = {
+  elemMatch?: Maybe<HitokotoCsvFilterInput>;
+};
+
+export type HitokotoCsvGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<HitokotoCsvEdge>;
+  nodes: Array<HitokotoCsv>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type HitokotoCsvSortInput = {
+  fields?: Maybe<Array<Maybe<HitokotoCsvFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
 export type ImageCropFocus = 
@@ -1356,42 +1549,52 @@ export type ImageSharpSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type IndexCsv = Node & {
+export type InformationCsv = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  word?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  text?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
 };
 
-export type IndexCsvConnection = {
+
+export type InformationCsvDateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type InformationCsvConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<IndexCsvEdge>;
-  nodes: Array<IndexCsv>;
+  edges: Array<InformationCsvEdge>;
+  nodes: Array<InformationCsv>;
   pageInfo: PageInfo;
   distinct: Array<Scalars['String']>;
-  group: Array<IndexCsvGroupConnection>;
+  group: Array<InformationCsvGroupConnection>;
 };
 
 
-export type IndexCsvConnectionDistinctArgs = {
-  field: IndexCsvFieldsEnum;
+export type InformationCsvConnectionDistinctArgs = {
+  field: InformationCsvFieldsEnum;
 };
 
 
-export type IndexCsvConnectionGroupArgs = {
+export type InformationCsvConnectionGroupArgs = {
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
-  field: IndexCsvFieldsEnum;
+  field: InformationCsvFieldsEnum;
 };
 
-export type IndexCsvEdge = {
-  next?: Maybe<IndexCsv>;
-  node: IndexCsv;
-  previous?: Maybe<IndexCsv>;
+export type InformationCsvEdge = {
+  next?: Maybe<InformationCsv>;
+  node: InformationCsv;
+  previous?: Maybe<InformationCsv>;
 };
 
-export type IndexCsvFieldsEnum = 
+export type InformationCsvFieldsEnum = 
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -1478,31 +1681,31 @@ export type IndexCsvFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
-  | 'word';
+  | 'date'
+  | 'text'
+  | 'url';
 
-export type IndexCsvFilterInput = {
+export type InformationCsvFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  word?: Maybe<StringQueryOperatorInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
 };
 
-export type IndexCsvFilterListInput = {
-  elemMatch?: Maybe<IndexCsvFilterInput>;
-};
-
-export type IndexCsvGroupConnection = {
+export type InformationCsvGroupConnection = {
   totalCount: Scalars['Int'];
-  edges: Array<IndexCsvEdge>;
-  nodes: Array<IndexCsv>;
+  edges: Array<InformationCsvEdge>;
+  nodes: Array<InformationCsv>;
   pageInfo: PageInfo;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
 };
 
-export type IndexCsvSortInput = {
-  fields?: Maybe<Array<Maybe<IndexCsvFieldsEnum>>>;
+export type InformationCsvSortInput = {
+  fields?: Maybe<Array<Maybe<InformationCsvFieldsEnum>>>;
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
@@ -1881,8 +2084,10 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  indexCsv?: Maybe<IndexCsv>;
-  allIndexCsv: IndexCsvConnection;
+  hitokotoCsv?: Maybe<HitokotoCsv>;
+  allHitokotoCsv: HitokotoCsvConnection;
+  informationCsv?: Maybe<InformationCsv>;
+  allInformationCsv: InformationCsvConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -1931,7 +2136,8 @@ export type QueryFileArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenIndexCsv?: Maybe<IndexCsvFilterListInput>;
+  childInformationCsv?: Maybe<InformationCsvFilterInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 
@@ -2089,7 +2295,7 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryIndexCsvArgs = {
+export type QueryHitokotoCsvArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2098,9 +2304,28 @@ export type QueryIndexCsvArgs = {
 };
 
 
-export type QueryAllIndexCsvArgs = {
-  filter?: Maybe<IndexCsvFilterInput>;
-  sort?: Maybe<IndexCsvSortInput>;
+export type QueryAllHitokotoCsvArgs = {
+  filter?: Maybe<HitokotoCsvFilterInput>;
+  sort?: Maybe<HitokotoCsvSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryInformationCsvArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllInformationCsvArgs = {
+  filter?: Maybe<InformationCsvFilterInput>;
+  sort?: Maybe<InformationCsvSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3081,15 +3306,20 @@ export type Unnamed_5_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_5_Query = { logo?: Maybe<Pick<File, 'publicURL'>>, scaffold?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templeNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
+export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_6_Query = { allInformationCsv: { nodes: Array<Pick<InformationCsv, 'date' | 'text' | 'url'>> } };
+
 export type SiteTitleQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type SiteTitleQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
 
-export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Unnamed_7_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_6_Query = { allIndexCsv: { nodes: Array<Pick<IndexCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_7_Query = { allHitokotoCsv: { nodes: Array<Pick<HitokotoCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
 
 export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
