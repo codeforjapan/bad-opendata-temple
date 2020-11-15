@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import moment from 'moment'
 
 const Content = styled.div`
   font-size: 30px;
@@ -14,10 +15,11 @@ const NumberText = styled.span`
 `;
 
 const DaysFromFoundation = () => {
-  const START_TIME = new Date('2020-11-14').getTime()
-  const CURRENT_TIME = Date.now()
-  const TIME_DIFF = CURRENT_TIME - START_TIME
-  const daysFromStr = String(Math.floor(TIME_DIFF / (1000 * 60 * 60 * 24)))
+  const foundationDay = '2020-11-14'
+  const startTime = moment(foundationDay)
+  const currentTime = moment().add(1, 'day')
+  const timeDiff = currentTime.diff(startTime)
+  const daysFromStr = String(Math.floor(timeDiff / (1000 * 60 * 60 * 24)))
 
   return (
     <Content>
