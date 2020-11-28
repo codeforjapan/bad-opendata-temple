@@ -33,6 +33,9 @@ const FlexWrap = styled.div`
 const ButtonContainer = styled.div`
   margin: 0 16px;
 `;
+const GitHubContainer = styled.div`
+  margin: 0;
+`;
 
 interface HeaderPageProps {
   site: {
@@ -51,10 +54,12 @@ const Header = () => {
             title
           }
         }
+        github: file(relativePath: { eq: "github.png" }) {
+          publicURL
+        }
       }
     `,
   );
-
   const Title = () => {
     return globalHistory.location.pathname === '/' ? (
       <Heading>{data.site.siteMetadata.title}</Heading>
@@ -64,13 +69,22 @@ const Header = () => {
       </HeadingLink>
     );
   };
-
   const params = 'width=350,height=300';
 
   return (
     <HeaderContainer>
       <Title />
       <FlexWrap>
+        <GitHubContainer>
+          <div>
+            <a href="https://github.com/codeforjapan/bad-opendata-temple/">
+              <img
+                src={data.github.publicURL}
+                alt="GitHub"
+              />
+            </a>
+          </div>
+        </GitHubContainer>
         <ButtonContainer>
           <button
             onClick={() =>
