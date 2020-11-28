@@ -12,12 +12,6 @@ module.exports = {
     keywords: 'オープンデータ, データ活用, データクレンジング, データエンジニアリング, データマネジメント, シビックテック, Code for Japan'
   },
   plugins: [{
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        icon: 'src/contents/images/favicon.png',
-      }
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-contents`,
