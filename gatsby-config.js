@@ -20,6 +20,14 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-eslint',
+      options: {
+        test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
+        exclude: /(node_modules|.cache|public)/,
+        stages: ['develop']
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `csv-contents`,

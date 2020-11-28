@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import styled from 'styled-components'
+import React, { useState } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 
 const HeroContainer = styled.div`
   position: relative;
   background-color: #343434;
-`
+`;
 
 const ScaffoldContainer = styled.div`
   position: absolute;
@@ -22,7 +22,7 @@ const ScaffoldContainer = styled.div`
   div {
     flex: 0 0 60%;
   }
-`
+`;
 
 const LogoContainer = styled.div`
   position: absolute;
@@ -37,30 +37,34 @@ const LogoContainer = styled.div`
   div {
     flex: 0 0 60%;
   }
-`
+`;
 
 const ButtonContainer = styled.div`
   position: absolute;
   z-index: 3;
   top: 0;
   right: 0;
-`
+`;
 
 const Hero = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        logo: file(relativePath: {eq: "logo.svg"}) {
+        logo: file(relativePath: { eq: "logo.svg" }) {
           publicURL
-        },
-        scaffold: file(relativePath: { eq: "scaffold.png" }) {
+        }
+        scaffold: file(
+          relativePath: { eq: "scaffold.png" }
+        ) {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
             }
           }
-        },
-        templeNight: file(relativePath: { eq: "temple_night.png" }) {
+        }
+        templeNight: file(
+          relativePath: { eq: "temple_night.png" }
+        ) {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
@@ -68,31 +72,45 @@ const Hero = () => {
           }
         }
       }
-    `
-  )
+    `,
+  );
 
-  const [isUnderConstruction, setIsUnderConstruction] = useState(true)
+  const [
+    isUnderConstruction,
+    setIsUnderConstruction,
+  ] = useState(true);
 
   return (
     <HeroContainer>
       <ButtonContainer>
-        <button onClick={() => setIsUnderConstruction(!isUnderConstruction)}>
+        <button
+          onClick={() =>
+            setIsUnderConstruction(!isUnderConstruction)
+          }
+        >
           {isUnderConstruction ? '竣工' : '建設中'}
         </button>
       </ButtonContainer>
       <LogoContainer>
         <div>
-          <img src={data.logo.publicURL} alt="BADオープンデータ供養寺ロゴ" />
+          <img
+            src={data.logo.publicURL}
+            alt="BADオープンデータ供養寺ロゴ"
+          />
         </div>
       </LogoContainer>
       <ScaffoldContainer>
         <div>
-          {isUnderConstruction && <Img fluid={data.scaffold.childImageSharp.fluid} />}
+          {isUnderConstruction && (
+            <Img
+              fluid={data.scaffold.childImageSharp.fluid}
+            />
+          )}
         </div>
       </ScaffoldContainer>
       <Img fluid={data.templeNight.childImageSharp.fluid} />
     </HeroContainer>
-  )
-}
+  );
+};
 
 export default Hero;

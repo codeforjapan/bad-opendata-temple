@@ -2949,6 +2949,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___plugins___pluginFilepath'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
+  | 'pluginCreator___pluginOptions___stages'
   | 'pluginCreator___pluginOptions___destinationDir'
   | 'pluginCreator___pluginOptions___ignoreFileExtensions'
   | 'pluginCreator___pluginOptions___maxWidth'
@@ -3193,6 +3194,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___plugins___pluginFilepath'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
+  | 'pluginOptions___stages'
   | 'pluginOptions___destinationDir'
   | 'pluginOptions___ignoreFileExtensions'
   | 'pluginOptions___maxWidth'
@@ -3344,6 +3346,7 @@ export type SitePluginPluginOptions = {
   plugins?: Maybe<Array<Maybe<SitePluginPluginOptionsPlugins>>>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
+  stages?: Maybe<Array<Maybe<Scalars['String']>>>;
   destinationDir?: Maybe<Scalars['String']>;
   ignoreFileExtensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   maxWidth?: Maybe<Scalars['Int']>;
@@ -3389,6 +3392,7 @@ export type SitePluginPluginOptionsFilterInput = {
   plugins?: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
+  stages?: Maybe<StringQueryOperatorInput>;
   destinationDir?: Maybe<StringQueryOperatorInput>;
   ignoreFileExtensions?: Maybe<StringQueryOperatorInput>;
   maxWidth?: Maybe<IntQueryOperatorInput>;
