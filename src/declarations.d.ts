@@ -1,2 +1,4 @@
-declare const graphql: (query: TemplateStringsArray) => void
-declare module 'gatsby-plugin-breakpoints'
+declare const graphql: (
+  query: TemplateStringsArray,
+) => void;
+declare module 'gatsby-plugin-breakpoints';

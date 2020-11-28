@@ -1,5 +1,9 @@
-import React, { ReactElement, useEffect, useState } from "react"
-import styled from 'styled-components'
+import React, {
+  ReactElement,
+  useEffect,
+  useState,
+} from 'react';
+import styled from 'styled-components';
 
 const AccessCounterContent = styled.div`
   font-size: 30px;
@@ -14,20 +18,22 @@ const NumberText = styled.span`
 `;
 
 const AccessCounter: React.FC = (): ReactElement => {
-  const [accessStr, setAccessStr] = useState("LOADING");
+  const [accessStr, setAccessStr] = useState('LOADING');
   useEffect(() => {
     fetch(
-      "https://script.google.com/macros/s/AKfycbxNRKPbWajypmgXMrmcwVJCB7uqORyU7MfdLi3O0rIQm98EJCc/exec"
+      'https://script.google.com/macros/s/AKfycbxNRKPbWajypmgXMrmcwVJCB7uqORyU7MfdLi3O0rIQm98EJCc/exec',
     )
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(json => {
-        setAccessStr(String(json["your_access"]).padStart(4, "0"));
+      .then((json) => {
+        setAccessStr(
+          String(json.your_access).padStart(4, '0'),
+        );
         return json;
       })
-      .catch(error => {
-        setAccessStr("ERROR");
+      .catch((error) => {
+        setAccessStr('ERROR');
       });
   }, []);
 
@@ -35,7 +41,11 @@ const AccessCounter: React.FC = (): ReactElement => {
     <AccessCounterContent>
       あなたは
       {[...accessStr].map((str, index) => {
-        return <NumberText key={str + String(index)}>{str}</NumberText>;
+        return (
+          <NumberText key={str + String(index)}>
+            {str}
+          </NumberText>
+        );
       })}
       人目の参拝者です
     </AccessCounterContent>

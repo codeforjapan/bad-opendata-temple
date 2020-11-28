@@ -1,6 +1,6 @@
-import * as React from 'react'
-import styled from 'styled-components'
-import Button from './button'
+import * as React from 'react';
+import styled from 'styled-components';
+import Button from './button';
 
 const contents = [
   {
@@ -23,7 +23,7 @@ const contents = [
     text: '供養依頼',
     path: '/data-cleansing-request',
   },
-]
+];
 
 const MenuList = styled.ul`
   display: flex;
@@ -31,8 +31,8 @@ const MenuList = styled.ul`
   list-style: none;
   margin: 0;
   padding: 10px;
-  background-color: #BFBFBF;
-`
+  background-color: #bfbfbf;
+`;
 
 const MenuItem = styled.li`
   flex: 0 0 calc(${100 / contents.length}% - 20px);
@@ -40,21 +40,19 @@ const MenuItem = styled.li`
   div {
     flex: 1 0 auto;
   }
-`
+`;
 
 const GlobalNavigation = () => {
-  const menuItems = contents.map((item, index) =>
+  const menuItems = contents.map((item, index) => (
     <MenuItem key={index}>
       <Button text={item.text} path={item.path} />
     </MenuItem>
-  )
+  ));
   return (
     <nav>
-      <MenuList>
-        { menuItems }
-      </MenuList>
+      <MenuList>{menuItems}</MenuList>
     </nav>
-  )
-}
+  );
+};
 
 export default GlobalNavigation;

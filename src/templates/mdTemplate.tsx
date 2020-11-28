@@ -1,15 +1,15 @@
-import * as React from "react"
-import { graphql } from "gatsby"
-import { BlogTemplateQuery } from "../../types/graphql-types"
-import Layout from "../components/layout"
+import * as React from 'react';
+import { graphql } from 'gatsby';
+import { BlogTemplateQuery } from '../../types/graphql-types';
+import Layout from '../components/layout';
 
 interface IProps {
   data: BlogTemplateQuery;
 }
 
 export default function Template({ data }: IProps) {
-  const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { markdownRemark } = data;
+  const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
       <div className="blog-post-container">
@@ -23,7 +23,7 @@ export default function Template({ data }: IProps) {
         </div>
       </div>
     </Layout>
-  )
+  );
 }
 export const pageQuery = graphql`
   query BlogTemplate($slug: String!) {
@@ -36,4 +36,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
