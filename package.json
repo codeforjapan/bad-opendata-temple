@@ -46,6 +46,13 @@
   },
   "devDependencies": {
     "@types/figlet": "^1.2.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.21.5",
+    "gatsby-plugin-eslint": "^2.0.8",
     "prettier": "^1.8.2"
   },
   "contributors": [
