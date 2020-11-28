@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import './layout.css';
+import PropTypes from 'prop-types';
 import GlobalNavigation from './globalNavigation';
 import Footer from './footer';
 
@@ -54,5 +55,9 @@ const Layout: React.FC<Prop> = ({ children }) => {
     </div>
   );
 };
+
+Layout.propTypes = {
+  children: PropTypes.node,
+} as React.WeakValidationMap<Prop>;
 
 export default Layout;

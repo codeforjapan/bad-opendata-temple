@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import '../components/layout.css';
 import ContentWrap from '../components/contentWrap';
 import GlobalNavigation from '../components/globalNavigation';
@@ -120,6 +121,14 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     </div>
   );
 };
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
+  'data.site': PropTypes.object,
+  'data.site.siteMetadata': PropTypes.object,
+  'data.site.siteMetadata.title': PropTypes.string,
+  'data.site.siteMetadata.description': PropTypes.string,
+} as React.WeakValidationMap<IndexPageProps>;
 
 export default IndexPage;
 

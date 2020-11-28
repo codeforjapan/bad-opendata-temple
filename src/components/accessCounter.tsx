@@ -32,7 +32,7 @@ const AccessCounter: React.FC = (): ReactElement => {
         );
         return json;
       })
-      .catch((error) => {
+      .catch((_) => {
         setAccessStr('ERROR');
       });
   }, []);

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
 
 type Props = {
@@ -12,7 +13,7 @@ const BackGroundWrap = styled.div`
   background-repeat: repeat;
 `;
 
-const ContentWrap: React.FC = ({ children }) => {
+const ContentWrap: React.FC<Props> = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       bgImg: file(relativePath: { eq: "background.svg" }) {
@@ -27,5 +28,9 @@ const ContentWrap: React.FC = ({ children }) => {
     </BackGroundWrap>
   );
 };
+
+ContentWrap.propTypes = {
+  children: PropTypes.node,
+} as React.WeakValidationMap<Props>;
 
 export default ContentWrap;

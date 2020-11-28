@@ -42,7 +42,7 @@ function header(length: number): Array<string> {
   if (length < 6) {
     output = ['='.repeat(length)];
   } else if (length < 10) {
-    if (length % 2 == 0) {
+    if (length % 2 === 0) {
       output = ['='.repeat(length)];
       output.push(line(' 奉納 ', length - 1, '=')); // 漢字はちょっと長い
       output.push('='.repeat(length));
@@ -51,7 +51,7 @@ function header(length: number): Array<string> {
       output.push(line(' 奉 納 ', length - 1, '=')); // 漢字はちょっと長い
       output.push('='.repeat(length));
     }
-  } else if (length % 2 == 0) {
+  } else if (length % 2 === 0) {
     output = [line('____', length)];
     output.push(
       line(line('@@@@', length / 2, '='), length, '-'),
