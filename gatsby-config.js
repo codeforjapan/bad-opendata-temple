@@ -11,7 +11,12 @@ module.exports = {
     description: '「BADオープンデータ供養寺」は世の中に災厄をもたらすBADなデータが二度とこの世を彷徨わないように「供養（データクレンジング）」するために建立されました。',
     keywords: 'オープンデータ, データ活用, データクレンジング, データエンジニアリング, データマネジメント, シビックテック, Code for Japan'
   },
-  plugins: [
+  plugins: [{
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: 'src/contents/images/favicon.ico',
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,16 +41,15 @@ module.exports = {
     },
     {
       resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `images`,
-          path: `${__dirname}/src/contents/images`,
-        },
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/contents/images`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          {
+        plugins: [{
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
               destinationDir: `static`,
