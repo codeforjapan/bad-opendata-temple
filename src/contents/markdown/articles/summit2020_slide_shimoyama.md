@@ -1,11 +1,8 @@
 ---
-slug: "/articles/slides"
+slug: "/articles/summit2020_slide_shimoyama"
 date: "2020-11-28"
 title: "[スライド] BADオープンデータ供養寺の紹介"
 ---
-
-
-# [スライド] BADオープンデータ供養寺の紹介
 
 <script async class="speakerdeck-embed" data-id="2dc9fc552b434f1f9d19e6d21f794794" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
 
