@@ -10,7 +10,7 @@ const contents = [
   },
   {
     text: '供養塔',
-    path: '/case-study',
+    path: '/list-of-contents',
   },
   {
     text: '宝蔵',

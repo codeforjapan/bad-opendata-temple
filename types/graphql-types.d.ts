@@ -3629,6 +3629,14 @@ export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type IndexQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
 
+export type ListOfContentsQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ListOfContentsQueryQuery = { allMarkdownRemark: { edges: Array<{ node: (
+        Pick<MarkdownRemark, 'id'>
+        & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'slug' | 'date'>> }
+      ) }> } };
+
 export type BlogTemplateQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
