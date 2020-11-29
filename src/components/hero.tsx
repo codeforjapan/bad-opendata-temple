@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import moment from 'moment';
 import SunCalc from 'suncalc';
+import Mochimaki from './mochimaki';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -153,6 +154,7 @@ const Hero = () => {
           />
         </div>
       </LogoContainer>
+      <Mochimaki />
       <TempleContainer>
         <div>
           <TempleImg
