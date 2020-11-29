@@ -43,6 +43,9 @@ interface HeaderPageProps {
       title: string;
     };
   };
+  github: {
+    publicURL: string;
+  };
 }
 
 const Header = () => {
