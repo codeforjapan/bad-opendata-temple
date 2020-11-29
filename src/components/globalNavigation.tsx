@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import styled from 'styled-components';
 import Button from './button';
 
@@ -25,26 +26,37 @@ const contents = [
   },
 ];
 
+type Props = {
+  isMobile: boolean;
+};
+
 const MenuList = styled.ul`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 10px;
   background-color: #bfbfbf;
 `;
 
-const MenuItem = styled.li`
-  flex: 0 0 calc(${100 / contents.length}% - 20px);
+const MenuItem = styled.li.attrs((props: Props) => ({
+  isMobile: props.isMobile,
+}))`
+  flex: ${(props) =>
+    props.isMobile
+      ? '1 0 33%'
+      : `0 0 calc(${100 / contents.length}% - 20px)`};
   display: flex;
   div {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
   }
 `;
 
 const GlobalNavigation = () => {
+  const breakpoints = useBreakpoint();
   const menuItems = contents.map((item, index) => (
-    <MenuItem key={index}>
+    <MenuItem key={index} isMobile={breakpoints.sm}>
       <Button text={item.text} path={item.path} />
     </MenuItem>
   ));

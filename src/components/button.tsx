@@ -5,7 +5,12 @@ import styled from 'styled-components';
 const OldFashionedLinkButton = styled((props) => (
   <Link {...props} />
 ))`
-  display: block;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-sizing: border-box;
   padding: 12px;
   background-color: #bfbfbf;
   border-style: solid;
@@ -32,7 +37,8 @@ const OldFashionedLinkButton = styled((props) => (
 `;
 
 const ButtonContainer = styled.div`
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   border: solid #000000 2px;
   text-align: center;
 `;
@@ -42,17 +48,17 @@ interface ButtonPropertyType {
   text: String;
 }
 
-function Button(props: ButtonPropertyType) {
+const Button = (props: ButtonPropertyType) => {
   return (
     <ButtonContainer>
       <OldFashionedLinkButton
         to={props.path}
         activeClassName="current"
       >
-        {props.text}
+        <span>{props.text}</span>
       </OldFashionedLinkButton>
     </ButtonContainer>
   );
-}
+};
 
 export default Button;
