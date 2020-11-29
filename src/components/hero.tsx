@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import moment from 'moment';
+import SunCalc from 'suncalc';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -71,6 +73,15 @@ const Hero = () => {
             }
           }
         }
+        templeDay: file(
+          relativePath: { eq: "temple_day.png" }
+        ) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `,
   );
@@ -79,6 +90,17 @@ const Hero = () => {
     isUnderConstruction,
     setIsUnderConstruction,
   ] = useState(true);
+
+  const currentTime = moment();
+  const times = SunCalc.getTimes(
+    new Date(),
+    35.6275256,
+    139.7714723,
+  );
+  const isDayTime = currentTime.isBetween(
+    times.sunriseEnd,
+    times.night,
+  );
 
   return (
     <HeroContainer>
@@ -108,7 +130,13 @@ const Hero = () => {
           )}
         </div>
       </ScaffoldContainer>
-      <Img fluid={data.templeNight.childImageSharp.fluid} />
+      <Img
+        fluid={
+          isDayTime
+            ? data.templeDay.childImageSharp.fluid
+            : data.templeNight.childImageSharp.fluid
+        }
+      />
     </HeroContainer>
   );
 };
