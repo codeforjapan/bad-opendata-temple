@@ -101,14 +101,10 @@ const Hero = () => {
             }
           }
         }
-        templeDay: file(
+        templedDay: file(
           relativePath: { eq: "day_temple.png" }
         ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          publicURL
         }
         templedNight: file(
           relativePath: { eq: "night_temple.png" }

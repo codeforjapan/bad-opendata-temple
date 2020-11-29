@@ -41,6 +41,15 @@ const Mochimaki = () => {
     },
   };
 
+  const callBacks = {
+    onEntered: () => {
+      throwMochi(true);
+    },
+    onExit: () => {
+      throwMochi(false);
+    },
+  };
+
   const [flip, setFlip] = useState(false);
   const data = useStaticQuery(
     graphql`
@@ -55,8 +64,11 @@ const Mochimaki = () => {
     console.log('mochi!');
     setFlip(!flip);
   };
+  const throwMochi = (throwing: boolean) => {
+    console.log(throwing);
+  };
   return (
-    <Transition in={flip} timeout={500}>
+    <Transition in={flip} timeout={500} {...callBacks}>
       {(state) => (
         <Jushoku
           className={classNames('hero-jushoku', {
@@ -73,30 +85,5 @@ const Mochimaki = () => {
     </Transition>
   );
 };
-
-/*
-
-const Mochimaki = () => {
-  const mochimaki = () => {
-    console.log('mochi!');
-  };
-  const data = useStaticQuery(
-    graphql`
-      query {
-        jushoku: file(relativePath: { eq: "jushoku.svg" }) {
-          publicURL
-        }
-      }
-    `,
-  );
-  return (
-    <Jushoku>
-      <img
-        src={data.jushoku.publicURL}
-        onClick={mochimaki}
-      />
-    </Jushoku>
-  );
-}; */
 
 export default Mochimaki;

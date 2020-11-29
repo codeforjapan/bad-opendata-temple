@@ -3607,7 +3607,7 @@ export type Unnamed_5_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSit
 export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_6_Query = { logo?: Maybe<Pick<File, 'publicURL'>>, scaffold?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundDay?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templeDay?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templedNight?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_6_Query = { logo?: Maybe<Pick<File, 'publicURL'>>, scaffold?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundDay?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templedDay?: Maybe<Pick<File, 'publicURL'>>, templedNight?: Maybe<Pick<File, 'publicURL'>> };
 
 export type Unnamed_7_QueryVariables = Exact<{ [key: string]: never; }>;
 
