@@ -17,7 +17,10 @@ const Jushoku = styled.div`
   }
 `;
 const Mochimaki = () => {
-  const transitionStyle = {
+  interface StringKeyObject {
+    [state: string]: any;
+  }
+  const transitionStyle: StringKeyObject = {
     entering: {
       transition: 'all 1s ease',
       transform: 'translateY(-210px) ',
