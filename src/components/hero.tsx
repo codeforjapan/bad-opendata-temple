@@ -47,6 +47,24 @@ const ButtonContainer = styled.div`
   top: 0;
   right: 0;
 `;
+const TempleContainer = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: flex-end;
+  height: 100%;
+  z-index: 1;
+  div {
+    text-align: center;
+    width: 50%;
+    display: flex;
+  }
+`;
+const TempleImg = styled.img`
+  width: 100%;
+  align-items: flex-end;
+`;
 
 const Hero = () => {
   const data = useStaticQuery(
@@ -64,8 +82,17 @@ const Hero = () => {
             }
           }
         }
-        templeNight: file(
-          relativePath: { eq: "temple_night.png" }
+        backgroundNight: file(
+          relativePath: { eq: "night_background.png" }
+        ) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        backgroundDay: file(
+          relativePath: { eq: "day_background.png" }
         ) {
           childImageSharp {
             fluid {
@@ -74,13 +101,18 @@ const Hero = () => {
           }
         }
         templeDay: file(
-          relativePath: { eq: "temple_day.png" }
+          relativePath: { eq: "day_temple.png" }
         ) {
           childImageSharp {
             fluid {
               ...GatsbyImageSharpFluid
             }
           }
+        }
+        templedNight: file(
+          relativePath: { eq: "night_temple.png" }
+        ) {
+          publicURL
         }
       }
     `,
@@ -121,6 +153,18 @@ const Hero = () => {
           />
         </div>
       </LogoContainer>
+      <TempleContainer>
+        <div>
+          <TempleImg
+            src={
+              isDayTime
+                ? data.templedNight.publicURL
+                : data.templedDay.publicURL
+            }
+            alt="本堂"
+          />
+        </div>
+      </TempleContainer>
       <ScaffoldContainer>
         <div>
           {isUnderConstruction && (
@@ -133,8 +177,8 @@ const Hero = () => {
       <Img
         fluid={
           isDayTime
-            ? data.templeDay.childImageSharp.fluid
-            : data.templeNight.childImageSharp.fluid
+            ? data.backgroundDay.childImageSharp.fluid
+            : data.backgroundNight.childImageSharp.fluid
         }
       />
     </HeroContainer>
