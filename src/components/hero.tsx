@@ -63,8 +63,8 @@ const TempleContainer = styled.div`
     display: flex;
   }
 `;
-const TempleImg = styled.img`
-  width: 100%;
+const TempleImg = styled((props) => <Img {...props} />)`
+  flex: 1 1 auto;
   align-items: flex-end;
 `;
 
@@ -106,12 +106,20 @@ const Hero = () => {
         templedDay: file(
           relativePath: { eq: "day_temple.png" }
         ) {
-          publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
         templedNight: file(
           relativePath: { eq: "night_temple.png" }
         ) {
-          publicURL
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     `,
@@ -156,10 +164,10 @@ const Hero = () => {
       <TempleContainer>
         <div>
           <TempleImg
-            src={
+            fluid={
               isDayTime
-                ? data.templedNight.publicURL
-                : data.templedDay.publicURL
+                ? data.templedNight.childImageSharp.fluid
+                : data.templedDay.childImageSharp.fluid
             }
             alt="本堂"
           />
