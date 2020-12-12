@@ -51,62 +51,62 @@ const MochiImg = styled.img`
         translate(-50%, -50%);
     }
     8.33% {
-      transform: translate(51.625px, 291.0625px) scale(1)
+      transform: translate(51.625px, 201.0625px) scale(1)
         rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     16.67% {
-      transform: translate(91.5px, 253.25px) scale(1)
-        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
+      transform: translate(59.5px, 176.75px) scale(1)
+        rotateX(0deg) rotateY(177.5deg) rotateZ(0.5deg)
         translate(-50%, -50%);
     }
     25% {
-      transform: translate(124.625px, 230.5625px) scale(1)
-        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
+      transform: translate(96.375px, 137.9375px) scale(1)
+        rotateX(0deg) rotateY(177.75deg) rotateZ(0.25deg)
         translate(-50%, -50%);
     }
     33.33% {
-      transform: translate(171px, 223px) scale(1)
+      transform: translate(148px, 125px) scale(1)
         rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     41.67% {
-      transform: translate(239.4375px, 286.5723px) scale(1)
+      transform: translate(229.7969px, 181.3643px) scale(1)
         rotateX(0deg) rotateY(177.875deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     50% {
-      transform: translate(298.75px, 477.2891px) scale(1)
+      transform: translate(300.6875px, 350.457px) scale(1)
         rotateX(0deg) rotateY(177.75deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     58.33% {
-      transform: translate(348.9375px, 744.7129px) scale(1)
+      transform: translate(360.6719px, 587.5596px) scale(1)
         rotateX(0deg) rotateY(177.625deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     66.67% {
-      transform: translate(390px, 634.9063px) scale(1)
+      transform: translate(409.75px, 490.2031px) scale(1)
         rotateX(0deg) rotateY(177.5deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     75% {
-      transform: translate(421.9375px, 652.2441px) scale(1)
+      transform: translate(447.9219px, 505.5752px) scale(1)
         rotateX(0deg) rotateY(177.375deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     83.33% {
-      transform: translate(444.75px, 746.2891px) scale(1)
+      transform: translate(475.1875px, 588.957px) scale(1)
         rotateX(0deg) rotateY(177.25deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     91.67% {
-      transform: translate(458.4375px, 740.5098px) scale(1)
+      transform: translate(491.5469px, 583.833px) scale(1)
         rotateX(0deg) rotateY(177.125deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     100% {
-      transform: translate(463px, 761px) scale(1)
+      transform: translate(497px, 602px) scale(1)
         rotateX(0deg) rotateY(177deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
