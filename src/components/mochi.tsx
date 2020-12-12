@@ -34,9 +34,9 @@ const MochiInner = styled.div`
 // const offset = 20;
 
 const MochiImg = styled.img`
-  opacity: 1;
+  opacity: 0;
+  transform: translate(0px, -1000000px);
   position: absolute;
-
   animation-name: stylie-keyframes;
   animation-duration: 1200ms;
   animation-delay: ${(p: MochiImgProps) => p.delay}s;
@@ -46,7 +46,7 @@ const MochiImg = styled.img`
   transform-origin: 0 0;
   @keyframes stylie-keyframes {
     0% {
-      transform: translate(0px, 324px) scale(1)
+      transform: translate(0px, 320px) scale(1)
         rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
@@ -111,11 +111,6 @@ const MochiImg = styled.img`
         translate(-50%, -50%);
     }
   }
-  html::after {
-    content: url(https://ga-beacon.appspot.com/UA-42910121-1/stylie?pixel);
-    position: absolute;
-    left: -999em;
-  }
 `;
 const Mochi = (props: MochiPropertyType) => {
   console.log(props.itemid);
@@ -143,21 +138,19 @@ const Mochi = (props: MochiPropertyType) => {
   const transitionStyle: StringKeyObject = {
     entering: {
       transition: 'all 10s ease',
-      opacity: 1.0,
+      opacity: 1,
     },
     entered: {
       transition: 'all 10s ease',
-      opacity: 1.0,
+      opacity: 1,
     },
     exiting: {
       transition: 'all 1s ease',
       transform: 'translateY(0)',
-      opacity: 1.0,
     },
     exited: {
       transition: 'all 1s ease',
       transform: 'translateY(0)',
-      opacity: 1.0,
     },
   };
 

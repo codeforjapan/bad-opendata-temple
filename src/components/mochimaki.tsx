@@ -12,7 +12,7 @@ const Mochistage = styled.div`
   height: 100%;
   justify-content: center;
   z-index: 2;
-  img {
+  img.jushoku {
     align-self: flex-end;
     opacity: 0;
   }
@@ -69,6 +69,8 @@ const Mochimaki = () => {
   const throwMochi = (throwing: boolean) => {
     if (throwing) {
       addItem([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    } else {
+      addItem([]);
     }
   };
   return (
@@ -84,6 +86,7 @@ const Mochimaki = () => {
               src={data.jushoku.publicURL}
               onClick={mochimaki}
               style={transitionStyle[state]}
+              className="jushoku"
             />
             {items &&
               items.map((item) => (
