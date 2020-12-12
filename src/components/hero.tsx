@@ -120,7 +120,7 @@ const Hero = () => {
   const [
     isUnderConstruction,
     setIsUnderConstruction,
-  ] = useState(true);
+  ] = useState(false);
 
   const currentTime = moment();
   const times = SunCalc.getTimes(
