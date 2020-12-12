@@ -63,7 +63,6 @@ const Mochimaki = () => {
     `,
   );
   const mochimaki = () => {
-    console.log('mochi!');
     setFlip(!flip);
   };
   const throwMochi = (throwing: boolean) => {

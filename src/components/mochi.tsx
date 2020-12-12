@@ -113,9 +113,6 @@ const MochiImg = styled.img`
   }
 `;
 const Mochi = (props: MochiPropertyType) => {
-  console.log(props.itemid);
-  console.log(props.itemid % 2 !== 1 ? 1 : -1);
-
   const data = useStaticQuery(
     graphql`
       query {
@@ -155,7 +152,6 @@ const Mochi = (props: MochiPropertyType) => {
   };
 
   const catchMochi = () => {
-    console.log('catch!');
     setFlip(!flip);
   };
   const [flip, setFlip] = useState(true);
