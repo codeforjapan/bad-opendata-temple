@@ -7,11 +7,31 @@ interface MochiPropertyType {
   itemid: number;
 }
 interface MochiImgProps {
-  negative: 1 | -1;
   delay: number;
 }
+interface MochiStageProps {
+  negative: boolean;
+}
 
-const offset = 20;
+const MochiStage = styled.div`
+  pointer-events: none;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: ${(p: MochiStageProps) =>
+    p.negative ? '0%' : '50%'};
+  transform: scale(
+    ${(p: MochiStageProps) => (p.negative ? -1 : 1)},
+    1
+  );
+`;
+const MochiInner = styled.div`
+  pointer-events: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+// const offset = 20;
 
 const MochiImg = styled.img`
   opacity: 1;
@@ -26,79 +46,75 @@ const MochiImg = styled.img`
   transform-origin: 0 0;
   @keyframes stylie-keyframes {
     0% {
-      transform: translate(15px, -250px) scale(1)
-        rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(0px, 324px) scale(1)
+        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     8.33% {
-      transform: translate(
-          ${5.3125 + offset}px,
-          -256.4063px
-        )
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(51.625px, 291.0625px) scale(1)
+        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     16.67% {
-      transform: translate(${13.25 + offset}px, -318.125px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(91.5px, 253.25px) scale(1)
+        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     25% {
-      transform: translate(
-          ${45.8125 + offset}px,
-          -355.1563px
-        )
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(124.625px, 230.5625px) scale(1)
+        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     33.33% {
-      transform: translate(${97 + offset}px, -367.5px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(171px, 223px) scale(1)
+        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     41.67% {
-      transform: translate(
-          ${186.375 + offset}px,
-          -307.8271px
-        )
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(239.4375px, 286.5723px) scale(1)
+        rotateX(0deg) rotateY(177.875deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     50% {
-      transform: translate(${226.5 + offset}px, -131.1914px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(298.75px, 477.2891px) scale(1)
+        rotateX(0deg) rotateY(177.75deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     58.33% {
-      transform: translate(${277.375 + offset}px, 20px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(348.9375px, 744.7129px) scale(1)
+        rotateX(0deg) rotateY(177.625deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     66.67% {
-      transform: translate(${309 + offset}px, -30.1406px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(390px, 634.9063px) scale(1)
+        rotateX(0deg) rotateY(177.5deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     75% {
-      transform: translate(${341.375 + offset}px, -40.415px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(421.9375px, 652.2441px) scale(1)
+        rotateX(0deg) rotateY(177.375deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     83.33% {
-      transform: translate(${350.5 + offset}px, -20.6914px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(444.75px, 746.2891px) scale(1)
+        rotateX(0deg) rotateY(177.25deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     91.67% {
-      transform: translate(${360.375 + offset}px, -0.2666px)
-        scale(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(458.4375px, 740.5098px) scale(1)
+        rotateX(0deg) rotateY(177.125deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
     100% {
-      transform: translate(${370 + offset}px, 20px) scale(1)
-        rotateX(0deg) rotateY(0deg) rotateZ(0deg)
+      transform: translate(463px, 761px) scale(1)
+        rotateX(0deg) rotateY(177deg) rotateZ(0deg)
         translate(-50%, -50%);
     }
+  }
+  html::after {
+    content: url(https://ga-beacon.appspot.com/UA-42910121-1/stylie?pixel);
+    position: absolute;
+    left: -999em;
   }
 `;
 const Mochi = (props: MochiPropertyType) => {
@@ -153,10 +169,9 @@ const Mochi = (props: MochiPropertyType) => {
   return (
     <Transition in={flip} timeout={500}>
       {(state) => (
-        <div className="mochistages">
-          <div className="mochimove">
+        <MochiStage negative={props.itemid % 2 === 1}>
+          <MochiInner>
             <MochiImg
-              negative={props.itemid % 2 !== 1 ? 1 : -1}
               delay={props.itemid}
               src={
                 Math.floor(Math.random() * 2)
@@ -165,11 +180,11 @@ const Mochi = (props: MochiPropertyType) => {
               }
               style={transitionStyle[state]}
               className="mochi"
-              alt={'hoge' + props.itemid}
+              alt={'mothi-' + props.itemid}
               onClick={catchMochi}
             />
-          </div>
-        </div>
+          </MochiInner>
+        </MochiStage>
       )}
     </Transition>
   );
