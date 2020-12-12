@@ -3,8 +3,9 @@ import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
 import classNames from 'classnames';
+import Mochi from './mochi';
 
-const Jushoku = styled.div`
+const Mochistage = styled.div`
   position: absolute;
   display: flex;
   width: 100%;
@@ -51,6 +52,7 @@ const Mochimaki = () => {
   };
 
   const [flip, setFlip] = useState(false);
+  const [items, addItem] = useState([]);
   const data = useStaticQuery(
     graphql`
       query {
@@ -65,22 +67,30 @@ const Mochimaki = () => {
     setFlip(!flip);
   };
   const throwMochi = (throwing: boolean) => {
-    console.log(throwing);
+    if (throwing) {
+      addItem([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    }
   };
   return (
     <Transition in={flip} timeout={500} {...callBacks}>
       {(state) => (
-        <Jushoku
-          className={classNames('hero-jushoku', {
-            throwing: flip,
-          })}
-        >
-          <img
-            src={data.jushoku.publicURL}
-            onClick={mochimaki}
-            style={transitionStyle[state]}
-          />
-        </Jushoku>
+        <div>
+          <Mochistage
+            className={classNames('hero-jushoku', {
+              throwing: flip,
+            })}
+          >
+            <img
+              src={data.jushoku.publicURL}
+              onClick={mochimaki}
+              style={transitionStyle[state]}
+            />
+            {items &&
+              items.map((item) => (
+                <Mochi key={item} itemid={item} />
+              ))}
+          </Mochistage>
+        </div>
       )}
     </Transition>
   );
