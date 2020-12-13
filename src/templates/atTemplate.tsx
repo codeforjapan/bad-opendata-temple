@@ -2,7 +2,9 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Airtable } from '../../types/graphql-types';
 import Layout from '../components/layout';
-
+import unified from 'unified';
+import markdown from 'remark-parse';
+import html from 'remark-html';
 interface IProps {
   data: { airtable: Airtable };
 }
@@ -13,8 +15,17 @@ export default function Template({ data }: IProps) {
     <Layout>
       <div className="blog-post-container">
         <div className="blog-post">
-          <div>[供養事例]</div>
+          <div>
+            <a href="/list-of-contents">一覧に戻る</a>|{' '}
+            [供養塔]
+          </div>
           <h1>{airtable.data.Title}</h1>
+          <p>
+            提供者：<span>{airtable.data.Name}</span>
+          </p>
+          <p>
+            <a href={airtable.data.URL}>供養後のページへ</a>
+          </p>
           <h2>{airtable.data.Date}</h2>
           <p>{airtable.data.Description}</p>
           {airtable.data.Image ? (
@@ -27,7 +38,32 @@ export default function Template({ data }: IProps) {
           <h2>一言で言うと</h2>
           <p>{airtable.data.Short_Description}</p>
           <h2>入力データ</h2>
-          <p>{airtable.data.Input_Data}</p>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: unified()
+                .use(markdown)
+                .use(html)
+                .processSync(airtable.data.Input_Data),
+            }}
+          />
+          <h2>出力データ</h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: unified()
+                .use(markdown)
+                .use(html)
+                .processSync(airtable.data.Output_Data),
+            }}
+          />
+          <h2>もっと詳しく</h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: unified()
+                .use(markdown)
+                .use(html)
+                .processSync(airtable.data.More_Info),
+            }}
+          />
         </div>
       </div>
     </Layout>

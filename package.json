@@ -37,9 +37,11 @@
     "react-h5-audio-player": "^3.4.1",
     "react-helmet": "^5.2.1",
     "react-transition-group": "^4.4.1",
+    "remark-html": "^13.0.1",
     "styled-components": "^5.2.1",
     "suncalc": "^1.8.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "unified": "^9.2.0"
   },
   "keywords": [
     "gatsby, typescript"
