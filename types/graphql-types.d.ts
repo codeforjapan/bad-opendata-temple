@@ -694,8 +694,8 @@ export type File = Node & {
   children: Array<Node>;
   internal: Internal;
   childMarkdownRemark?: Maybe<MarkdownRemark>;
-  childrenHitokotoCsv?: Maybe<Array<Maybe<HitokotoCsv>>>;
   childrenInformationCsv?: Maybe<Array<Maybe<InformationCsv>>>;
+  childrenHitokotoCsv?: Maybe<Array<Maybe<HitokotoCsv>>>;
 };
 
 
@@ -1050,46 +1050,6 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___internal___mediaType'
   | 'childMarkdownRemark___internal___owner'
   | 'childMarkdownRemark___internal___type'
-  | 'childrenHitokotoCsv'
-  | 'childrenHitokotoCsv___id'
-  | 'childrenHitokotoCsv___parent___id'
-  | 'childrenHitokotoCsv___parent___parent___id'
-  | 'childrenHitokotoCsv___parent___parent___children'
-  | 'childrenHitokotoCsv___parent___children'
-  | 'childrenHitokotoCsv___parent___children___id'
-  | 'childrenHitokotoCsv___parent___children___children'
-  | 'childrenHitokotoCsv___parent___internal___content'
-  | 'childrenHitokotoCsv___parent___internal___contentDigest'
-  | 'childrenHitokotoCsv___parent___internal___description'
-  | 'childrenHitokotoCsv___parent___internal___fieldOwners'
-  | 'childrenHitokotoCsv___parent___internal___ignoreType'
-  | 'childrenHitokotoCsv___parent___internal___mediaType'
-  | 'childrenHitokotoCsv___parent___internal___owner'
-  | 'childrenHitokotoCsv___parent___internal___type'
-  | 'childrenHitokotoCsv___children'
-  | 'childrenHitokotoCsv___children___id'
-  | 'childrenHitokotoCsv___children___parent___id'
-  | 'childrenHitokotoCsv___children___parent___children'
-  | 'childrenHitokotoCsv___children___children'
-  | 'childrenHitokotoCsv___children___children___id'
-  | 'childrenHitokotoCsv___children___children___children'
-  | 'childrenHitokotoCsv___children___internal___content'
-  | 'childrenHitokotoCsv___children___internal___contentDigest'
-  | 'childrenHitokotoCsv___children___internal___description'
-  | 'childrenHitokotoCsv___children___internal___fieldOwners'
-  | 'childrenHitokotoCsv___children___internal___ignoreType'
-  | 'childrenHitokotoCsv___children___internal___mediaType'
-  | 'childrenHitokotoCsv___children___internal___owner'
-  | 'childrenHitokotoCsv___children___internal___type'
-  | 'childrenHitokotoCsv___internal___content'
-  | 'childrenHitokotoCsv___internal___contentDigest'
-  | 'childrenHitokotoCsv___internal___description'
-  | 'childrenHitokotoCsv___internal___fieldOwners'
-  | 'childrenHitokotoCsv___internal___ignoreType'
-  | 'childrenHitokotoCsv___internal___mediaType'
-  | 'childrenHitokotoCsv___internal___owner'
-  | 'childrenHitokotoCsv___internal___type'
-  | 'childrenHitokotoCsv___word'
   | 'childrenInformationCsv'
   | 'childrenInformationCsv___id'
   | 'childrenInformationCsv___parent___id'
@@ -1131,7 +1091,47 @@ export type FileFieldsEnum =
   | 'childrenInformationCsv___internal___type'
   | 'childrenInformationCsv___date'
   | 'childrenInformationCsv___text'
-  | 'childrenInformationCsv___url';
+  | 'childrenInformationCsv___url'
+  | 'childrenHitokotoCsv'
+  | 'childrenHitokotoCsv___id'
+  | 'childrenHitokotoCsv___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___children'
+  | 'childrenHitokotoCsv___parent___children'
+  | 'childrenHitokotoCsv___parent___children___id'
+  | 'childrenHitokotoCsv___parent___children___children'
+  | 'childrenHitokotoCsv___parent___internal___content'
+  | 'childrenHitokotoCsv___parent___internal___contentDigest'
+  | 'childrenHitokotoCsv___parent___internal___description'
+  | 'childrenHitokotoCsv___parent___internal___fieldOwners'
+  | 'childrenHitokotoCsv___parent___internal___ignoreType'
+  | 'childrenHitokotoCsv___parent___internal___mediaType'
+  | 'childrenHitokotoCsv___parent___internal___owner'
+  | 'childrenHitokotoCsv___parent___internal___type'
+  | 'childrenHitokotoCsv___children'
+  | 'childrenHitokotoCsv___children___id'
+  | 'childrenHitokotoCsv___children___parent___id'
+  | 'childrenHitokotoCsv___children___parent___children'
+  | 'childrenHitokotoCsv___children___children'
+  | 'childrenHitokotoCsv___children___children___id'
+  | 'childrenHitokotoCsv___children___children___children'
+  | 'childrenHitokotoCsv___children___internal___content'
+  | 'childrenHitokotoCsv___children___internal___contentDigest'
+  | 'childrenHitokotoCsv___children___internal___description'
+  | 'childrenHitokotoCsv___children___internal___fieldOwners'
+  | 'childrenHitokotoCsv___children___internal___ignoreType'
+  | 'childrenHitokotoCsv___children___internal___mediaType'
+  | 'childrenHitokotoCsv___children___internal___owner'
+  | 'childrenHitokotoCsv___children___internal___type'
+  | 'childrenHitokotoCsv___internal___content'
+  | 'childrenHitokotoCsv___internal___contentDigest'
+  | 'childrenHitokotoCsv___internal___description'
+  | 'childrenHitokotoCsv___internal___fieldOwners'
+  | 'childrenHitokotoCsv___internal___ignoreType'
+  | 'childrenHitokotoCsv___internal___mediaType'
+  | 'childrenHitokotoCsv___internal___owner'
+  | 'childrenHitokotoCsv___internal___type'
+  | 'childrenHitokotoCsv___word';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -1174,8 +1174,8 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
   childrenInformationCsv?: Maybe<InformationCsvFilterListInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 export type FileGroupConnection = {
@@ -2435,12 +2435,12 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  informationCsv?: Maybe<InformationCsv>;
-  allInformationCsv: InformationCsvConnection;
   airtable?: Maybe<Airtable>;
   allAirtable: AirtableConnection;
   hitokotoCsv?: Maybe<HitokotoCsv>;
   allHitokotoCsv: HitokotoCsvConnection;
+  informationCsv?: Maybe<InformationCsv>;
+  allInformationCsv: InformationCsvConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2489,8 +2489,8 @@ export type QueryFileArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
   childrenInformationCsv?: Maybe<InformationCsvFilterListInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 
@@ -2649,25 +2649,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryInformationCsvArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  date?: Maybe<DateQueryOperatorInput>;
-  text?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-};
-
-
-export type QueryAllInformationCsvArgs = {
-  filter?: Maybe<InformationCsvFilterInput>;
-  sort?: Maybe<InformationCsvSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryAirtableArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2700,6 +2681,25 @@ export type QueryHitokotoCsvArgs = {
 export type QueryAllHitokotoCsvArgs = {
   filter?: Maybe<HitokotoCsvFilterInput>;
   sort?: Maybe<HitokotoCsvSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryInformationCsvArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllInformationCsvArgs = {
+  filter?: Maybe<InformationCsvFilterInput>;
+  sort?: Maybe<InformationCsvSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3314,6 +3314,15 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___tables___tableView'
   | 'pluginCreator___pluginOptions___tables___separateNodeType'
   | 'pluginCreator___pluginOptions___tables___separateMapType'
+  | 'pluginCreator___pluginOptions___indentedSyntax'
+  | 'pluginCreator___pluginOptions___indentType'
+  | 'pluginCreator___pluginOptions___indentWidth'
+  | 'pluginCreator___pluginOptions___linefeed'
+  | 'pluginCreator___pluginOptions___omitSourceMapUrl'
+  | 'pluginCreator___pluginOptions___precision'
+  | 'pluginCreator___pluginOptions___sourceComments'
+  | 'pluginCreator___pluginOptions___sourceMapContents'
+  | 'pluginCreator___pluginOptions___sourceMapEmbed'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -3574,6 +3583,15 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___tables___tableView'
   | 'pluginOptions___tables___separateNodeType'
   | 'pluginOptions___tables___separateMapType'
+  | 'pluginOptions___indentedSyntax'
+  | 'pluginOptions___indentType'
+  | 'pluginOptions___indentWidth'
+  | 'pluginOptions___linefeed'
+  | 'pluginOptions___omitSourceMapUrl'
+  | 'pluginOptions___precision'
+  | 'pluginOptions___sourceComments'
+  | 'pluginOptions___sourceMapContents'
+  | 'pluginOptions___sourceMapEmbed'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -3732,6 +3750,15 @@ export type SitePluginPluginOptions = {
   apiKey?: Maybe<Scalars['String']>;
   concurrency?: Maybe<Scalars['Int']>;
   tables?: Maybe<Array<Maybe<SitePluginPluginOptionsTables>>>;
+  indentedSyntax?: Maybe<Scalars['Boolean']>;
+  indentType?: Maybe<Scalars['String']>;
+  indentWidth?: Maybe<Scalars['Int']>;
+  linefeed?: Maybe<Scalars['String']>;
+  omitSourceMapUrl?: Maybe<Scalars['Boolean']>;
+  precision?: Maybe<Scalars['Int']>;
+  sourceComments?: Maybe<Scalars['Boolean']>;
+  sourceMapContents?: Maybe<Scalars['Boolean']>;
+  sourceMapEmbed?: Maybe<Scalars['Boolean']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -3788,6 +3815,15 @@ export type SitePluginPluginOptionsFilterInput = {
   apiKey?: Maybe<StringQueryOperatorInput>;
   concurrency?: Maybe<IntQueryOperatorInput>;
   tables?: Maybe<SitePluginPluginOptionsTablesFilterListInput>;
+  indentedSyntax?: Maybe<BooleanQueryOperatorInput>;
+  indentType?: Maybe<StringQueryOperatorInput>;
+  indentWidth?: Maybe<IntQueryOperatorInput>;
+  linefeed?: Maybe<StringQueryOperatorInput>;
+  omitSourceMapUrl?: Maybe<BooleanQueryOperatorInput>;
+  precision?: Maybe<IntQueryOperatorInput>;
+  sourceComments?: Maybe<BooleanQueryOperatorInput>;
+  sourceMapContents?: Maybe<BooleanQueryOperatorInput>;
+  sourceMapEmbed?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
