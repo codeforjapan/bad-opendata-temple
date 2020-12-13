@@ -4009,7 +4009,16 @@ export type AtTemplateQueryVariables = Exact<{
 }>;
 
 
-export type AtTemplateQuery = { airtable?: Maybe<Pick<Airtable, 'recordId'>> };
+export type AtTemplateQuery = { airtable?: Maybe<(
+    Pick<Airtable, 'recordId'>
+    & { data?: Maybe<(
+      Pick<AirtableData, 'Title' | 'Date' | 'Name' | 'Input_Data' | 'Description' | 'More_Info' | 'Output_Data' | 'Short_Description' | 'URL'>
+      & { Image?: Maybe<Array<Maybe<(
+        Pick<AirtableDataImage, 'id'>
+        & { thumbnails?: Maybe<{ small?: Maybe<Pick<AirtableDataImageThumbnailsSmall, 'url' | 'width' | 'height'>>, large?: Maybe<Pick<AirtableDataImageThumbnailsLarge, 'url' | 'width' | 'height'>> }> }
+      )>>> }
+    )> }
+  )> };
 
 export type BlogTemplateQueryVariables = Exact<{
   slug: Scalars['String'];

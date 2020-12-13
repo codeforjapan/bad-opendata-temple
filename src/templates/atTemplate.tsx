@@ -13,7 +13,21 @@ export default function Template({ data }: IProps) {
     <Layout>
       <div className="blog-post-container">
         <div className="blog-post">
-          <h1>{airtable.recordId}</h1>
+          <div>[供養事例]</div>
+          <h1>{airtable.data.Title}</h1>
+          <h2>{airtable.data.Date}</h2>
+          <p>{airtable.data.Description}</p>
+          {airtable.data.Image ? (
+            <img
+              src={
+                airtable.data.Image[0].thumbnails.large.url
+              }
+            />
+          ) : null}
+          <h2>一言で言うと</h2>
+          <p>{airtable.data.Short_Description}</p>
+          <h2>入力データ</h2>
+          <p>{airtable.data.Input_Data}</p>
         </div>
       </div>
     </Layout>
@@ -23,6 +37,32 @@ export const pageQuery = graphql`
   query ATTemplate($recordId: String!) {
     airtable(recordId: { eq: $recordId }) {
       recordId
+      data {
+        Title
+        Date
+        Name
+        Input_Data
+        Description
+        More_Info
+        Output_Data
+        Short_Description
+        URL
+        Image {
+          id
+          thumbnails {
+            small {
+              url
+              width
+              height
+            }
+            large {
+              url
+              width
+              height
+            }
+          }
+        }
+      }
     }
   }
 `;
