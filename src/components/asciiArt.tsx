@@ -25,8 +25,6 @@ const AsciiArt = ({
     // アスキーアートを作る
     figlet.defaults({ fontPath: '/fonts' });
     figlet.text(name, { font: font }, function (_, data) {
-      console.log('generate text');
-      console.log(data);
       if (data) {
         setOutput(decoration(data));
       }
