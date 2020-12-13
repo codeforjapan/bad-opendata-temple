@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
+import './stylie.module.scss';
 
 interface MochiPropertyType {
   itemid: number;
@@ -44,73 +45,6 @@ const MochiImg = styled.img`
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   transform-origin: 0 0;
-  @keyframes stylie-keyframes {
-    0% {
-      transform: translate(0px, 320px) scale(1)
-        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    8.33% {
-      transform: translate(51.625px, 201.0625px) scale(1)
-        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    16.67% {
-      transform: translate(59.5px, 176.75px) scale(1)
-        rotateX(0deg) rotateY(177.5deg) rotateZ(0.5deg)
-        translate(-50%, -50%);
-    }
-    25% {
-      transform: translate(96.375px, 137.9375px) scale(1)
-        rotateX(0deg) rotateY(177.75deg) rotateZ(0.25deg)
-        translate(-50%, -50%);
-    }
-    33.33% {
-      transform: translate(148px, 125px) scale(1)
-        rotateX(0deg) rotateY(178deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    41.67% {
-      transform: translate(229.7969px, 181.3643px) scale(1)
-        rotateX(0deg) rotateY(177.875deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    50% {
-      transform: translate(300.6875px, 350.457px) scale(1)
-        rotateX(0deg) rotateY(177.75deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    58.33% {
-      transform: translate(360.6719px, 587.5596px) scale(1)
-        rotateX(0deg) rotateY(177.625deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    66.67% {
-      transform: translate(409.75px, 490.2031px) scale(1)
-        rotateX(0deg) rotateY(177.5deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    75% {
-      transform: translate(447.9219px, 505.5752px) scale(1)
-        rotateX(0deg) rotateY(177.375deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    83.33% {
-      transform: translate(475.1875px, 588.957px) scale(1)
-        rotateX(0deg) rotateY(177.25deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    91.67% {
-      transform: translate(491.5469px, 583.833px) scale(1)
-        rotateX(0deg) rotateY(177.125deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-    100% {
-      transform: translate(497px, 602px) scale(1)
-        rotateX(0deg) rotateY(177deg) rotateZ(0deg)
-        translate(-50%, -50%);
-    }
-  }
 `;
 const Mochi = (props: MochiPropertyType) => {
   const data = useStaticQuery(
