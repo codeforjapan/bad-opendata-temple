@@ -28,6 +28,279 @@ export type Scalars = {
 
 
 
+export type Airtable = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  table?: Maybe<Scalars['String']>;
+  recordId?: Maybe<Scalars['String']>;
+  data?: Maybe<AirtableData>;
+};
+
+export type AirtableConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<AirtableEdge>;
+  nodes: Array<Airtable>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<AirtableGroupConnection>;
+};
+
+
+export type AirtableConnectionDistinctArgs = {
+  field: AirtableFieldsEnum;
+};
+
+
+export type AirtableConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: AirtableFieldsEnum;
+};
+
+export type AirtableData = {
+  Email?: Maybe<Scalars['String']>;
+  More_Info?: Maybe<Scalars['String']>;
+  Input_Data?: Maybe<Scalars['String']>;
+  Short_Description?: Maybe<Scalars['String']>;
+  Image?: Maybe<Array<Maybe<AirtableDataImage>>>;
+  Output_Data?: Maybe<Scalars['String']>;
+  URL?: Maybe<Scalars['String']>;
+  Date?: Maybe<Scalars['Date']>;
+  Description?: Maybe<Scalars['String']>;
+  Name?: Maybe<Scalars['String']>;
+  Title?: Maybe<Scalars['String']>;
+};
+
+
+export type AirtableDataDateArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type AirtableDataFilterInput = {
+  Email?: Maybe<StringQueryOperatorInput>;
+  More_Info?: Maybe<StringQueryOperatorInput>;
+  Input_Data?: Maybe<StringQueryOperatorInput>;
+  Short_Description?: Maybe<StringQueryOperatorInput>;
+  Image?: Maybe<AirtableDataImageFilterListInput>;
+  Output_Data?: Maybe<StringQueryOperatorInput>;
+  URL?: Maybe<StringQueryOperatorInput>;
+  Date?: Maybe<DateQueryOperatorInput>;
+  Description?: Maybe<StringQueryOperatorInput>;
+  Name?: Maybe<StringQueryOperatorInput>;
+  Title?: Maybe<StringQueryOperatorInput>;
+};
+
+export type AirtableDataImage = {
+  id?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  filename?: Maybe<Scalars['String']>;
+  size?: Maybe<Scalars['Int']>;
+  type?: Maybe<Scalars['String']>;
+  thumbnails?: Maybe<AirtableDataImageThumbnails>;
+};
+
+export type AirtableDataImageFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+  filename?: Maybe<StringQueryOperatorInput>;
+  size?: Maybe<IntQueryOperatorInput>;
+  type?: Maybe<StringQueryOperatorInput>;
+  thumbnails?: Maybe<AirtableDataImageThumbnailsFilterInput>;
+};
+
+export type AirtableDataImageFilterListInput = {
+  elemMatch?: Maybe<AirtableDataImageFilterInput>;
+};
+
+export type AirtableDataImageThumbnails = {
+  small?: Maybe<AirtableDataImageThumbnailsSmall>;
+  large?: Maybe<AirtableDataImageThumbnailsLarge>;
+  full?: Maybe<AirtableDataImageThumbnailsFull>;
+};
+
+export type AirtableDataImageThumbnailsFilterInput = {
+  small?: Maybe<AirtableDataImageThumbnailsSmallFilterInput>;
+  large?: Maybe<AirtableDataImageThumbnailsLargeFilterInput>;
+  full?: Maybe<AirtableDataImageThumbnailsFullFilterInput>;
+};
+
+export type AirtableDataImageThumbnailsFull = {
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+};
+
+export type AirtableDataImageThumbnailsFullFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>;
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+};
+
+export type AirtableDataImageThumbnailsLarge = {
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+};
+
+export type AirtableDataImageThumbnailsLargeFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>;
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+};
+
+export type AirtableDataImageThumbnailsSmall = {
+  url?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
+};
+
+export type AirtableDataImageThumbnailsSmallFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>;
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
+};
+
+export type AirtableEdge = {
+  next?: Maybe<Airtable>;
+  node: Airtable;
+  previous?: Maybe<Airtable>;
+};
+
+export type AirtableFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'table'
+  | 'recordId'
+  | 'data___Email'
+  | 'data___More_Info'
+  | 'data___Input_Data'
+  | 'data___Short_Description'
+  | 'data___Image'
+  | 'data___Image___id'
+  | 'data___Image___url'
+  | 'data___Image___filename'
+  | 'data___Image___size'
+  | 'data___Image___type'
+  | 'data___Output_Data'
+  | 'data___URL'
+  | 'data___Date'
+  | 'data___Description'
+  | 'data___Name'
+  | 'data___Title';
+
+export type AirtableFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  table?: Maybe<StringQueryOperatorInput>;
+  recordId?: Maybe<StringQueryOperatorInput>;
+  data?: Maybe<AirtableDataFilterInput>;
+};
+
+export type AirtableGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<AirtableEdge>;
+  nodes: Array<Airtable>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type AirtableSortInput = {
+  fields?: Maybe<Array<Maybe<AirtableFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type BlurredOptions = {
   /** Width of the generated low-res preview. Default is 20px */
   width?: Maybe<Scalars['Int']>;
@@ -407,8 +680,8 @@ export type File = Node & {
   children: Array<Node>;
   internal: Internal;
   childMarkdownRemark?: Maybe<MarkdownRemark>;
-  childrenHitokotoCsv?: Maybe<Array<Maybe<HitokotoCsv>>>;
   childrenInformationCsv?: Maybe<Array<Maybe<InformationCsv>>>;
+  childrenHitokotoCsv?: Maybe<Array<Maybe<HitokotoCsv>>>;
 };
 
 
@@ -763,46 +1036,6 @@ export type FileFieldsEnum =
   | 'childMarkdownRemark___internal___mediaType'
   | 'childMarkdownRemark___internal___owner'
   | 'childMarkdownRemark___internal___type'
-  | 'childrenHitokotoCsv'
-  | 'childrenHitokotoCsv___id'
-  | 'childrenHitokotoCsv___parent___id'
-  | 'childrenHitokotoCsv___parent___parent___id'
-  | 'childrenHitokotoCsv___parent___parent___children'
-  | 'childrenHitokotoCsv___parent___children'
-  | 'childrenHitokotoCsv___parent___children___id'
-  | 'childrenHitokotoCsv___parent___children___children'
-  | 'childrenHitokotoCsv___parent___internal___content'
-  | 'childrenHitokotoCsv___parent___internal___contentDigest'
-  | 'childrenHitokotoCsv___parent___internal___description'
-  | 'childrenHitokotoCsv___parent___internal___fieldOwners'
-  | 'childrenHitokotoCsv___parent___internal___ignoreType'
-  | 'childrenHitokotoCsv___parent___internal___mediaType'
-  | 'childrenHitokotoCsv___parent___internal___owner'
-  | 'childrenHitokotoCsv___parent___internal___type'
-  | 'childrenHitokotoCsv___children'
-  | 'childrenHitokotoCsv___children___id'
-  | 'childrenHitokotoCsv___children___parent___id'
-  | 'childrenHitokotoCsv___children___parent___children'
-  | 'childrenHitokotoCsv___children___children'
-  | 'childrenHitokotoCsv___children___children___id'
-  | 'childrenHitokotoCsv___children___children___children'
-  | 'childrenHitokotoCsv___children___internal___content'
-  | 'childrenHitokotoCsv___children___internal___contentDigest'
-  | 'childrenHitokotoCsv___children___internal___description'
-  | 'childrenHitokotoCsv___children___internal___fieldOwners'
-  | 'childrenHitokotoCsv___children___internal___ignoreType'
-  | 'childrenHitokotoCsv___children___internal___mediaType'
-  | 'childrenHitokotoCsv___children___internal___owner'
-  | 'childrenHitokotoCsv___children___internal___type'
-  | 'childrenHitokotoCsv___internal___content'
-  | 'childrenHitokotoCsv___internal___contentDigest'
-  | 'childrenHitokotoCsv___internal___description'
-  | 'childrenHitokotoCsv___internal___fieldOwners'
-  | 'childrenHitokotoCsv___internal___ignoreType'
-  | 'childrenHitokotoCsv___internal___mediaType'
-  | 'childrenHitokotoCsv___internal___owner'
-  | 'childrenHitokotoCsv___internal___type'
-  | 'childrenHitokotoCsv___word'
   | 'childrenInformationCsv'
   | 'childrenInformationCsv___id'
   | 'childrenInformationCsv___parent___id'
@@ -844,7 +1077,47 @@ export type FileFieldsEnum =
   | 'childrenInformationCsv___internal___type'
   | 'childrenInformationCsv___date'
   | 'childrenInformationCsv___text'
-  | 'childrenInformationCsv___url';
+  | 'childrenInformationCsv___url'
+  | 'childrenHitokotoCsv'
+  | 'childrenHitokotoCsv___id'
+  | 'childrenHitokotoCsv___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___id'
+  | 'childrenHitokotoCsv___parent___parent___children'
+  | 'childrenHitokotoCsv___parent___children'
+  | 'childrenHitokotoCsv___parent___children___id'
+  | 'childrenHitokotoCsv___parent___children___children'
+  | 'childrenHitokotoCsv___parent___internal___content'
+  | 'childrenHitokotoCsv___parent___internal___contentDigest'
+  | 'childrenHitokotoCsv___parent___internal___description'
+  | 'childrenHitokotoCsv___parent___internal___fieldOwners'
+  | 'childrenHitokotoCsv___parent___internal___ignoreType'
+  | 'childrenHitokotoCsv___parent___internal___mediaType'
+  | 'childrenHitokotoCsv___parent___internal___owner'
+  | 'childrenHitokotoCsv___parent___internal___type'
+  | 'childrenHitokotoCsv___children'
+  | 'childrenHitokotoCsv___children___id'
+  | 'childrenHitokotoCsv___children___parent___id'
+  | 'childrenHitokotoCsv___children___parent___children'
+  | 'childrenHitokotoCsv___children___children'
+  | 'childrenHitokotoCsv___children___children___id'
+  | 'childrenHitokotoCsv___children___children___children'
+  | 'childrenHitokotoCsv___children___internal___content'
+  | 'childrenHitokotoCsv___children___internal___contentDigest'
+  | 'childrenHitokotoCsv___children___internal___description'
+  | 'childrenHitokotoCsv___children___internal___fieldOwners'
+  | 'childrenHitokotoCsv___children___internal___ignoreType'
+  | 'childrenHitokotoCsv___children___internal___mediaType'
+  | 'childrenHitokotoCsv___children___internal___owner'
+  | 'childrenHitokotoCsv___children___internal___type'
+  | 'childrenHitokotoCsv___internal___content'
+  | 'childrenHitokotoCsv___internal___contentDigest'
+  | 'childrenHitokotoCsv___internal___description'
+  | 'childrenHitokotoCsv___internal___fieldOwners'
+  | 'childrenHitokotoCsv___internal___ignoreType'
+  | 'childrenHitokotoCsv___internal___mediaType'
+  | 'childrenHitokotoCsv___internal___owner'
+  | 'childrenHitokotoCsv___internal___type'
+  | 'childrenHitokotoCsv___word';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -887,8 +1160,8 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
   childrenInformationCsv?: Maybe<InformationCsvFilterListInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 export type FileGroupConnection = {
@@ -2148,10 +2421,12 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  informationCsv?: Maybe<InformationCsv>;
-  allInformationCsv: InformationCsvConnection;
+  airtable?: Maybe<Airtable>;
+  allAirtable: AirtableConnection;
   hitokotoCsv?: Maybe<HitokotoCsv>;
   allHitokotoCsv: HitokotoCsvConnection;
+  informationCsv?: Maybe<InformationCsv>;
+  allInformationCsv: InformationCsvConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2200,8 +2475,8 @@ export type QueryFileArgs = {
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
   childrenInformationCsv?: Maybe<InformationCsvFilterListInput>;
+  childrenHitokotoCsv?: Maybe<HitokotoCsvFilterListInput>;
 };
 
 
@@ -2360,20 +2635,20 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryInformationCsvArgs = {
+export type QueryAirtableArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  date?: Maybe<DateQueryOperatorInput>;
-  text?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
+  table?: Maybe<StringQueryOperatorInput>;
+  recordId?: Maybe<StringQueryOperatorInput>;
+  data?: Maybe<AirtableDataFilterInput>;
 };
 
 
-export type QueryAllInformationCsvArgs = {
-  filter?: Maybe<InformationCsvFilterInput>;
-  sort?: Maybe<InformationCsvSortInput>;
+export type QueryAllAirtableArgs = {
+  filter?: Maybe<AirtableFilterInput>;
+  sort?: Maybe<AirtableSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2391,6 +2666,25 @@ export type QueryHitokotoCsvArgs = {
 export type QueryAllHitokotoCsvArgs = {
   filter?: Maybe<HitokotoCsvFilterInput>;
   sort?: Maybe<HitokotoCsvSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryInformationCsvArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllInformationCsvArgs = {
+  filter?: Maybe<InformationCsvFilterInput>;
+  sort?: Maybe<InformationCsvSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2994,6 +3288,13 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___queries___sm'
   | 'pluginCreator___pluginOptions___queries___md'
   | 'pluginCreator___pluginOptions___queries___l'
+  | 'pluginCreator___pluginOptions___apiKey'
+  | 'pluginCreator___pluginOptions___concurrency'
+  | 'pluginCreator___pluginOptions___tables'
+  | 'pluginCreator___pluginOptions___tables___baseId'
+  | 'pluginCreator___pluginOptions___tables___tableName'
+  | 'pluginCreator___pluginOptions___tables___separateNodeType'
+  | 'pluginCreator___pluginOptions___tables___separateMapType'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -3246,6 +3547,13 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___queries___sm'
   | 'pluginOptions___queries___md'
   | 'pluginOptions___queries___l'
+  | 'pluginOptions___apiKey'
+  | 'pluginOptions___concurrency'
+  | 'pluginOptions___tables'
+  | 'pluginOptions___tables___baseId'
+  | 'pluginOptions___tables___tableName'
+  | 'pluginOptions___tables___separateNodeType'
+  | 'pluginOptions___tables___separateMapType'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -3401,6 +3709,9 @@ export type SitePluginPluginOptions = {
   failOnError?: Maybe<Scalars['Boolean']>;
   trackingId?: Maybe<Scalars['String']>;
   queries?: Maybe<SitePluginPluginOptionsQueries>;
+  apiKey?: Maybe<Scalars['String']>;
+  concurrency?: Maybe<Scalars['Int']>;
+  tables?: Maybe<Array<Maybe<SitePluginPluginOptionsTables>>>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -3454,6 +3765,9 @@ export type SitePluginPluginOptionsFilterInput = {
   failOnError?: Maybe<BooleanQueryOperatorInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
   queries?: Maybe<SitePluginPluginOptionsQueriesFilterInput>;
+  apiKey?: Maybe<StringQueryOperatorInput>;
+  concurrency?: Maybe<IntQueryOperatorInput>;
+  tables?: Maybe<SitePluginPluginOptionsTablesFilterListInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -3529,6 +3843,24 @@ export type SitePluginPluginOptionsQueriesFilterInput = {
   sm?: Maybe<StringQueryOperatorInput>;
   md?: Maybe<StringQueryOperatorInput>;
   l?: Maybe<StringQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsTables = {
+  baseId?: Maybe<Scalars['String']>;
+  tableName?: Maybe<Scalars['String']>;
+  separateNodeType?: Maybe<Scalars['Boolean']>;
+  separateMapType?: Maybe<Scalars['Boolean']>;
+};
+
+export type SitePluginPluginOptionsTablesFilterInput = {
+  baseId?: Maybe<StringQueryOperatorInput>;
+  tableName?: Maybe<StringQueryOperatorInput>;
+  separateNodeType?: Maybe<BooleanQueryOperatorInput>;
+  separateMapType?: Maybe<BooleanQueryOperatorInput>;
+};
+
+export type SitePluginPluginOptionsTablesFilterListInput = {
+  elemMatch?: Maybe<SitePluginPluginOptionsTablesFilterInput>;
 };
 
 export type SitePluginSortInput = {
