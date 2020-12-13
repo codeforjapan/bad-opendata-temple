@@ -24,7 +24,7 @@ export default function Template({ data }: IProps) {
             提供者：<span>{airtable.data.Name}</span>
           </p>
           <p>
-            <a href={airtable.data.URL}>供養後のページへ</a>
+            <a href={airtable.data.URL}>詳細ページへ</a>
           </p>
           <h2>{airtable.data.Date}</h2>
           <p>{airtable.data.Description}</p>
