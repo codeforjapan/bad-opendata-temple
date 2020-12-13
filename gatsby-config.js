@@ -3,19 +3,19 @@ const customQueries = {
   sm: '(max-width: 600px)',
   md: '(max-width: 1024px)',
   l: '(max-width: 1536px)',
-}
+};
 
 module.exports = {
   siteMetadata: {
     title: `BADオープンデータ供養寺`,
     description: '「BADオープンデータ供養寺」は世の中に災厄をもたらすBADなデータが二度とこの世を彷徨わないように「供養（データクレンジング）」するために建立されました。',
-    keywords: 'オープンデータ, データ活用, データクレンジング, データエンジニアリング, データマネジメント, シビックテック, Code for Japan'
+    keywords: 'オープンデータ, データ活用, データクレンジング, データエンジニアリング, データマネジメント, シビックテック, Code for Japan',
   },
   plugins: [{
       resolve: `gatsby-plugin-manifest`,
       options: {
         icon: 'src/contents/images/favicon.png',
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -29,8 +29,8 @@ module.exports = {
       options: {
         test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
         exclude: /(node_modules|.cache|public)/,
-        stages: ['develop']
-      }
+        stages: ['develop'],
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -53,7 +53,13 @@ module.exports = {
             resolve: `gatsby-remark-copy-linked-files`,
             options: {
               destinationDir: `static`,
-              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+              ignoreFileExtensions: [
+                `png`,
+                `jpg`,
+                `jpeg`,
+                `bmp`,
+                `tiff`,
+              ],
             },
           },
           {
@@ -69,7 +75,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {
-      resolve: "gatsby-plugin-graphql-codegen",
+      resolve: 'gatsby-plugin-graphql-codegen',
       options: {
         fileName: `types/graphql-types.d.ts`,
       },
@@ -80,17 +86,17 @@ module.exports = {
       options: {
         custom: {
           families: ['PixelMplus10'],
-          urls: ['/fonts/fonts.css']
-        }
-      }
+          urls: ['/fonts/fonts.css'],
+        },
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: 'G-QBEEGLVETR'
-      }
+        trackingId: 'G-QBEEGLVETR',
+      },
     },
     {
       resolve: `gatsby-plugin-breakpoints`,
@@ -98,5 +104,19 @@ module.exports = {
         queries: customQueries,
       },
     },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: `keyXEJZJavw9RKqwp`, // may instead specify via env, see below
+        concurrency: 5, // default, see using markdown and attachments for more information
+        tables: [{
+          baseId: `appFtv1tgnxPshP5P`,
+          tableName: `cleansing-cases`,
+          tableView: 'published',
+          separateNodeType: false, // boolean, default is false, see the documentation on naming conflicts for more information
+          separateMapType: false, // boolean, default is false, see the documentation on using markdown and attachments for more information
+        }, ],
+      },
+    },
   ],
-}
+};

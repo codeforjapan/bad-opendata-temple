@@ -27,6 +27,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-copy-linked-files": "^2.4.0",
     "gatsby-remark-images": "^3.5.1",
+    "gatsby-source-airtable": "^2.1.1",
     "gatsby-source-filesystem": "^2.3.35",
     "gatsby-transformer-csv": "^2.3.14",
     "gatsby-transformer-remark": "^2.8.46",
@@ -36,9 +37,11 @@
     "react-h5-audio-player": "^3.4.1",
     "react-helmet": "^5.2.1",
     "react-transition-group": "^4.4.1",
+    "remark-html": "^13.0.1",
     "styled-components": "^5.2.1",
     "suncalc": "^1.8.0",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.2",
+    "unified": "^9.2.0"
   },
   "keywords": [
     "gatsby, typescript"
