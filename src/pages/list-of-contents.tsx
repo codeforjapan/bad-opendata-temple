@@ -30,6 +30,14 @@ export default function ListOfContentsPage({
           )}
         />
       </div>
+      <div className="blog-post-content">
+        <h2>供養事例をお供え下さい！</h2>
+        <div>
+          供養事例をご紹介いただける方は、
+          <a href="/kuyouform">供養事例のご奉納</a>
+          よりご連絡ください。
+        </div>
+      </div>
     </Layout>
   );
 }
