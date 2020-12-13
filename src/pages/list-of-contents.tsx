@@ -58,7 +58,8 @@ export const pageQuery = graphql`
     allAirtable(limit: 100
       filter: {
         table:{eq: "cleansing-cases"}
-      }) {
+      },
+      sort: {fields: data___Date, order: DESC}) {
         edges{
           node{
             fields {
