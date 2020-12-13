@@ -1,29 +1,48 @@
-exports.createPages = async ({ actions, graphql, reporter }) => {
-    const { createPage } = actions
-    const mdTemplate = require.resolve(`./src/templates/mdTemplate.tsx`)
-    const result = await graphql(`
-      {
-        allMarkdownRemark(
-          filter: {fileAbsolutePath: {regex: "/(markdown)/"  }}
-          sort: { order: DESC, fields: [frontmatter___date] }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              frontmatter {
-                slug
-              }
+const slash = require('slash');
+exports.createPages = async ({
+  actions,
+  graphql,
+  reporter,
+}) => {
+  const {
+    createPage
+  } = actions;
+  const mdTemplate = require.resolve(
+    `./src/templates/mdTemplate.tsx`,
+  );
+  const atTemplate = require.resolve(
+    `./src/templates/atTemplate.tsx`,
+  );
+  const result = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/(markdown)/" }
+        }
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            frontmatter {
+              slug
             }
           }
         }
       }
-    `)
-    // Handle errors
-    if (result.errors) {
-      reporter.panicOnBuild(`Error while running GraphQL query.`)
-      return
     }
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  `);
+  // Handle errors
+  if (result.errors) {
+    reporter.panicOnBuild(
+      `Error while running GraphQL query.`,
+    );
+    return;
+  }
+  result.data.allMarkdownRemark.edges.forEach(
+    ({
+      node
+    }) => {
       createPage({
         path: node.frontmatter.slug,
         component: mdTemplate,
@@ -31,6 +50,32 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           // additional data can be passed via context
           slug: node.frontmatter.slug,
         },
-      })
-    })
-  }
+      });
+    },
+  );
+
+  // airtable records
+  const result_airtable = await graphql(`
+    {
+      allAirtable(
+        limit: 10
+        filter: { table: { eq: "cleansing-cases" } }
+      ) {
+        edges {
+          node {
+            recordId
+          }
+        }
+      }
+    }
+  `);
+  result_airtable.data.allAirtable.edges.forEach((edge) => {
+    createPage({
+      path: `kuyou/${edge.node.recordId}`,
+      component: slash(atTemplate),
+      context: {
+        recordId: edge.node.recordId,
+      },
+    });
+  });
+};

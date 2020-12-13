@@ -112,6 +112,7 @@ module.exports = {
         tables: [{
           baseId: `appFtv1tgnxPshP5P`,
           tableName: `cleansing-cases`,
+          tableView: 'published',
           separateNodeType: false, // boolean, default is false, see the documentation on naming conflicts for more information
           separateMapType: false, // boolean, default is false, see the documentation on using markdown and attachments for more information
         }, ],

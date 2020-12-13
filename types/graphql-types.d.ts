@@ -64,6 +64,7 @@ export type AirtableData = {
   More_Info?: Maybe<Scalars['String']>;
   Input_Data?: Maybe<Scalars['String']>;
   Short_Description?: Maybe<Scalars['String']>;
+  IsPublished?: Maybe<Scalars['Boolean']>;
   Image?: Maybe<Array<Maybe<AirtableDataImage>>>;
   Output_Data?: Maybe<Scalars['String']>;
   URL?: Maybe<Scalars['String']>;
@@ -86,6 +87,7 @@ export type AirtableDataFilterInput = {
   More_Info?: Maybe<StringQueryOperatorInput>;
   Input_Data?: Maybe<StringQueryOperatorInput>;
   Short_Description?: Maybe<StringQueryOperatorInput>;
+  IsPublished?: Maybe<BooleanQueryOperatorInput>;
   Image?: Maybe<AirtableDataImageFilterListInput>;
   Output_Data?: Maybe<StringQueryOperatorInput>;
   URL?: Maybe<StringQueryOperatorInput>;
@@ -264,6 +266,7 @@ export type AirtableFieldsEnum =
   | 'data___More_Info'
   | 'data___Input_Data'
   | 'data___Short_Description'
+  | 'data___IsPublished'
   | 'data___Image'
   | 'data___Image___id'
   | 'data___Image___url'
@@ -3091,10 +3094,12 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
   slug?: Maybe<Scalars['String']>;
+  recordId?: Maybe<Scalars['String']>;
 };
 
 export type SitePageContextFilterInput = {
   slug?: Maybe<StringQueryOperatorInput>;
+  recordId?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePageEdge = {
@@ -3197,6 +3202,7 @@ export type SitePageFieldsEnum =
   | 'internal___type'
   | 'isCreatedByStatefulCreatePages'
   | 'context___slug'
+  | 'context___recordId'
   | 'pluginCreator___id'
   | 'pluginCreator___parent___id'
   | 'pluginCreator___parent___parent___id'
@@ -3293,6 +3299,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___tables'
   | 'pluginCreator___pluginOptions___tables___baseId'
   | 'pluginCreator___pluginOptions___tables___tableName'
+  | 'pluginCreator___pluginOptions___tables___tableView'
   | 'pluginCreator___pluginOptions___tables___separateNodeType'
   | 'pluginCreator___pluginOptions___tables___separateMapType'
   | 'pluginCreator___pluginOptions___pathCheck'
@@ -3552,6 +3559,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___tables'
   | 'pluginOptions___tables___baseId'
   | 'pluginOptions___tables___tableName'
+  | 'pluginOptions___tables___tableView'
   | 'pluginOptions___tables___separateNodeType'
   | 'pluginOptions___tables___separateMapType'
   | 'pluginOptions___pathCheck'
@@ -3848,6 +3856,7 @@ export type SitePluginPluginOptionsQueriesFilterInput = {
 export type SitePluginPluginOptionsTables = {
   baseId?: Maybe<Scalars['String']>;
   tableName?: Maybe<Scalars['String']>;
+  tableView?: Maybe<Scalars['String']>;
   separateNodeType?: Maybe<Scalars['Boolean']>;
   separateMapType?: Maybe<Scalars['Boolean']>;
 };
@@ -3855,6 +3864,7 @@ export type SitePluginPluginOptionsTables = {
 export type SitePluginPluginOptionsTablesFilterInput = {
   baseId?: Maybe<StringQueryOperatorInput>;
   tableName?: Maybe<StringQueryOperatorInput>;
+  tableView?: Maybe<StringQueryOperatorInput>;
   separateNodeType?: Maybe<BooleanQueryOperatorInput>;
   separateMapType?: Maybe<BooleanQueryOperatorInput>;
 };
@@ -3978,6 +3988,13 @@ export type ListOfContentsQueryQuery = { allMarkdownRemark: { edges: Array<{ nod
         Pick<MarkdownRemark, 'id'>
         & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'slug' | 'date'>> }
       ) }> } };
+
+export type AtTemplateQueryVariables = Exact<{
+  recordId: Scalars['String'];
+}>;
+
+
+export type AtTemplateQuery = { airtable?: Maybe<Pick<Airtable, 'recordId'>> };
 
 export type BlogTemplateQueryVariables = Exact<{
   slug: Scalars['String'];
