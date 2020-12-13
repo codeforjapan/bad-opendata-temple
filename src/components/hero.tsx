@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import moment from 'moment';
 import SunCalc from 'suncalc';
 import Mochimaki from './mochimaki';
-import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -72,7 +71,6 @@ const TempleImg = styled((props) => <Img {...props} />)`
 `;
 
 const Hero = () => {
-  const breakpoints = useBreakpoint();
   const data = useStaticQuery(
     graphql`
       query {
@@ -163,7 +161,7 @@ const Hero = () => {
           />
         </div>
       </LogoContainer>
-      {breakpoints.sm ? null : <Mochimaki />}
+      <Mochimaki />
       <TempleContainer>
         <div>
           <TempleImg
