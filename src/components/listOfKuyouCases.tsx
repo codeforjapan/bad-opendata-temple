@@ -13,6 +13,9 @@ const ContentsListItem = styled.li`
 
 interface INode {
   recordId?: string;
+  fields?: {
+    slug?: string;
+  };
   data?: {
     Title?: string;
     Date?: string;
@@ -28,7 +31,7 @@ export default function ListOfContents(props: IProp) {
   console.log(props);
   const listItems = props.contents.map((item, index) => (
     <ContentsListItem key={index}>
-      <a href={'kuyou/' + item.recordId}>
+      <a href={item.fields.slug}>
         {item.data!.Title} - {item.data!.Date}
       </a>{' '}
       by {item.data!.Name}

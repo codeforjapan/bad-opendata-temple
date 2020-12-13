@@ -1,4 +1,21 @@
 const slash = require('slash');
+const KUYOU_BASE = 'kuyou/';
+exports.onCreateNode = ({
+  node,
+  getNode,
+  actions
+}) => {
+  const {
+    createNodeField
+  } = actions;
+  if (node.internal.type === `Airtable`) {
+    createNodeField({
+      node,
+      name: `slug`,
+      value: `${KUYOU_BASE}${node.recordId}`,
+    });
+  }
+};
 exports.createPages = async ({
   actions,
   graphql,
@@ -71,7 +88,7 @@ exports.createPages = async ({
   `);
   result_airtable.data.allAirtable.edges.forEach((edge) => {
     createPage({
-      path: `kuyou/${edge.node.recordId}`,
+      path: `${KUYOU_BASE}${edge.node.recordId}`,
       component: slash(atTemplate),
       context: {
         recordId: edge.node.recordId,

@@ -53,6 +53,9 @@ export const pageQuery = graphql`
       }) {
         edges{
           node{
+            fields {
+              slug
+            }
             recordId
             data{
               Title
