@@ -1,5 +1,5 @@
 const slash = require('slash');
-const KUYOU_BASE = 'kuyou/';
+const KUYOU_BASE = '/kuyou/';
 exports.onCreateNode = ({
   node,
   getNode,

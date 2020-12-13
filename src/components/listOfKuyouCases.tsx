@@ -28,7 +28,6 @@ interface IProp {
 }
 
 export default function ListOfContents(props: IProp) {
-  console.log(props);
   const listItems = props.contents.map((item, index) => (
     <ContentsListItem key={index}>
       <a href={item.fields.slug}>
