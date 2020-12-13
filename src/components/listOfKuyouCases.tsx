@@ -12,11 +12,11 @@ const ContentsListItem = styled.li`
 `;
 
 interface INode {
-  id: string;
-  frontmatter?: {
-    title?: string;
-    slug?: string;
-    date?: string;
+  recordId?: string;
+  data?: {
+    Title?: string;
+    Date?: string;
+    Name?: string;
   };
 }
 
@@ -28,9 +28,10 @@ export default function ListOfContents(props: IProp) {
   console.log(props);
   const listItems = props.contents.map((item, index) => (
     <ContentsListItem key={index}>
-      <a href={item.frontmatter!.slug}>
-        {item.frontmatter!.title} - {item.frontmatter!.date}
-      </a>
+      <a href={'kuyou/' + item.recordId}>
+        {item.data!.Title} - {item.data!.Date}
+      </a>{' '}
+      by {item.data!.Name}
     </ContentsListItem>
   ));
   return <ContentsList>{listItems}</ContentsList>;
