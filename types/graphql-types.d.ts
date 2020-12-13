@@ -2435,10 +2435,10 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  airtable?: Maybe<Airtable>;
-  allAirtable: AirtableConnection;
   informationCsv?: Maybe<InformationCsv>;
   allInformationCsv: InformationCsvConnection;
+  airtable?: Maybe<Airtable>;
+  allAirtable: AirtableConnection;
   hitokotoCsv?: Maybe<HitokotoCsv>;
   allHitokotoCsv: HitokotoCsvConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -2649,6 +2649,25 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryInformationCsvArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  text?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllInformationCsvArgs = {
+  filter?: Maybe<InformationCsvFilterInput>;
+  sort?: Maybe<InformationCsvSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryAirtableArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2664,25 +2683,6 @@ export type QueryAirtableArgs = {
 export type QueryAllAirtableArgs = {
   filter?: Maybe<AirtableFilterInput>;
   sort?: Maybe<AirtableSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryInformationCsvArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  date?: Maybe<DateQueryOperatorInput>;
-  text?: Maybe<StringQueryOperatorInput>;
-  url?: Maybe<StringQueryOperatorInput>;
-};
-
-
-export type QueryAllInformationCsvArgs = {
-  filter?: Maybe<InformationCsvFilterInput>;
-  sort?: Maybe<InformationCsvSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
