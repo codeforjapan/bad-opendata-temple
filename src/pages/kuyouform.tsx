@@ -7,7 +7,7 @@ const SecondPage = () => (
     <div>
       <Link to="/list-of-contents">一覧へ戻る</Link>
     </div>
-    <h1>供養事例のご奉納</h1>
+    <h1>BADオープンデータ供養事例のご奉納</h1>
     <p>
       当寺にお越しいただきありがとうございます。BADなオープンデータのクレンジングの事例をご紹介いただける方は、
       <Link
