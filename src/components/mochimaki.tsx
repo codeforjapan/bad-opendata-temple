@@ -25,9 +25,12 @@ const Mochistage = styled.div`
 `;
 
 const Mochimaki = () => {
+  const defaultStageHeight = 594;
   const [flip, setFlip] = useState(false);
   const [items, addItem] = useState([]);
-  const [stageHeight, setStageHeight] = useState(594);
+  const [stageHeight, setStageHeight] = useState(
+    defaultStageHeight,
+  );
   const stage = useRef(null);
 
   interface StringKeyObject {
@@ -41,7 +44,10 @@ const Mochimaki = () => {
 
   const position = 217;
   const convertedTransform = useMemo(() => {
-    return (position / 594) * stageHeight * -1 + 'px';
+    return (
+      (position / defaultStageHeight) * stageHeight * -1 +
+      'px'
+    );
   }, [stageHeight]);
 
   const transitionStyle: StringKeyObject = {
