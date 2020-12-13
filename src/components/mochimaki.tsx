@@ -14,7 +14,7 @@ const Mochistage = styled.div`
   z-index: 2;
   img.jushoku {
     align-self: flex-end;
-    opacity: 0;
+    opacity: 1;
   }
 `;
 const Mochimaki = () => {
@@ -24,13 +24,11 @@ const Mochimaki = () => {
   const transitionStyle: StringKeyObject = {
     entering: {
       transition: 'all 1s ease',
-      transform: 'translateY(-210px) ',
-      opacity: 1.0,
+      transform: 'translateY(-217px) ',
     },
     entered: {
       transition: 'all 1s ease',
-      transform: 'translateY(-210px) ',
-      opacity: 1.0,
+      transform: 'translateY(-217px) ',
     },
     exiting: {
       transition: 'all 1s ease',

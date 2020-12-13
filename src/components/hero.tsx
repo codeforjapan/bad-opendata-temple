@@ -13,6 +13,7 @@ const HeroContainer = styled.div`
 `;
 
 const ScaffoldContainer = styled.div`
+  pointer-events: none;
   position: absolute;
   z-index: 1;
   top: 0;
@@ -29,8 +30,9 @@ const ScaffoldContainer = styled.div`
 `;
 
 const LogoContainer = styled.div`
+  pointer-events: none;
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -51,12 +53,13 @@ const ButtonContainer = styled.div`
 `;
 const TempleContainer = styled.div`
   position: absolute;
+  pointer-events: none;
   display: flex;
   justify-content: center;
   width: 100%;
   align-items: flex-end;
   height: 100%;
-  z-index: 1;
+  z-index: 3;
   div {
     text-align: center;
     width: 50%;
