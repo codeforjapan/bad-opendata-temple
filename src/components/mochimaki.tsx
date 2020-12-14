@@ -1,4 +1,9 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+} from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
@@ -15,20 +20,44 @@ const Mochistage = styled.div`
   img.jushoku {
     align-self: flex-end;
     opacity: 1;
+    width: 6%;
   }
 `;
+
 const Mochimaki = () => {
+  const defaultStageHeight = 594;
+  const [flip, setFlip] = useState(false);
+  const [items, addItem] = useState([]);
+  const [stageHeight, setStageHeight] = useState(
+    defaultStageHeight,
+  );
+  const stage = useRef(null);
+
   interface StringKeyObject {
     [state: string]: any;
   }
+
+  useEffect(() => {
+    const height = stage.current.offsetHeight;
+    setStageHeight(height);
+  });
+
+  const position = 217;
+  const convertedTransform = useMemo(() => {
+    return (
+      (position / defaultStageHeight) * stageHeight * -1 +
+      'px'
+    );
+  }, [stageHeight]);
+
   const transitionStyle: StringKeyObject = {
     entering: {
       transition: 'all 1s ease',
-      transform: 'translateY(-217px) ',
+      transform: `translateY(${convertedTransform})`,
     },
     entered: {
       transition: 'all 1s ease',
-      transform: 'translateY(-217px) ',
+      transform: `translateY(${convertedTransform})`,
     },
     exiting: {
       transition: 'all 1s ease',
@@ -48,9 +77,6 @@ const Mochimaki = () => {
       throwMochi(false);
     },
   };
-
-  const [flip, setFlip] = useState(false);
-  const [items, addItem] = useState([]);
   const data = useStaticQuery(
     graphql`
       query {
@@ -75,6 +101,7 @@ const Mochimaki = () => {
       {(state) => (
         <div>
           <Mochistage
+            ref={stage}
             className={classNames('hero-jushoku', {
               throwing: flip,
             })}

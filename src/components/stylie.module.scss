@@ -1,0 +1,101 @@
+$viewport: 1080;
+
+@function pxToVw($num, $width: $viewport) {
+  @return (1vw * $num / $width * 100);
+}
+
+@mixin transform($x, $y, $rotateX, $rotateY, $rotateZ) {
+  transform: translate($x * 1px, $y * 1px) scale(1)
+  rotateX($rotateX) rotateY($rotateY) rotateZ($rotateZ)
+  translate(-50%, -50%);
+}
+
+@mixin convertTransform($x, $y, $rotateX, $rotateY, $rotateZ) {
+  transform: translate(pxToVw($x), pxToVw($y)) scale(1)
+    rotateX($rotateX) rotateY($rotateY) rotateZ($rotateZ)
+    translate(-50%, -50%);
+}
+
+@keyframes :global(stylie-keyframes-fix) {
+  0% {
+    @include transform(0, 320, 0deg, 178deg, 0deg);
+  }
+  8.33% {
+    @include transform(51.625, 201.0625, 0deg, 178deg, 0deg);
+  }
+  16.67% {
+    @include transform(59.5, 176.75, 0deg, 177.5deg, 0.5deg);
+  }
+  25% {
+    @include transform(96.375, 137.9375, 0deg, 177.75deg, 0.25deg);
+  }
+  33.33% {
+    @include transform(148, 125, 0deg, 178deg, 0deg);
+  }
+  41.67% {
+    @include transform(229.7969, 181.3643, 0deg, 177.875deg, 0deg);
+  }
+  50% {
+    @include transform(300.6875, 350.457, 0deg, 177.75deg, 0deg);
+  }
+  58.33% {
+    @include transform(360.6719, 587.5596, 0deg, 177.625deg, 0deg);
+  }
+  66.67% {
+    @include transform(409.75, 490.2031, 0deg, 177.5deg, 0deg);
+  }
+  75% {
+    @include transform(447.9219, 505.5752, 0deg, 177.375deg, 0deg);
+  }
+  83.33% {
+    @include transform(475.1875, 588.957, 0deg, 177.25deg, 0deg);
+  }
+  91.67% {
+    @include transform(491.5469, 583.833, 0deg, 177.125deg, 0deg);
+  }
+  100% {
+    @include transform(497, 602, 0deg, 177deg, 0deg);
+  }
+}
+
+@keyframes :global(stylie-keyframes-responsive) {
+  0% {
+    @include convertTransform(0, 320, 0deg, 178deg, 0deg);
+  }
+  8.33% {
+    @include convertTransform(51.625, 201.0625, 0deg, 178deg, 0deg);
+  }
+  16.67% {
+    @include convertTransform(59.5, 176.75, 0deg, 177.5deg, 0.5deg);
+  }
+  25% {
+    @include convertTransform(96.375, 137.9375, 0deg, 177.75deg, 0.25deg);
+  }
+  33.33% {
+    @include convertTransform(148, 125, 0deg, 178deg, 0deg);
+  }
+  41.67% {
+    @include convertTransform(229.7969, 181.3643, 0deg, 177.875deg, 0deg);
+  }
+  50% {
+    @include convertTransform(300.6875, 350.457, 0deg, 177.75deg, 0deg);
+  }
+  58.33% {
+    @include convertTransform(360.6719, 587.5596, 0deg, 177.625deg, 0deg);
+  }
+  66.67% {
+    @include convertTransform(409.75, 490.2031, 0deg, 177.5deg, 0deg);
+  }
+  75% {
+    @include convertTransform(447.9219, 505.5752, 0deg, 177.375deg, 0deg);
+  }
+  83.33% {
+    @include convertTransform(475.1875, 588.957, 0deg, 177.25deg, 0deg);
+  }
+  91.67% {
+    @include convertTransform(491.5469, 583.833, 0deg, 177.125deg, 0deg);
+  }
+  100% {
+    @include convertTransform(497, 602, 0deg, 177deg, 0deg);
+  }
+}
