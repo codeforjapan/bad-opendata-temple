@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Transition } from 'react-transition-group';
+import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import './stylie.module.scss';
 
 interface MochiPropertyType {
@@ -9,6 +10,7 @@ interface MochiPropertyType {
 }
 interface MochiImgProps {
   delay: number;
+  isMobile: boolean;
 }
 interface MochiStageProps {
   negative: boolean;
@@ -34,13 +36,19 @@ const MochiInner = styled.div`
 `;
 // const offset = 20;
 
-const MochiImg = styled.img`
+const MochiImg = styled.img.attrs((p: MochiImgProps) => ({
+  delay: p.delay,
+  isMobile: p.isMobile,
+}))`
   opacity: 0;
   transform: translate(0px, -1000000px);
   position: absolute;
-  animation-name: stylie-keyframes;
+  animation-name: ${(p) =>
+    p.isMobile
+      ? 'stylie-keyframes-responsive'
+      : 'stylie-keyframes-fix'};
   animation-duration: 1200ms;
-  animation-delay: ${(p: MochiImgProps) => p.delay}s;
+  animation-delay: ${(p) => p.delay}s;
   animation-fill-mode: forwards;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -89,6 +97,7 @@ const Mochi = (props: MochiPropertyType) => {
     setFlip(!flip);
   };
   const [flip, setFlip] = useState(true);
+  const breakpoints = useBreakpoint();
   return (
     <Transition in={flip} timeout={500}>
       {(state) => (
@@ -105,6 +114,7 @@ const Mochi = (props: MochiPropertyType) => {
               className="mochi"
               alt={'mothi-' + props.itemid}
               onClick={catchMochi}
+              isMobile={breakpoints.md}
             />
           </MochiInner>
         </MochiStage>
