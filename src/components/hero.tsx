@@ -14,7 +14,7 @@ const HeroContainer = styled.div`
 const ScaffoldContainer = styled.div`
   pointer-events: none;
   position: absolute;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -31,7 +31,7 @@ const ScaffoldContainer = styled.div`
 const LogoContainer = styled.div`
   pointer-events: none;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
@@ -58,7 +58,7 @@ const TempleContainer = styled.div`
   width: 100%;
   align-items: flex-end;
   height: 100%;
-  z-index: 3;
+  z-index: 2;
   div {
     text-align: center;
     width: 50%;
@@ -167,8 +167,8 @@ const Hero = () => {
           <TempleImg
             fluid={
               isDayTime
-                ? data.templedNight.childImageSharp.fluid
-                : data.templedDay.childImageSharp.fluid
+                ? data.templedDay.childImageSharp.fluid
+                : data.templedNight.childImageSharp.fluid
             }
             alt="本堂"
           />
