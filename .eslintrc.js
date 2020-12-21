@@ -22,6 +22,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'no-use-before-define': 'off',
+    'react/prop-types': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
   },
   settings: {
