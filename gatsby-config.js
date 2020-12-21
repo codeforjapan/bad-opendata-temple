@@ -1,3 +1,5 @@
+const path = require('path');
+
 const customQueries = {
   xs: '(max-width: 320px)',
   sm: '(max-width: 600px)',
@@ -24,7 +26,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `markdown-contents`,
-        path: `${__dirname}/src/contents/markdown`,
+        path: path.join(__dirname, 'src/contents/markdown'),
       },
     },
     {
@@ -39,14 +41,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `csv-contents`,
-        path: `${__dirname}/src/contents/csv`,
+        path: path.join(__dirname, 'src/contents/csv'),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/contents/images`,
+        path: path.join(__dirname, 'src/contents/images'),
       },
     },
     {
