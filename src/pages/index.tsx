@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
-import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import '../components/layout.css';
@@ -16,6 +15,7 @@ import DaysFromFoundation from '../components/daysFromFoundation';
 import RandomWord from '../components/randomWord';
 import Information from '../components/information';
 import Footer from '../components/footer';
+import Head from '../components/head';
 
 const Container = styled.div`
   margin: 0 auto;
@@ -72,16 +72,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const breakpoints = useBreakpoint();
 
   return (
-    <div>
-      <Helmet
-        title={data.site.siteMetadata.title}
-        meta={[
-          {
-            name: 'description',
-            content: data.site.siteMetadata.description,
-          },
-        ]}
-      />
+    <>
+      <Head />
       <Container>
         <Header />
         <Hero />
@@ -118,7 +110,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         </ContentWrap>
         <Footer />
       </Container>
-    </div>
+    </>
   );
 };
 
