@@ -2,7 +2,20 @@
   "name": "bad-opendata-temple",
   "description": "Bad Opendata Temple site source",
   "version": "1.0.0",
-  "author": "Bad Opendata Temple Contributers",
+  "author": "Bad Opendata Temple Contributors",
+  "keywords": [
+    "gatsby, typescript"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.{js,ts,tsx}*\"",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
+    "test": "echo 'skip tests (there is no test)'"
+  },
   "dependencies": {
     "@types/classnames": "^2.2.11",
     "@types/node": "^8.0.7",
@@ -44,19 +57,6 @@
     "suncalc": "^1.8.0",
     "typescript": "^3.7.2",
     "unified": "^9.2.0"
-  },
-  "keywords": [
-    "gatsby, typescript"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --parser typescript --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.{js,ts,tsx}*\"",
-    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
-    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'",
-    "test": "echo 'skip tests (there is no test)'"
   },
   "devDependencies": {
     "@types/figlet": "^1.2.1",
