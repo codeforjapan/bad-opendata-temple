@@ -25,7 +25,6 @@ const SecondPage = () => (
       className="airtable-embed airtable-dynamic-height"
       src="https://airtable.com/embed/shr61aoXeA1JsF3aE?backgroundColor=purple"
       frameBorder="0"
-      onmousewheel=""
       width="100%"
       height="2453"
       style={{
