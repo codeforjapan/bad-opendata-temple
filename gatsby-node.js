@@ -1,13 +1,7 @@
 const slash = require('slash');
 const KUYOU_BASE = '/kuyou/';
-exports.onCreateNode = ({
-  node,
-  getNode,
-  actions
-}) => {
-  const {
-    createNodeField
-  } = actions;
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
   if (node.internal.type === `Airtable`) {
     createNodeField({
       node,
@@ -21,9 +15,7 @@ exports.createPages = async ({
   graphql,
   reporter,
 }) => {
-  const {
-    createPage
-  } = actions;
+  const { createPage } = actions;
   const mdTemplate = require.resolve(
     `./src/templates/mdTemplate.tsx`,
   );
@@ -57,9 +49,7 @@ exports.createPages = async ({
     return;
   }
   result.data.allMarkdownRemark.edges.forEach(
-    ({
-      node
-    }) => {
+    ({ node }) => {
       createPage({
         path: node.frontmatter.slug,
         component: mdTemplate,
@@ -72,7 +62,7 @@ exports.createPages = async ({
   );
 
   // airtable records
-  const result_airtable = await graphql(`
+  const resultAirtable = await graphql(`
     {
       allAirtable(
         limit: 10
@@ -86,7 +76,7 @@ exports.createPages = async ({
       }
     }
   `);
-  result_airtable.data.allAirtable.edges.forEach((edge) => {
+  resultAirtable.data.allAirtable.edges.forEach((edge) => {
     createPage({
       path: `${KUYOU_BASE}${edge.node.recordId}`,
       component: slash(atTemplate),

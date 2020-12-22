@@ -1,20 +1,20 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import { graphql, useStaticQuery } from 'gatsby';
+import { File } from '../../types/graphql-types';
 
-type Props = {
-  bgImg: string;
+type ContentWrapData = {
+  bgImg: File;
 };
 
-const BackGroundWrap = styled.div`
+const BackGroundWrap = styled.div<ContentWrapData>`
   background-color: #078282;
-  background-image: url(${(props: Props) => props.bgImg});
+  background-image: url(${({ bgImg }) => bgImg.publicURL});
   background-repeat: repeat;
 `;
 
-const ContentWrap: React.FC<Props> = ({ children }) => {
-  const data = useStaticQuery(graphql`
+const ContentWrap: React.FC = ({ children }) => {
+  const data = useStaticQuery<ContentWrapData>(graphql`
     query {
       bgImg: file(relativePath: { eq: "background.svg" }) {
         publicURL
@@ -23,14 +23,10 @@ const ContentWrap: React.FC<Props> = ({ children }) => {
   `);
 
   return (
-    <BackGroundWrap bgImg={data.bgImg.publicURL}>
+    <BackGroundWrap bgImg={data.bgImg}>
       {children}
     </BackGroundWrap>
   );
 };
-
-ContentWrap.propTypes = {
-  children: PropTypes.node,
-} as React.WeakValidationMap<Props>;
 
 export default ContentWrap;
