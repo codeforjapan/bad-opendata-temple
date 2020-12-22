@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import styled from 'styled-components';
 import '../components/layout.css';
@@ -105,14 +105,3 @@ const IndexPage: React.FC = () => {
 };
 
 export default IndexPage;
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`;

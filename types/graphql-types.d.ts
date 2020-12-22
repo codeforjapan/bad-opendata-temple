@@ -4033,11 +4033,6 @@ export type Unnamed_10_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_10_Query = { allHitokotoCsv: { nodes: Array<Pick<HitokotoCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
 
-export type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type IndexQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }> };
-
 export type ListOfContentsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
