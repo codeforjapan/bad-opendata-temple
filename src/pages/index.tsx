@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import '../components/layout.css';
 import ContentWrap from '../components/contentWrap';
 import GlobalNavigation from '../components/globalNavigation';
@@ -42,33 +41,24 @@ const ComponentWrap = styled.div`
   margin: 30px 0;
 `;
 
-const FlexWrap = styled.div.attrs(
-  (props: IndexPageProps) => ({
-    isMobile: props.isMobile,
+type FlexWrapProps = {
+  isMobile: boolean;
+};
+const FlexWrap = styled.div.attrs<FlexWrapProps>(
+  ({ isMobile }) => ({
+    isMobile: isMobile,
   }),
 )`
   display: flex;
   justify-content: space-around;
-  flex-direction: ${(props) =>
-    props.isMobile ? 'column' : 'row'};
+  flex-direction: ${({ isMobile }: FlexWrapProps) =>
+    isMobile ? 'column' : 'row'};
   > * {
     margin: 16px;
   }
 `;
 
-interface IndexPageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-      };
-    };
-  };
-  isMobile: boolean;
-}
-
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+const IndexPage: React.FC = () => {
   const breakpoints = useBreakpoint();
 
   return (
@@ -113,14 +103,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     </>
   );
 };
-
-IndexPage.propTypes = {
-  data: PropTypes.object,
-  'data.site': PropTypes.object,
-  'data.site.siteMetadata': PropTypes.object,
-  'data.site.siteMetadata.title': PropTypes.string,
-  'data.site.siteMetadata.description': PropTypes.string,
-} as React.WeakValidationMap<IndexPageProps>;
 
 export default IndexPage;
 
