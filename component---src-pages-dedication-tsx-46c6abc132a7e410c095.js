@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{jf7U:function(n,e,a){"use strict";a.r(e);var c=a("q1tI"),o=a("vOnD"),t=a("hTNA"),d=o.a.div.withConfig({displayName:"dedication__Background",componentId:"sc-1sqcj61-0"})(["background-color:#fff;padding:30px;"]);e.default=function(){return c.createElement(d,null,c.createElement(t.a,{name:"BOD"}))}}}]);
+//# sourceMappingURL=component---src-pages-dedication-tsx-46c6abc132a7e410c095.js.map
