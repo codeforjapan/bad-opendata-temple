@@ -25,6 +25,10 @@ const BigBellImg = styled((props) => <Img {...props} />)`
   align-items: flex-end;
 `;
 
+const StickImg = styled((props) => <Img {...props} />)`
+  pointer-events: none;
+`;
+
 const StickContainer = styled.div`
   position: relative;
   height: 50%;
@@ -89,7 +93,10 @@ const BigBell = () => {
   const stick = useRef(null);
   const el = useRef(null);
   const stickImg = useRef(null);
-  const windowWidth = UseWindowDimensions().width;
+  const windowWidth =
+    UseWindowDimensions().width > 1080
+      ? 1080
+      : UseWindowDimensions().width;
   const [count, setCount] = useState(108);
   const [isSeparated, separate] = useState(true);
 
@@ -127,11 +134,11 @@ const BigBell = () => {
               }
             }}
           >
-            <Img
+            <StickImg
               ref={stickImg}
               fluid={data.stick1.childImageSharp.fluid}
               alt="鐘付き棒"
-            ></Img>
+            />
           </Rnd>
           <audio ref={el}>
             <source
