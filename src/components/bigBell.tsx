@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
@@ -27,14 +27,28 @@ const BigBellImg = styled((props) => <Img {...props} />)`
 
 const StickContainer = styled.div`
   position: relative;
-  margin: 11% 50%;
+  height: 50%;
 `;
+
+const Counter = styled.p`
+  margin-bottom: ${(props) => props.margin}px;
+  font-size: ${(props) => props.fontSize}px;
+`;
+
+const NumberText = styled.span`
+  color: #ebff00;
+  background-color: #000000;
+  padding: 2px 3px 2px 5px;
+  margin: 0 2px;
+  box-sizing: border-box;
+`;
+
 const style = {
   'pointer-events': 'auto',
   alignItems: 'center',
   justifyContent: 'center',
-  border: 'solid 1px #ddd',
-  background: '#433100',
+  border: 'solid 0px',
+  background: 'transparent',
   cursor: 'ew-resize',
 };
 
@@ -51,12 +65,33 @@ const BigBell = () => {
             }
           }
         }
+        stick1: file(
+          relativePath: { eq: "kanetukibou_1.png" }
+        ) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        stick2: file(
+          relativePath: { eq: "kanetukibou_2.png" }
+        ) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `,
   );
   const stick = useRef(null);
   const el = useRef(null);
+  const stickImg = useRef(null);
   const windowWidth = UseWindowDimensions().width;
+  const [count, setCount] = useState(108);
+  const [isSeparated, separate] = useState(true);
 
   return (
     <>
@@ -65,17 +100,38 @@ const BigBell = () => {
           <Rnd
             ref={stick}
             style={style}
-            size={{ width: 100, height: 25 }}
-            position={{ x: windowWidth / 10, y: 0 }}
+            size={{
+              width: windowWidth / 12,
+              height: windowWidth / 12,
+            }}
+            position={{
+              x: windowWidth / 4 + windowWidth / 10,
+              y: ((windowWidth / 2) * (180 / 328)) / 2,
+            }}
             dragAxis="x"
             enableResizing={false}
             onDrag={(_e, d) => {
-              if (d.x <= windowWidth / 26) {
-                el.current.play();
+              if (d.x <= windowWidth / 3.5) {
+                if (isSeparated) {
+                  if (!el.current.paused) {
+                    el.current.pause();
+                    el.current.currentTime = 0;
+                  }
+                  el.current.play();
+                  setCount(count - 1);
+                  console.log('PLAY');
+                  separate(false);
+                }
+              } else {
+                separate(true);
               }
             }}
           >
-            鐘付き棒
+            <Img
+              ref={stickImg}
+              fluid={data.stick1.childImageSharp.fluid}
+              alt="鐘付き棒"
+            ></Img>
           </Rnd>
           <audio ref={el}>
             <source
@@ -92,6 +148,20 @@ const BigBell = () => {
             alt="除夜の鐘"
           />
         </div>
+      </BigBellContainer>
+      <BigBellContainer>
+        <Counter
+          margin={windowWidth / 5}
+          fontSize={windowWidth / 50}
+        >
+          {[...count.toString()].map((str, index) => {
+            return (
+              <NumberText key={str + String(index)}>
+                {str}
+              </NumberText>
+            );
+          })}
+        </Counter>
       </BigBellContainer>
     </>
   );
