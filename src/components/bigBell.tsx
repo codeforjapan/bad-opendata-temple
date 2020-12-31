@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { Rnd } from 'react-rnd';
-import UseWindowDimensions from './useWindowDimensions';
 import Omikuji from './omikuji';
 
 const BigBellContainer = styled.div`
@@ -96,10 +95,6 @@ const BigBell = () => {
   const special = useRef(null);
   const stick1Img = useRef(null);
   const stick2Img = useRef(null);
-  const windowWidth =
-    UseWindowDimensions().width > 1080
-      ? 1080
-      : UseWindowDimensions().width;
   const BONNOU_COUNT = 108;
   const [count, setCount] = useState(BONNOU_COUNT);
   const [isSeparated, separate] = useState(true);
@@ -108,7 +103,11 @@ const BigBell = () => {
     isSpecialContentOpened,
     openSpecialContent,
   ] = useState(false);
-
+  const windowWidth = () => {
+    return window.innerWidth > 1080
+      ? 1080
+      : window.innerWidth;
+  };
   return (
     <>
       <BigBellContainer display="true">
@@ -116,17 +115,17 @@ const BigBell = () => {
           <Rnd
             style={style}
             size={{
-              width: windowWidth / 12,
-              height: windowWidth / 12,
+              width: windowWidth() / 12,
+              height: windowWidth() / 12,
             }}
             position={{
-              x: windowWidth / 4 + windowWidth / 10,
-              y: ((windowWidth / 2) * (180 / 328)) / 2,
+              x: windowWidth() / 4 + windowWidth() / 10,
+              y: ((windowWidth() / 2) * (180 / 328)) / 2,
             }}
             dragAxis="x"
             enableResizing={false}
             onDrag={(_e, d) => {
-              if (d.x <= windowWidth / 3.5) {
+              if (d.x <= windowWidth() / 3.5) {
                 if (isSeparated) {
                   try {
                     if (!el.current.paused) {
@@ -193,8 +192,8 @@ const BigBell = () => {
       </BigBellContainer>
       <BigBellContainer display="true">
         <Counter
-          margin={windowWidth / 5}
-          fontSize={windowWidth / 50}
+          margin={windowWidth() / 5}
+          fontSize={windowWidth() / 50}
         >
           {[...count.toString()].map((str, index) => {
             return (
