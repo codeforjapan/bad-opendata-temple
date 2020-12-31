@@ -4,11 +4,12 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { Rnd } from 'react-rnd';
 import UseWindowDimensions from './useWindowDimensions';
+import Omikuji from './omikuji';
 
 const BigBellContainer = styled.div`
   position: absolute;
   pointer-events: none;
-  display: flex;
+  display: ${(props) => (props.display ? 'flex' : 'none')};
   justify-content: center;
   width: 100%;
   align-items: flex-end;
@@ -97,12 +98,14 @@ const BigBell = () => {
     UseWindowDimensions().width > 1080
       ? 1080
       : UseWindowDimensions().width;
-  const [count, setCount] = useState(108);
+  const BONNOU_COUNT = 108;
+  const [count, setCount] = useState(BONNOU_COUNT);
   const [isSeparated, separate] = useState(true);
+  const [isOmikujiOpened, openOmikuji] = useState(false);
 
   return (
     <>
-      <BigBellContainer>
+      <BigBellContainer display="true">
         <StickContainer>
           <Rnd
             ref={stick}
@@ -120,17 +123,24 @@ const BigBell = () => {
             onDrag={(_e, d) => {
               if (d.x <= windowWidth / 3.5) {
                 if (isSeparated) {
-                  if (!el.current.paused) {
-                    el.current.pause();
-                    el.current.currentTime = 0;
-                  }
-                  el.current.play();
+                  try {
+                    if (!el.current.paused) {
+                      el.current.pause();
+                      el.current.currentTime = 0;
+                    }
+                    el.current.play();
+                  } catch (e) {}
                   setCount(count - 1);
+                  if (count <= 1) {
+                    openOmikuji(true);
+                    setCount(BONNOU_COUNT);
+                  }
                   console.log('PLAY');
                   separate(false);
                 }
               } else {
                 separate(true);
+                openOmikuji(false);
               }
             }}
           >
@@ -148,7 +158,7 @@ const BigBell = () => {
           </audio>
         </StickContainer>
       </BigBellContainer>
-      <BigBellContainer>
+      <BigBellContainer display="true">
         <div>
           <BigBellImg
             fluid={data.bigBell.childImageSharp.fluid}
@@ -156,7 +166,7 @@ const BigBell = () => {
           />
         </div>
       </BigBellContainer>
-      <BigBellContainer>
+      <BigBellContainer display="true">
         <Counter
           margin={windowWidth / 5}
           fontSize={windowWidth / 50}
@@ -169,6 +179,9 @@ const BigBell = () => {
             );
           })}
         </Counter>
+      </BigBellContainer>
+      <BigBellContainer display={isOmikujiOpened}>
+        <Omikuji />
       </BigBellContainer>
     </>
   );
