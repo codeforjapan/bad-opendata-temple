@@ -54,6 +54,7 @@
     "react-rnd": "^10.2.4",
     "react-transition-group": "^4.4.1",
     "remark-html": "^13.0.1",
+    "remark-parse": "^9.0.0",
     "styled-components": "^5.2.1",
     "suncalc": "^1.8.0",
     "typescript": "^3.7.2",

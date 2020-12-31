@@ -1,5 +1,8 @@
 const path = require('path');
 
+const SITE_NAME = 'BADオープンデータ供養寺';
+const SITE_URL = 'https://bad-data.rip';
+
 const customQueries = {
   xs: '(max-width: 320px)',
   sm: '(max-width: 600px)',
@@ -9,11 +12,13 @@ const customQueries = {
 
 module.exports = {
   siteMetadata: {
-    title: `BADオープンデータ供養寺`,
-    description:
-      '「BADオープンデータ供養寺」は世の中に災厄をもたらすBADなデータが二度とこの世を彷徨わないように「供養（データクレンジング）」するために建立されました。',
+    title: SITE_NAME,
+    siteName: SITE_NAME,
+    siteUrl: SITE_URL,
+    description: `「${SITE_NAME}」は世の中に災厄をもたらすBADなデータが二度とこの世を彷徨わないように「供養（データクレンジング）」するために建立されました。`,
     keywords:
       'オープンデータ, データ活用, データクレンジング, データエンジニアリング, データマネジメント, シビックテック, Code for Japan',
+    type: 'website',
   },
   plugins: [
     {
