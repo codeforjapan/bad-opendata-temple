@@ -78,10 +78,16 @@ const Head: React.VFC<Props> = (props) => {
         },
         {
           property: 'og:image',
-          content: file.childImageSharp.resize.src,
+          content:
+            siteMetadata.siteUrl +
+            file.childImageSharp.resize.src,
         },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '896' },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
       ]}
     />
   );
