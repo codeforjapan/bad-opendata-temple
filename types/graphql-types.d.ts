@@ -3986,52 +3986,62 @@ export type Unnamed_1_Query = { orin?: Maybe<{ childImageSharp?: Maybe<{ fixed?:
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { bgImg?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_2_Query = { bigBell?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, stick1?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, stick2?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_3_Query = { red?: Maybe<Pick<File, 'publicURL'>>, white?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_3_Query = { bgImg?: Maybe<Pick<File, 'publicURL'>> };
 
 export type Unnamed_4_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_4_Query = { temple?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }>, wordart?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+export type Unnamed_4_Query = { red?: Maybe<Pick<File, 'publicURL'>>, white?: Maybe<Pick<File, 'publicURL'>> };
+
+export type Unnamed_5_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_5_Query = { temple?: Maybe<{ childImageSharp?: Maybe<{ fixed?: Maybe<GatsbyImageSharpFixedFragment> }> }>, wordart?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type HeadQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HeadQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteName' | 'siteUrl' | 'description' | 'keywords' | 'type'>> }>, file?: Maybe<{ childImageSharp?: Maybe<{ resize?: Maybe<Pick<ImageSharpResize, 'src'>> }> }> };
 
-export type Unnamed_5_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_5_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, github?: Maybe<Pick<File, 'publicURL'>> };
-
 export type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_6_Query = { logo?: Maybe<Pick<File, 'publicURL'>>, scaffold?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundDay?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templedDay?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templedNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+export type Unnamed_6_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, github?: Maybe<Pick<File, 'publicURL'>> };
 
 export type Unnamed_7_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_7_Query = { allInformationCsv: { nodes: Array<Pick<InformationCsv, 'date' | 'text' | 'url'>> } };
+export type Unnamed_7_Query = { logo?: Maybe<Pick<File, 'publicURL'>>, scaffold?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, backgroundDay?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templedDay?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, templedNight?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 export type Unnamed_8_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_8_Query = { mochi_red?: Maybe<Pick<File, 'publicURL'>>, mochi_white?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_8_Query = { allInformationCsv: { nodes: Array<Pick<InformationCsv, 'date' | 'text' | 'url'>> } };
 
 export type Unnamed_9_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_9_Query = { jushoku?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_9_Query = { mochi_red?: Maybe<Pick<File, 'publicURL'>>, mochi_white?: Maybe<Pick<File, 'publicURL'>> };
 
 export type Unnamed_10_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_10_Query = { allHitokotoCsv: { nodes: Array<Pick<HitokotoCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
+export type Unnamed_10_Query = { jushoku?: Maybe<Pick<File, 'publicURL'>> };
+
+export type Unnamed_11_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_11_Query = { nenga1?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, nenga2?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, nenga3?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, nenga4?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }>, nenga5?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+
+export type Unnamed_12_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_12_Query = { allHitokotoCsv: { nodes: Array<Pick<HitokotoCsv, 'word'>> }, file?: Maybe<Pick<File, 'publicURL'>> };
 
 export type ListOfContentsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
