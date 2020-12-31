@@ -132,6 +132,9 @@ const BigBell = () => {
                       el.current.pause();
                       el.current.currentTime = 0;
                     }
+                    el.current.volume =
+                      d.deltaX < -30 ? 1 : d.deltaX / -30;
+                    console.log(el.current.volume);
                     el.current.play();
                     windUp(false);
                   } catch (e) {}
