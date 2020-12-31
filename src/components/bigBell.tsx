@@ -93,6 +93,7 @@ const BigBell = () => {
     `,
   );
   const el = useRef(null);
+  const special = useRef(null);
   const stick1Img = useRef(null);
   const stick2Img = useRef(null);
   const windowWidth =
@@ -102,8 +103,11 @@ const BigBell = () => {
   const BONNOU_COUNT = 108;
   const [count, setCount] = useState(BONNOU_COUNT);
   const [isSeparated, separate] = useState(true);
-  const [isWoundUp, windUp] = useState(true);
-  const [isOmikujiOpened, openOmikuji] = useState(false);
+  const [isWoundUp, windUp] = useState(false);
+  const [
+    isSpecialContentOpened,
+    openSpecialContent,
+  ] = useState(false);
 
   return (
     <>
@@ -134,17 +138,20 @@ const BigBell = () => {
                   } catch (e) {}
                   setCount(count - 1);
                   if (count <= 1) {
-                    openOmikuji(true);
+                    openSpecialContent(true);
                     setCount(BONNOU_COUNT);
+                    special.current.play();
                   }
                   console.log('PLAY');
                   separate(false);
                 }
               } else {
                 separate(true);
-                openOmikuji(false);
+                openSpecialContent(false);
                 if (d.deltaX < -2) {
                   windUp(true);
+                } else if (d.deltaX > 0) {
+                  windUp(false);
                 }
               }
             }}
@@ -165,6 +172,12 @@ const BigBell = () => {
           <audio ref={el}>
             <source
               src="/mp3/bell03.mp3"
+              type="audio/mp3"
+            />
+          </audio>
+          <audio ref={special}>
+            <source
+              src="/mp3/bonnou_taisan.mp3"
               type="audio/mp3"
             />
           </audio>
@@ -192,7 +205,7 @@ const BigBell = () => {
           })}
         </Counter>
       </BigBellContainer>
-      <BigBellContainer display={isOmikujiOpened}>
+      <BigBellContainer display={isSpecialContentOpened}>
         <Omikuji />
       </BigBellContainer>
     </>
