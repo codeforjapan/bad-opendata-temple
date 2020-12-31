@@ -28,6 +28,7 @@ const BigBellImg = styled((props) => <Img {...props} />)`
 
 const StickImg = styled((props) => <Img {...props} />)`
   pointer-events: none;
+  display: ${(props) => (props.display ? 'flex' : 'none')};
 `;
 
 const StickContainer = styled.div`
@@ -91,9 +92,9 @@ const BigBell = () => {
       }
     `,
   );
-  const stick = useRef(null);
   const el = useRef(null);
-  const stickImg = useRef(null);
+  const stick1Img = useRef(null);
+  const stick2Img = useRef(null);
   const windowWidth =
     UseWindowDimensions().width > 1080
       ? 1080
@@ -101,6 +102,7 @@ const BigBell = () => {
   const BONNOU_COUNT = 108;
   const [count, setCount] = useState(BONNOU_COUNT);
   const [isSeparated, separate] = useState(true);
+  const [isWoundUp, windUp] = useState(true);
   const [isOmikujiOpened, openOmikuji] = useState(false);
 
   return (
@@ -108,7 +110,6 @@ const BigBell = () => {
       <BigBellContainer display="true">
         <StickContainer>
           <Rnd
-            ref={stick}
             style={style}
             size={{
               width: windowWidth / 12,
@@ -129,6 +130,7 @@ const BigBell = () => {
                       el.current.currentTime = 0;
                     }
                     el.current.play();
+                    windUp(false);
                   } catch (e) {}
                   setCount(count - 1);
                   if (count <= 1) {
@@ -141,13 +143,23 @@ const BigBell = () => {
               } else {
                 separate(true);
                 openOmikuji(false);
+                if (d.deltaX < -2) {
+                  windUp(true);
+                }
               }
             }}
           >
             <StickImg
-              ref={stickImg}
+              ref={stick1Img}
+              display={!isWoundUp}
               fluid={data.stick1.childImageSharp.fluid}
               alt="鐘付き棒"
+            />
+            <StickImg
+              ref={stick2Img}
+              display={isWoundUp}
+              fluid={data.stick2.childImageSharp.fluid}
+              alt="振りかぶった鐘付き棒"
             />
           </Rnd>
           <audio ref={el}>
