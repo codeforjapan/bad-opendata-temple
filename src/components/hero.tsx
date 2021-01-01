@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 import SunCalc from 'suncalc';
 import Mochimaki from './mochimaki';
+import BigBell from './bigBell';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -59,7 +60,7 @@ const TempleContainer = styled.div`
   align-items: flex-end;
   height: 100%;
   z-index: 2;
-  div {
+  > div {
     text-align: center;
     width: 50%;
     display: flex;
@@ -141,6 +142,10 @@ const Hero = () => {
     times.sunriseEnd,
     times.night,
   );
+  const isLastDay = currentTime.isSame(
+    moment().endOf('year'),
+    'day',
+  );
 
   return (
     <HeroContainer>
@@ -161,19 +166,26 @@ const Hero = () => {
           />
         </div>
       </LogoContainer>
-      <Mochimaki />
-      <TempleContainer>
-        <div>
-          <TempleImg
-            fluid={
-              isDayTime
-                ? data.templedDay.childImageSharp.fluid
-                : data.templedNight.childImageSharp.fluid
-            }
-            alt="本堂"
-          />
-        </div>
-      </TempleContainer>
+      {isLastDay ? (
+        <BigBell />
+      ) : (
+        <>
+          <Mochimaki />
+          <TempleContainer>
+            <div>
+              <TempleImg
+                fluid={
+                  isDayTime
+                    ? data.templedDay.childImageSharp.fluid
+                    : data.templedNight.childImageSharp
+                        .fluid
+                }
+                alt="本堂"
+              />
+            </div>
+          </TempleContainer>
+        </>
+      )}
       <ScaffoldContainer>
         <div>
           {isUnderConstruction && (
