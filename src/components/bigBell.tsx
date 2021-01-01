@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Rnd } from 'react-rnd';
 import Omikuji from './omikuji';
 
-const BigBellContainer = styled.div`
+const BigBellContainer = styled.div<{ display: boolean }>`
   position: absolute;
   pointer-events: none;
   display: ${(props) => (props.display ? 'flex' : 'none')};
@@ -35,7 +35,10 @@ const StickContainer = styled.div`
   height: 50%;
 `;
 
-const Counter = styled.p`
+const Counter = styled.p<{
+  margin: number;
+  fontSize: number;
+}>`
   margin-bottom: ${(props) => props.margin}px;
   font-size: ${(props) => props.fontSize}px;
 `;
@@ -112,7 +115,7 @@ const BigBell = () => {
 
   return (
     <>
-      <BigBellContainer display="true">
+      <BigBellContainer display>
         <StickContainer>
           <Rnd
             style={style}
@@ -187,7 +190,7 @@ const BigBell = () => {
           </audio>
         </StickContainer>
       </BigBellContainer>
-      <BigBellContainer display="true">
+      <BigBellContainer display>
         <div>
           <BigBellImg
             fluid={data.bigBell.childImageSharp.fluid}
@@ -195,7 +198,7 @@ const BigBell = () => {
           />
         </div>
       </BigBellContainer>
-      <BigBellContainer display="true">
+      <BigBellContainer display>
         <Counter
           margin={windowWidth / 5}
           fontSize={windowWidth / 50}
