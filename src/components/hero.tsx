@@ -71,6 +71,31 @@ const TempleImg = styled((props) => <Img {...props} />)`
   align-items: flex-end;
 `;
 
+const currentTime = moment();
+
+const times = SunCalc.getTimes(
+  new Date(),
+  35.6275256,
+  139.7714723,
+);
+
+const isDayTime = currentTime.isBetween(
+  times.sunriseEnd,
+  times.night,
+);
+
+const isLastDay = currentTime.isSame(
+  moment().endOf('year'),
+  'day',
+);
+
+const isSanganichi = currentTime.isBetween(
+  moment().startOf('year').dayOfYear(0),
+  moment().startOf('year').dayOfYear(3),
+);
+
+const isActiveJyoyaMode = isLastDay || isSanganichi;
+
 const Hero = () => {
   const data = useStaticQuery(
     graphql`
@@ -132,21 +157,6 @@ const Hero = () => {
     setIsUnderConstruction,
   ] = useState(false);
 
-  const currentTime = moment();
-  const times = SunCalc.getTimes(
-    new Date(),
-    35.6275256,
-    139.7714723,
-  );
-  const isDayTime = currentTime.isBetween(
-    times.sunriseEnd,
-    times.night,
-  );
-  const isLastDay = currentTime.isSame(
-    moment().endOf('year'),
-    'day',
-  );
-
   return (
     <HeroContainer>
       <ButtonContainer>
@@ -166,7 +176,7 @@ const Hero = () => {
           />
         </div>
       </LogoContainer>
-      {isLastDay ? (
+      {isActiveJyoyaMode ? (
         <BigBell />
       ) : (
         <>
