@@ -91,7 +91,7 @@ const isLastDay = currentTime.isSame(
 
 const isSanganichi = currentTime.isBetween(
   moment().startOf('year').dayOfYear(0),
-  moment().startOf('year').dayOfYear(3),
+  moment().startOf('year').dayOfYear(4),
 );
 
 const isActiveJyoyaMode = isLastDay || isSanganichi;
