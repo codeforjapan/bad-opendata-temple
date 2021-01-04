@@ -51,6 +51,7 @@ const ButtonContainer = styled.div`
   top: 0;
   right: 0;
 `;
+
 const TempleContainer = styled.div`
   position: absolute;
   pointer-events: none;
@@ -60,12 +61,14 @@ const TempleContainer = styled.div`
   align-items: flex-end;
   height: 100%;
   z-index: 2;
-  > div {
-    text-align: center;
-    width: 50%;
-    display: flex;
-  }
 `;
+
+const TempleContent = styled.div`
+  text-align: center;
+  width: 50%;
+  display: flex;
+`;
+
 const TempleImg = styled((props) => <Img {...props} />)`
   flex: 1 1 auto;
   align-items: flex-end;
@@ -176,13 +179,15 @@ const Hero = () => {
           />
         </div>
       </LogoContainer>
-      {isActiveJyoyaMode ? (
-        <BigBell />
-      ) : (
-        <>
-          <Mochimaki />
-          <TempleContainer>
-            <div>
+      <>
+        {!isActiveJyoyaMode && <Mochimaki />}
+        <TempleContainer
+          isActiveJyoyaMode={isActiveJyoyaMode}
+        >
+          {isActiveJyoyaMode ? (
+            <BigBell />
+          ) : (
+            <TempleContent>
               <TempleImg
                 fluid={
                   isDayTime
@@ -192,10 +197,10 @@ const Hero = () => {
                 }
                 alt="本堂"
               />
-            </div>
-          </TempleContainer>
-        </>
-      )}
+            </TempleContent>
+          )}
+        </TempleContainer>
+      </>
       <ScaffoldContainer>
         <div>
           {isUnderConstruction && (
