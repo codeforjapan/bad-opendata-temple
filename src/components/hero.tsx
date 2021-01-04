@@ -84,17 +84,18 @@ const isDayTime = currentTime.isBetween(
   times.night,
 );
 
-const isLastDay = currentTime.isSame(
-  moment().endOf('year'),
-  'day',
-);
+// const isLastDay = currentTime.isSame(
+//   moment().endOf('year'),
+//   'day',
+// );
 
-const isSanganichi = currentTime.isBetween(
-  moment().startOf('year').dayOfYear(0),
-  moment().startOf('year').dayOfYear(4),
-);
+// const isSanganichi = currentTime.isBetween(
+//   moment().startOf('year').dayOfYear(0),
+//   moment().startOf('year').dayOfYear(4),
+// );
 
-const isActiveJyoyaMode = isLastDay || isSanganichi;
+// TODO: 可変でもレイアウト崩れが起きないようにする
+const isActiveJyoyaMode = false; // isLastDay || isSanganichi;
 
 const Hero = () => {
   const data = useStaticQuery(
