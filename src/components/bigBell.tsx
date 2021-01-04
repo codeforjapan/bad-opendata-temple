@@ -8,8 +8,7 @@ import Omikuji from './omikuji';
 const BigBellContainer = styled.div<{ display: boolean }>`
   position: absolute;
   pointer-events: none;
-  display: ${(props) =>
-    props.display ? 'flex' : 'none !important'};
+  display: ${(props) => (props.display ? 'flex' : 'none')};
   justify-content: center;
   width: 100%;
   align-items: flex-end;

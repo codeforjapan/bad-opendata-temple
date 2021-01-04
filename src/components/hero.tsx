@@ -51,9 +51,8 @@ const ButtonContainer = styled.div`
   top: 0;
   right: 0;
 `;
-const TempleContainer = styled.div<{
-  isActiveJyoyaMode: boolean;
-}>`
+
+const TempleContainer = styled.div`
   position: absolute;
   pointer-events: none;
   display: flex;
@@ -62,13 +61,14 @@ const TempleContainer = styled.div<{
   align-items: flex-end;
   height: 100%;
   z-index: 2;
-  > div {
-    text-align: center;
-    width: ${({ isActiveJyoyaMode }) =>
-      isActiveJyoyaMode ? '100%' : '50%'};
-    display: flex;
-  }
 `;
+
+const TempleContent = styled.div`
+  text-align: center;
+  width: 50%;
+  display: flex;
+`;
+
 const TempleImg = styled((props) => <Img {...props} />)`
   flex: 1 1 auto;
   align-items: flex-end;
@@ -187,7 +187,7 @@ const Hero = () => {
           {isActiveJyoyaMode ? (
             <BigBell />
           ) : (
-            <div>
+            <TempleContent>
               <TempleImg
                 fluid={
                   isDayTime
@@ -197,7 +197,7 @@ const Hero = () => {
                 }
                 alt="本堂"
               />
-            </div>
+            </TempleContent>
           )}
         </TempleContainer>
       </>
