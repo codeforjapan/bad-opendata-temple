@@ -15,6 +15,7 @@ import RandomWord from '../components/randomWord';
 import Information from '../components/information';
 import Footer from '../components/footer';
 import Head from '../components/head';
+import Tamagaki from '../components/tamagaki';
 
 const Container = styled.div`
   margin: 0 auto;
@@ -97,6 +98,7 @@ const IndexPage: React.FC = () => {
               <Link to="/page-2/">Go to page 2</Link>
             </MainContents>
           </main>
+          <Tamagaki />
         </ContentWrap>
         <Footer />
       </Container>
