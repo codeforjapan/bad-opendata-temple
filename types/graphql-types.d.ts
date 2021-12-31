@@ -100,6 +100,8 @@ export type AirtableDataFilterInput = {
 
 export type AirtableDataImage = {
   id?: Maybe<Scalars['String']>;
+  width?: Maybe<Scalars['Int']>;
+  height?: Maybe<Scalars['Int']>;
   url?: Maybe<Scalars['String']>;
   filename?: Maybe<Scalars['String']>;
   size?: Maybe<Scalars['Int']>;
@@ -109,6 +111,8 @@ export type AirtableDataImage = {
 
 export type AirtableDataImageFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
+  width?: Maybe<IntQueryOperatorInput>;
+  height?: Maybe<IntQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
   filename?: Maybe<StringQueryOperatorInput>;
   size?: Maybe<IntQueryOperatorInput>;
@@ -274,6 +278,8 @@ export type AirtableFieldsEnum =
   | 'data___IsPublished'
   | 'data___Image'
   | 'data___Image___id'
+  | 'data___Image___width'
+  | 'data___Image___height'
   | 'data___Image___url'
   | 'data___Image___filename'
   | 'data___Image___size'
@@ -2554,8 +2560,6 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2749,8 +2753,6 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
-  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2956,8 +2958,6 @@ export type SiteFieldsEnum =
   | 'siteMetadata___siteUrl'
   | 'siteMetadata___keywords'
   | 'siteMetadata___type'
-  | 'port'
-  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -3050,8 +3050,6 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
-  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
