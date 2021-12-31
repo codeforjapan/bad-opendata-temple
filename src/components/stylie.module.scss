@@ -1,7 +1,8 @@
+@use "sass:math";
 $viewport: 1080;
 
 @function pxToVw($num, $width: $viewport) {
-  @return (1vw * $num / $width * 100);
+  @return (1vw * math.div($num,$width) * 100);
 }
 
 @mixin transform($x, $y, $rotateX, $rotateY, $rotateZ) {
