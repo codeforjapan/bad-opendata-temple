@@ -181,9 +181,7 @@ const Hero = () => {
       </LogoContainer>
       <>
         {!isActiveJyoyaMode && <Mochimaki />}
-        <TempleContainer
-          isActiveJyoyaMode={isActiveJyoyaMode}
-        >
+        <TempleContainer>
           {isActiveJyoyaMode ? (
             <BigBell />
           ) : (
