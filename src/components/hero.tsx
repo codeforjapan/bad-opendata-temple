@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import styled from 'styled-components';
 import moment from 'moment';
 import SunCalc from 'suncalc';
@@ -69,7 +69,7 @@ const TempleContent = styled.div`
   display: flex;
 `;
 
-const TempleImg = styled((props) => <Img {...props} />)`
+const TempleImg = styled((props) => <GatsbyImage {...props} />)`
   flex: 1 1 auto;
   align-items: flex-end;
 `;
@@ -101,58 +101,37 @@ const isActiveJyoyaMode = isLastDay || isSanganichi;
 
 const Hero = () => {
   const data = useStaticQuery(
-    graphql`
-      query {
-        logo: file(relativePath: { eq: "logo.svg" }) {
-          publicURL
-        }
-        scaffold: file(
-          relativePath: { eq: "scaffold.png" }
-        ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        backgroundNight: file(
-          relativePath: { eq: "night_background.png" }
-        ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        backgroundDay: file(
-          relativePath: { eq: "day_background.png" }
-        ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        templedDay: file(
-          relativePath: { eq: "day_temple.png" }
-        ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        templedNight: file(
-          relativePath: { eq: "night_temple.png" }
-        ) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `,
+    graphql`{
+  logo: file(relativePath: {eq: "logo.svg"}) {
+    publicURL
+  }
+  scaffold: file(relativePath: {eq: "scaffold.png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  backgroundNight: file(relativePath: {eq: "night_background.png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  backgroundDay: file(relativePath: {eq: "day_background.png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  templedDay: file(relativePath: {eq: "day_temple.png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+  templedNight: file(relativePath: {eq: "night_temple.png"}) {
+    childImageSharp {
+      gatsbyImageData(layout: FULL_WIDTH)
+    }
+  }
+}
+`,
   );
 
   const [
@@ -189,9 +168,8 @@ const Hero = () => {
               <TempleImg
                 fluid={
                   isDayTime
-                    ? data.templedDay.childImageSharp.fluid
-                    : data.templedNight.childImageSharp
-                        .fluid
+                    ? data.templedDay.childImageSharp.gatsbyImageData
+                    : data.templedNight.childImageSharp.gatsbyImageData
                 }
                 alt="本堂"
               />
@@ -202,19 +180,14 @@ const Hero = () => {
       <ScaffoldContainer>
         <div>
           {isUnderConstruction && (
-            <Img
-              fluid={data.scaffold.childImageSharp.fluid}
-            />
+            <GatsbyImage image={data.scaffold.childImageSharp.gatsbyImageData} />
           )}
         </div>
       </ScaffoldContainer>
-      <Img
-        fluid={
-          isDayTime
-            ? data.backgroundDay.childImageSharp.fluid
-            : data.backgroundNight.childImageSharp.fluid
-        }
-      />
+      <GatsbyImage
+        image={isDayTime
+          ? data.backgroundDay.childImageSharp.gatsbyImageData
+          : data.backgroundNight.childImageSharp.gatsbyImageData} />
     </HeroContainer>
   );
 };
