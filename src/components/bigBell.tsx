@@ -164,7 +164,7 @@ const BigBell = () => {
             <StickImg
               ref={stick1Img}
               display={!isWoundUp}
-              image={
+              fluid={
                 data.stick1.childImageSharp.gatsbyImageData
               }
               alt="鐘付き棒"
@@ -172,7 +172,7 @@ const BigBell = () => {
             <StickImg
               ref={stick2Img}
               display={isWoundUp}
-              image={
+              fluid={
                 data.stick2.childImageSharp.gatsbyImageData
               }
               alt="振りかぶった鐘付き棒"
@@ -195,7 +195,7 @@ const BigBell = () => {
       <BigBellContainer display>
         <div>
           <BigBellImg
-            image={
+            fluid={
               data.bigBell.childImageSharp.gatsbyImageData
             }
             alt="除夜の鐘"
