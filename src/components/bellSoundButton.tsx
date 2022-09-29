@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 type Props = {
@@ -22,20 +22,23 @@ const Stick = styled.div`
 const BellSoundButton = () => {
   const el = useRef(null);
   const handleClick = () => el.current.play();
-  const data = useStaticQuery(graphql`{
-  orin: file(relativePath: {eq: "orin.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 43, layout: FIXED)
+  const data = useStaticQuery(graphql`
+    {
+      orin: file(relativePath: { eq: "orin.png" }) {
+        childImageSharp {
+          gatsbyImageData(width: 43, layout: FIXED)
+        }
+      }
+      stick: file(relativePath: { eq: "orinbou_1.gif" }) {
+        publicURL
+      }
+      stickTaped: file(
+        relativePath: { eq: "orinbou_2.gif" }
+      ) {
+        publicURL
+      }
     }
-  }
-  stick: file(relativePath: {eq: "orinbou_1.gif"}) {
-    publicURL
-  }
-  stickTaped: file(relativePath: {eq: "orinbou_2.gif"}) {
-    publicURL
-  }
-}
-`);
+  `);
 
   return (
     <Stick
@@ -43,7 +46,9 @@ const BellSoundButton = () => {
       stickTaped={data.stickTaped.publicURL}
     >
       <span onMouseDown={handleClick}>
-        <GatsbyImage image={data.orin.childImageSharp.gatsbyImageData} />
+        <GatsbyImage
+          image={data.orin.childImageSharp.gatsbyImageData}
+        />
       </span>
       <audio ref={el}>
         <source src="/mp3/ding.mp3" type="audio/mp3" />
