@@ -179,7 +179,7 @@ const Hero = () => {
           ) : (
             <TempleContent>
               <TempleImg
-                fluid={
+                image={
                   isDayTime
                     ? data.templedDay.childImageSharp
                         .gatsbyImageData
