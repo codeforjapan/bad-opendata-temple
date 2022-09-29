@@ -59,6 +59,7 @@ const Footer = () => {
           image={
             data.wordart.childImageSharp.gatsbyImageData
           }
+          alt="ワードアート"
         />
       </WordArtContainer>
       <ContactContainer>

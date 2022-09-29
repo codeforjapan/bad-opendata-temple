@@ -52,7 +52,10 @@ const Omikuji = () => {
   };
   return (
     <OmikujiStyle>
-      <GatsbyImage image={omikujiList[selectList()]} />
+      <GatsbyImage
+        image={omikujiList[selectList()]}
+        alt="おみくじ"
+      />
     </OmikujiStyle>
   );
 };

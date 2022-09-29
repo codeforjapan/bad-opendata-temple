@@ -48,6 +48,7 @@ const BellSoundButton = () => {
       <span onMouseDown={handleClick}>
         <GatsbyImage
           image={data.orin.childImageSharp.gatsbyImageData}
+          alt="お鈴"
         />
       </span>
       <audio ref={el}>

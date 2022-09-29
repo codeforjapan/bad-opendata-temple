@@ -200,6 +200,7 @@ const Hero = () => {
                 data.scaffold.childImageSharp
                   .gatsbyImageData
               }
+              alt="足場"
             />
           )}
         </div>
@@ -212,6 +213,7 @@ const Hero = () => {
             : data.backgroundNight.childImageSharp
                 .gatsbyImageData
         }
+        alt="景色"
       />
     </HeroContainer>
   );
