@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 const WordArtContainer = styled.div`
@@ -23,7 +23,9 @@ const AddressContainer = styled.div`
   }
 `;
 
-const TempleImg = styled((props) => <Img {...props} />)`
+const TempleImg = styled((props) => (
+  <GatsbyImage {...props} />
+))`
   flex: 0 0 auto;
 `;
 
@@ -36,19 +38,15 @@ const CopyContainer = styled.div`
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    query {
+    {
       temple: file(relativePath: { eq: "temple.png" }) {
         childImageSharp {
-          fixed(width: 189) {
-            ...GatsbyImageSharpFixed
-          }
+          gatsbyImageData(width: 189, layout: FIXED)
         }
       }
       wordart: file(relativePath: { eq: "wordart.png" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
     }
@@ -57,7 +55,12 @@ const Footer = () => {
   return (
     <footer>
       <WordArtContainer>
-        <Img fluid={data.wordart.childImageSharp.fluid} />
+        <GatsbyImage
+          image={
+            data.wordart.childImageSharp.gatsbyImageData
+          }
+          alt="ワードアート"
+        />
       </WordArtContainer>
       <ContactContainer>
         <AddressContainer>
@@ -74,7 +77,9 @@ const Footer = () => {
           <span>#proj-bod供養寺</span>
         </AddressContainer>
         <TempleImg
-          fixed={data.temple.childImageSharp.fixed}
+          fixed={
+            data.temple.childImageSharp.gatsbyImageData
+          }
         />
       </ContactContainer>
       <CopyContainer>

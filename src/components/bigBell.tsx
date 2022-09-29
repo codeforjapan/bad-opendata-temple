@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { Rnd } from 'react-rnd';
 import Omikuji from './omikuji';
@@ -20,12 +20,16 @@ const BigBellContainer = styled.div<{ display: boolean }>`
     display: flex;
   }
 `;
-const BigBellImg = styled((props) => <Img {...props} />)`
+const BigBellImg = styled((props) => (
+  <GatsbyImage {...props} />
+))`
   flex: 1 1 auto;
   align-items: flex-end;
 `;
 
-const StickImg = styled((props) => <Img {...props} />)`
+const StickImg = styled((props) => (
+  <GatsbyImage {...props} />
+))`
   pointer-events: none;
   display: ${(props) => (props.display ? 'flex' : 'none')};
 `;
@@ -63,32 +67,26 @@ const style = {
 const BigBell = () => {
   const data = useStaticQuery(
     graphql`
-      query {
+      {
         bigBell: file(
           relativePath: { eq: "big_bell.png" }
         ) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         stick1: file(
           relativePath: { eq: "kanetukibou_1.png" }
         ) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         stick2: file(
           relativePath: { eq: "kanetukibou_2.png" }
         ) {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
       }
@@ -166,13 +164,17 @@ const BigBell = () => {
             <StickImg
               ref={stick1Img}
               display={!isWoundUp}
-              fluid={data.stick1.childImageSharp.fluid}
+              image={
+                data.stick1.childImageSharp.gatsbyImageData
+              }
               alt="鐘付き棒"
             />
             <StickImg
               ref={stick2Img}
               display={isWoundUp}
-              fluid={data.stick2.childImageSharp.fluid}
+              image={
+                data.stick2.childImageSharp.gatsbyImageData
+              }
               alt="振りかぶった鐘付き棒"
             />
           </Rnd>
@@ -193,7 +195,9 @@ const BigBell = () => {
       <BigBellContainer display>
         <div>
           <BigBellImg
-            fluid={data.bigBell.childImageSharp.fluid}
+            image={
+              data.bigBell.childImageSharp.gatsbyImageData
+            }
             alt="除夜の鐘"
           />
         </div>
