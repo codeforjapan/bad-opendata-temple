@@ -67,7 +67,6 @@ const Tamagaki = () => {
     })
       .then((res) => res.json())
       .then((result: any[]) => {
-        console.log(result);
         const list: TamagakiPropertyType[] = [];
         result.forEach(
           (element: GitHubUserPropertyType) => {
