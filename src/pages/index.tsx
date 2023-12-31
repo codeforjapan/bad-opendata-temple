@@ -43,17 +43,17 @@ const ComponentWrap = styled.div`
 `;
 
 type FlexWrapProps = {
-  ismobile: boolean;
+  $ismobile: boolean;
 };
 const FlexWrap = styled.div.attrs<FlexWrapProps>(
-  ({ ismobile }) => ({
-    ismobile: ismobile,
+  ({ $ismobile }) => ({
+    $ismobile: $ismobile,
   }),
 )`
   display: flex;
   justify-content: space-around;
-  flex-direction: ${({ ismobile }: FlexWrapProps) =>
-    ismobile ? 'column' : 'row'};
+  flex-direction: ${({ $ismobile }: FlexWrapProps) =>
+    $ismobile ? 'column' : 'row'};
   > * {
     margin: 16px;
   }
@@ -84,7 +84,7 @@ const IndexPage: React.FC = () => {
                 </p>
               </CatchTextWrap>
               <ComponentWrap>
-                <FlexWrap ismobile={breakpoints.sm}>
+                <FlexWrap $ismobile={breakpoints.sm}>
                   <AccessCounter />
                   <DaysFromFoundation />
                 </FlexWrap>

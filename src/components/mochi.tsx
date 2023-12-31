@@ -10,7 +10,7 @@ interface MochiPropertyType {
 }
 interface MochiImgProps {
   delay: number;
-  ismobile: boolean;
+  $ismobile: boolean;
 }
 interface MochiStageProps {
   negative: boolean;
@@ -38,13 +38,13 @@ const MochiInner = styled.div`
 
 const MochiImg = styled.img.attrs((p: MochiImgProps) => ({
   delay: p.delay,
-  ismobile: p.ismobile,
+  $ismobile: p.$ismobile,
 }))`
   opacity: 0;
   transform: translate(0px, -1000000px);
   position: absolute;
   animation-name: ${(p) =>
-    p.ismobile
+    p.$ismobile
       ? 'stylie-keyframes-responsive'
       : 'stylie-keyframes-fix'};
   animation-duration: 1200ms;
@@ -112,7 +112,7 @@ const Mochi = (props: MochiPropertyType) => {
               className="mochi"
               alt={'mothi-' + props.itemid}
               onClick={catchMochi}
-              ismobile={breakpoints.md}
+              $ismobile={breakpoints.md}
             />
           </MochiInner>
         </MochiStage>

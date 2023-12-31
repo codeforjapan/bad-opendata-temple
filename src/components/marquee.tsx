@@ -3,8 +3,8 @@ import styled, { keyframes } from 'styled-components';
 
 type Props = {
   text: string;
-  duration?: string;
-  delay?: string;
+  $duration?: string;
+  $delay?: string;
 };
 
 const MarqueeWrap = styled.div`
@@ -26,9 +26,10 @@ const Paragraph = styled.p`
   animation-name: ${marqueeAnimation};
   animation-timing-function: linear;
   animation-duration: ${(props: Props) =>
-    props.duration || '18s'};
+    props.$duration || '18s'};
   animation-iteration-count: infinite;
-  animation-delay: ${(props: Props) => props.delay || '0s'};
+  animation-delay: ${(props: Props) =>
+    props.$delay || '0s'};
   &::after {
     content: '';
     white-space: nowrap;
@@ -39,7 +40,12 @@ const Paragraph = styled.p`
 const Marquee = (props: Props) => {
   return (
     <MarqueeWrap>
-      <Paragraph {...props}>{props.text}</Paragraph>
+      <Paragraph
+        $duration={props.$duration}
+        $delay={props.$delay}
+      >
+        {props.text}
+      </Paragraph>
     </MarqueeWrap>
   );
 };

@@ -3,7 +3,10 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const OldFashionedLinkButton = styled((props) => (
-  <Link {...props} />
+  <Link
+    to={props.to}
+    activeClassName={props.activeClassName}
+  />
 ))`
   flex: 1 1 auto;
   display: flex;

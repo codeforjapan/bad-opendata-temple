@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 const OmikujiStyle = styled.div`
@@ -51,7 +51,7 @@ const Omikuji = () => {
   return (
     <OmikujiStyle>
       <GatsbyImage
-        image={omikujiList[selectList()]}
+        image={getImage(omikujiList[selectList()])}
         alt="おみくじ"
       />
     </OmikujiStyle>

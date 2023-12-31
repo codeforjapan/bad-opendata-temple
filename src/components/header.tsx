@@ -18,7 +18,9 @@ const Heading = styled.h1`
   margin: 0;
 `;
 
-const HeadingLink = styled((props) => <Link {...props} />)`
+const HeadingLink = styled((props) => (
+  <Link to={props.to} />
+))`
   font-size: 24px;
   color: #fff;
   font-weight: bold;

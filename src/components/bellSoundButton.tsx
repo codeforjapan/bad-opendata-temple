@@ -1,21 +1,21 @@
 import React, { useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 type Props = {
-  stick: string;
+  $stick: string;
   sticktaped: string;
 };
 
 const Stick = styled.div`
   width: 43px;
   cursor:
-    url('${(props: Props) => props.stick}') 10 30,
+    url('${(props: Props) => props.$stick}') 10 30,
     auto;
   &:active {
     cursor:
-      url('${(props: Props) => props.sticktaped}') 10 20,
+      url('${(props: Props) => props.$sticktaped}') 10 20,
       auto;
   }
 `;
@@ -40,17 +40,17 @@ const BellSoundButton = () => {
       }
     }
   `);
+  const image = getImage(
+    data.orin.childImageSharp.gatsbyImageData,
+  );
 
   return (
     <Stick
-      stick={data.stick.publicURL}
-      sticktaped={data.sticktaped.publicURL}
+      $stick={data.stick.publicURL}
+      $sticktaped={data.sticktaped.publicURL}
     >
       <span onMouseDown={handleClick}>
-        <GatsbyImage
-          image={data.orin.childImageSharp.gatsbyImageData}
-          alt="お鈴"
-        />
+        <GatsbyImage image={image} alt="お鈴" />
       </span>
       <audio ref={el}>
         <source src="/mp3/ding.mp3" type="audio/mp3" />

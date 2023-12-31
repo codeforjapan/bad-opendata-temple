@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import moment from 'moment';
 import SunCalc from 'suncalc';
@@ -70,7 +70,10 @@ const TempleContent = styled.div`
 `;
 
 const TempleImg = styled((props) => (
-  <GatsbyImage {...props} />
+  <GatsbyImage
+    image={getImage(props.image)}
+    alt={props.alt}
+  />
 ))`
   flex: 1 1 auto;
   align-items: flex-end;
@@ -190,10 +193,10 @@ const Hero = () => {
         <div>
           {isUnderConstruction && (
             <GatsbyImage
-              image={
+              image={getImage(
                 data.scaffold.childImageSharp
-                  .gatsbyImageData
-              }
+                  .gatsbyImageData,
+              )}
               alt="足場"
             />
           )}
@@ -202,10 +205,14 @@ const Hero = () => {
       <GatsbyImage
         image={
           isDayTime
-            ? data.backgroundDay.childImageSharp
-                .gatsbyImageData
-            : data.backgroundNight.childImageSharp
-                .gatsbyImageData
+            ? getImage(
+                data.backgroundDay.childImageSharp
+                  .gatsbyImageData,
+              )
+            : getImage(
+                data.backgroundNight.childImageSharp
+                  .gatsbyImageData,
+              )
         }
         alt="景色"
       />
