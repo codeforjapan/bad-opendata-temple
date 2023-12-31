@@ -50,20 +50,18 @@ const ParagraphWrap = styled.div.attrs((props: Props) => ({
 `;
 
 const RandomWord = () => {
-  const data = useStaticQuery(
-    graphql`
-      query RandomWordQuery {
-        allHitokotoCsv {
-          nodes {
-            word
-          }
-        }
-        file(relativePath: { eq: "jushoku.gif" }) {
-          publicURL
+  const data = useStaticQuery(graphql`
+    query RandomWordQuery {
+      allHitokotoCsv {
+        nodes {
+          word
         }
       }
-    `,
-  );
+      file(relativePath: { eq: "jushoku.gif" }) {
+        publicURL
+      }
+    }
+  `);
   const breakpoints = useBreakpoint();
   const node = data.allHitokotoCsv.nodes;
   const number = Math.floor(Math.random() * node.length);

@@ -10,11 +10,12 @@ type Props = {
 
 const Stick = styled.div`
   width: 43px;
-  cursor: url('${(props: Props) => props.stick}') 10 30,
+  cursor:
+    url('${(props: Props) => props.stick}') 10 30,
     auto;
   &:active {
-    cursor: url('${(props: Props) => props.stickTaped}') 10
-        20,
+    cursor:
+      url('${(props: Props) => props.stickTaped}') 10 20,
       auto;
   }
 `;

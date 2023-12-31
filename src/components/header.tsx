@@ -49,20 +49,18 @@ interface HeaderPageProps {
 }
 
 const Header = () => {
-  const data: HeaderPageProps = useStaticQuery(
-    graphql`
-      query HeaderQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-        github: file(relativePath: { eq: "github.png" }) {
-          publicURL
+  const data: HeaderPageProps = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `,
-  );
+      github: file(relativePath: { eq: "github.png" }) {
+        publicURL
+      }
+    }
+  `);
   const Title = () => {
     return globalHistory.location.pathname === '/' ? (
       <Heading>{data.site.siteMetadata.title}</Heading>

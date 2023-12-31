@@ -65,33 +65,29 @@ const style = {
 };
 
 const BigBell = () => {
-  const data = useStaticQuery(
-    graphql`
-      query BigBellQuery {
-        bigBell: file(
-          relativePath: { eq: "big_bell.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        stick1: file(
-          relativePath: { eq: "kanetukibou_1.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        stick2: file(
-          relativePath: { eq: "kanetukibou_2.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+  const data = useStaticQuery(graphql`
+    query BigBellQuery {
+      bigBell: file(relativePath: { eq: "big_bell.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-    `,
-  );
+      stick1: file(
+        relativePath: { eq: "kanetukibou_1.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      stick2: file(
+        relativePath: { eq: "kanetukibou_2.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  `);
   const el = useRef(null);
   const special = useRef(null);
   const stick1Img = useRef(null);
@@ -100,10 +96,8 @@ const BigBell = () => {
   const [count, setCount] = useState(BONNOU_COUNT);
   const [isSeparated, separate] = useState(true);
   const [isWoundUp, windUp] = useState(false);
-  const [
-    isSpecialContentOpened,
-    openSpecialContent,
-  ] = useState(false);
+  const [isSpecialContentOpened, openSpecialContent] =
+    useState(false);
   const [windowWidth, setWindowWidth] = useState(1080);
   useEffect(() => {
     setWindowWidth(

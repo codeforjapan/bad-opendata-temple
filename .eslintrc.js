@@ -4,11 +4,8 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'standard',
     'eslint:recommended',
-    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
-    'prettier/react',
     'plugin:react/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -24,6 +21,8 @@ module.exports = {
     'no-use-before-define': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
+    'no-unused-vars': 'off',
+    'no-empty': 'off',
   },
   settings: {
     react: {

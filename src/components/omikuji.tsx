@@ -9,37 +9,35 @@ const OmikujiStyle = styled.div`
 `;
 
 const Omikuji = () => {
-  const data = useStaticQuery(
-    graphql`
-      query OmikujiQuery {
-        nenga1: file(relativePath: { eq: "nenga1.png" }) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        nenga2: file(relativePath: { eq: "nenga2.png" }) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        nenga3: file(relativePath: { eq: "nenga3.png" }) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        nenga4: file(relativePath: { eq: "nenga4.png" }) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        nenga5: file(relativePath: { eq: "nenga5.png" }) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+  const data = useStaticQuery(graphql`
+    query OmikujiQuery {
+      nenga1: file(relativePath: { eq: "nenga1.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-    `,
-  );
+      nenga2: file(relativePath: { eq: "nenga2.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      nenga3: file(relativePath: { eq: "nenga3.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      nenga4: file(relativePath: { eq: "nenga4.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      nenga5: file(relativePath: { eq: "nenga5.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  `);
   const omikujiList = [
     data.nenga1.childImageSharp.gatsbyImageData,
     data.nenga2.childImageSharp.gatsbyImageData,

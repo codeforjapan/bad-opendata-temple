@@ -102,55 +102,49 @@ const isSanganichi = currentTime.isBetween(
 const isActiveJyoyaMode = isLastDay || isSanganichi;
 
 const Hero = () => {
-  const data = useStaticQuery(
-    graphql`
-      query HeroQuery {
-        logo: file(relativePath: { eq: "logo.svg" }) {
-          publicURL
-        }
-        scaffold: file(
-          relativePath: { eq: "scaffold.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        backgroundNight: file(
-          relativePath: { eq: "night_background.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        backgroundDay: file(
-          relativePath: { eq: "day_background.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        templedDay: file(
-          relativePath: { eq: "day_temple.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        templedNight: file(
-          relativePath: { eq: "night_temple.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+  const data = useStaticQuery(graphql`
+    query HeroQuery {
+      logo: file(relativePath: { eq: "logo.svg" }) {
+        publicURL
+      }
+      scaffold: file(relativePath: { eq: "scaffold.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-    `,
-  );
+      backgroundNight: file(
+        relativePath: { eq: "night_background.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      backgroundDay: file(
+        relativePath: { eq: "day_background.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      templedDay: file(
+        relativePath: { eq: "day_temple.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      templedNight: file(
+        relativePath: { eq: "night_temple.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  `);
 
-  const [
-    isUnderConstruction,
-    setIsUnderConstruction,
-  ] = useState(false);
+  const [isUnderConstruction, setIsUnderConstruction] =
+    useState(false);
 
   return (
     <HeroContainer>

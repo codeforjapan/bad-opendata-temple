@@ -55,22 +55,20 @@ const MochiImg = styled.img.attrs((p: MochiImgProps) => ({
   transform-origin: 0 0;
 `;
 const Mochi = (props: MochiPropertyType) => {
-  const data = useStaticQuery(
-    graphql`
-      query MochiQuery {
-        mochi_red: file(
-          relativePath: { eq: "mochi_red_kotobuki.gif" }
-        ) {
-          publicURL
-        }
-        mochi_white: file(
-          relativePath: { eq: "mochi_white_iwai.gif" }
-        ) {
-          publicURL
-        }
+  const data = useStaticQuery(graphql`
+    query MochiQuery {
+      mochi_red: file(
+        relativePath: { eq: "mochi_red_kotobuki.gif" }
+      ) {
+        publicURL
       }
-    `,
-  );
+      mochi_white: file(
+        relativePath: { eq: "mochi_white_iwai.gif" }
+      ) {
+        publicURL
+      }
+    }
+  `);
   interface StringKeyObject {
     [state: string]: any;
   }
