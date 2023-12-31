@@ -47,7 +47,10 @@ export default function ListOfContentsPage({
 }
 export const pageQuery = graphql`
   query ListOfContentsQuery {
-    allMarkdownRemark(filter: {fileAbsolutePath: {regex: "s/.+\\/markdown\\/articles\\/[^\\/]+\\.md/"}}, sort: {fields: frontmatter___date, order: DESC}) {
+    allMarkdownRemark(
+      filter: {fileAbsolutePath: {regex: "s/.+\\/markdown\\/articles\\/[^\\/]+\\.md/"}}
+      sort: {frontmatter: {date: DESC}}
+    ) {
       edges {
         node {
           id
@@ -58,25 +61,25 @@ export const pageQuery = graphql`
           }
         }
       }
-    },
-    allAirtable(limit: 100
-      filter: {
-        table:{eq: "cleansing-cases"}
-      },
-      sort: {fields: data___Date, order: DESC}) {
-        edges{
-          node{
-            fields {
-              slug
-            }
-            recordId
-            data{
-              Title
-              Date
-              Name
-            }
+    }
+    allAirtable(
+      limit: 100
+      filter: {table: {eq: "cleansing-cases"}}
+      sort: {data: {Date: DESC}}
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          recordId
+          data {
+            Title
+            Date
+            Name
           }
         }
       }
+    }
   }
 `;

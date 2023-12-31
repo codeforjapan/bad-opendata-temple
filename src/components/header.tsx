@@ -18,7 +18,9 @@ const Heading = styled.h1`
   margin: 0;
 `;
 
-const HeadingLink = styled((props) => <Link {...props} />)`
+const HeadingLink = styled((props) => (
+  <Link to={props.to} />
+))`
   font-size: 24px;
   color: #fff;
   font-weight: bold;
@@ -49,20 +51,18 @@ interface HeaderPageProps {
 }
 
 const Header = () => {
-  const data: HeaderPageProps = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-        github: file(relativePath: { eq: "github.png" }) {
-          publicURL
+  const data: HeaderPageProps = useStaticQuery(graphql`
+    query HeaderQuery {
+      site {
+        siteMetadata {
+          title
         }
       }
-    `,
-  );
+      github: file(relativePath: { eq: "github.png" }) {
+        publicURL
+      }
+    }
+  `);
   const Title = () => {
     return globalHistory.location.pathname === '/' ? (
       <Heading>{data.site.siteMetadata.title}</Heading>

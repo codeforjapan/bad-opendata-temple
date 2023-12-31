@@ -10,7 +10,7 @@ interface MochiPropertyType {
 }
 interface MochiImgProps {
   delay: number;
-  isMobile: boolean;
+  $ismobile: boolean;
 }
 interface MochiStageProps {
   negative: boolean;
@@ -38,13 +38,13 @@ const MochiInner = styled.div`
 
 const MochiImg = styled.img.attrs((p: MochiImgProps) => ({
   delay: p.delay,
-  isMobile: p.isMobile,
+  $ismobile: p.$ismobile,
 }))`
   opacity: 0;
   transform: translate(0px, -1000000px);
   position: absolute;
   animation-name: ${(p) =>
-    p.isMobile
+    p.$ismobile
       ? 'stylie-keyframes-responsive'
       : 'stylie-keyframes-fix'};
   animation-duration: 1200ms;
@@ -55,22 +55,20 @@ const MochiImg = styled.img.attrs((p: MochiImgProps) => ({
   transform-origin: 0 0;
 `;
 const Mochi = (props: MochiPropertyType) => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        mochi_red: file(
-          relativePath: { eq: "mochi_red_kotobuki.gif" }
-        ) {
-          publicURL
-        }
-        mochi_white: file(
-          relativePath: { eq: "mochi_white_iwai.gif" }
-        ) {
-          publicURL
-        }
+  const data = useStaticQuery(graphql`
+    query MochiQuery {
+      mochi_red: file(
+        relativePath: { eq: "mochi_red_kotobuki.gif" }
+      ) {
+        publicURL
       }
-    `,
-  );
+      mochi_white: file(
+        relativePath: { eq: "mochi_white_iwai.gif" }
+      ) {
+        publicURL
+      }
+    }
+  `);
   interface StringKeyObject {
     [state: string]: any;
   }
@@ -114,7 +112,7 @@ const Mochi = (props: MochiPropertyType) => {
               className="mochi"
               alt={'mothi-' + props.itemid}
               onClick={catchMochi}
-              isMobile={breakpoints.md}
+              $ismobile={breakpoints.md}
             />
           </MochiInner>
         </MochiStage>

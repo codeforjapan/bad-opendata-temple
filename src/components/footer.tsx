@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 const WordArtContainer = styled.div`
@@ -24,7 +24,10 @@ const AddressContainer = styled.div`
 `;
 
 const TempleImg = styled((props) => (
-  <GatsbyImage {...props} />
+  <GatsbyImage
+    image={getImage(props.fixed)}
+    alt={props.alt}
+  />
 ))`
   flex: 0 0 auto;
 `;
@@ -38,7 +41,7 @@ const CopyContainer = styled.div`
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    {
+    query FooterQuery {
       temple: file(relativePath: { eq: "temple.png" }) {
         childImageSharp {
           gatsbyImageData(width: 189, layout: FIXED)
@@ -56,9 +59,9 @@ const Footer = () => {
     <footer>
       <WordArtContainer>
         <GatsbyImage
-          image={
-            data.wordart.childImageSharp.gatsbyImageData
-          }
+          image={getImage(
+            data.wordart.childImageSharp.gatsbyImageData,
+          )}
           alt="ワードアート"
         />
       </WordArtContainer>
@@ -80,6 +83,7 @@ const Footer = () => {
           fixed={
             data.temple.childImageSharp.gatsbyImageData
           }
+          alt=""
         />
       </ContactContainer>
       <CopyContainer>

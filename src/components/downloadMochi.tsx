@@ -24,7 +24,7 @@ const ImgContainer = styled.div`
 
 const DownloadMochi = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query DownloadMochiQuery {
       red: file(
         relativePath: { eq: "mochi_red_kotobuki.gif" }
       ) {
@@ -43,8 +43,8 @@ const DownloadMochi = () => {
       <TextContainer>
         <Marquee
           text="上棟式にお越しいただき、ありがとうございます。引き出物はこちらです。ぜひお持ち帰りください。→→→→→"
-          delay="1s"
-          duration="20s"
+          $delay="1s"
+          $duration="20s"
         />
       </TextContainer>
       <ImgContainer>

@@ -4,23 +4,23 @@ import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import styled from 'styled-components';
 
 type Props = {
-  isMobile: boolean;
+  $ismobile: boolean;
 };
 
 const RandomWordWrap = styled.div.attrs((props: Props) => ({
-  isMobile: props.isMobile,
+  $ismobile: props.$ismobile,
 }))`
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: ${(props) =>
-    props.isMobile ? 'column' : 'row'};
+    props.$ismobile ? 'column' : 'row'};
 `;
 
 const FlexWrap = styled.div.attrs((props: Props) => ({
-  isMobile: props.isMobile,
+  $ismobile: props.$ismobile,
 }))`
-  flex: 0 0 ${(props) => (props.isMobile ? '100%' : '50%')};
+  flex: 0 0 ${(props) => (props.$ismobile ? '100%' : '50%')};
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -37,9 +37,9 @@ const Title = styled.h2`
 `;
 
 const ParagraphWrap = styled.div.attrs((props: Props) => ({
-  isMobile: props.isMobile,
+  $ismobile: props.$ismobile,
 }))`
-  flex: 0 0 ${(props) => (props.isMobile ? '100%' : '50%')};
+  flex: 0 0 ${(props) => (props.$ismobile ? '100%' : '50%')};
   display: flex;
   align-content: center;
   background-color: #30f3ff;
@@ -50,33 +50,31 @@ const ParagraphWrap = styled.div.attrs((props: Props) => ({
 `;
 
 const RandomWord = () => {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        allHitokotoCsv {
-          nodes {
-            word
-          }
-        }
-        file(relativePath: { eq: "jushoku.gif" }) {
-          publicURL
+  const data = useStaticQuery(graphql`
+    query RandomWordQuery {
+      allHitokotoCsv {
+        nodes {
+          word
         }
       }
-    `,
-  );
+      file(relativePath: { eq: "jushoku.gif" }) {
+        publicURL
+      }
+    }
+  `);
   const breakpoints = useBreakpoint();
   const node = data.allHitokotoCsv.nodes;
   const number = Math.floor(Math.random() * node.length);
 
   return (
-    <RandomWordWrap isMobile={breakpoints.sm}>
+    <RandomWordWrap $ismobile={breakpoints.sm}>
       <FlexWrap>
         <ImgWrap>
           <img src={data.file.publicURL} alt="住職" />
         </ImgWrap>
         <Title>今日の住職のひとこと</Title>
       </FlexWrap>
-      <ParagraphWrap isMobile={breakpoints.sm}>
+      <ParagraphWrap $ismobile={breakpoints.sm}>
         <p>{node[number].word}</p>
       </ParagraphWrap>
     </RandomWordWrap>

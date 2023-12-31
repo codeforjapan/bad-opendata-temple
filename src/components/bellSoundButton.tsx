@@ -1,20 +1,21 @@
 import React, { useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 
 type Props = {
-  stick: string;
-  stickTaped: string;
+  $stick: string;
+  sticktaped: string;
 };
 
 const Stick = styled.div`
   width: 43px;
-  cursor: url('${(props: Props) => props.stick}') 10 30,
+  cursor:
+    url('${(props: Props) => props.$stick}') 10 30,
     auto;
   &:active {
-    cursor: url('${(props: Props) => props.stickTaped}') 10
-        20,
+    cursor:
+      url('${(props: Props) => props.$sticktaped}') 10 20,
       auto;
   }
 `;
@@ -23,7 +24,7 @@ const BellSoundButton = () => {
   const el = useRef(null);
   const handleClick = () => el.current.play();
   const data = useStaticQuery(graphql`
-    {
+    query BellSoundButtonQuery {
       orin: file(relativePath: { eq: "orin.png" }) {
         childImageSharp {
           gatsbyImageData(width: 43, layout: FIXED)
@@ -32,24 +33,24 @@ const BellSoundButton = () => {
       stick: file(relativePath: { eq: "orinbou_1.gif" }) {
         publicURL
       }
-      stickTaped: file(
+      sticktaped: file(
         relativePath: { eq: "orinbou_2.gif" }
       ) {
         publicURL
       }
     }
   `);
+  const image = getImage(
+    data.orin.childImageSharp.gatsbyImageData,
+  );
 
   return (
     <Stick
-      stick={data.stick.publicURL}
-      stickTaped={data.stickTaped.publicURL}
+      $stick={data.stick.publicURL}
+      $sticktaped={data.sticktaped.publicURL}
     >
       <span onMouseDown={handleClick}>
-        <GatsbyImage
-          image={data.orin.childImageSharp.gatsbyImageData}
-          alt="お鈴"
-        />
+        <GatsbyImage image={image} alt="お鈴" />
       </span>
       <audio ref={el}>
         <source src="/mp3/ding.mp3" type="audio/mp3" />

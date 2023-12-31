@@ -4,26 +4,27 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { File } from '../../types/graphql-types';
 
 type ContentWrapData = {
-  bgImg: File;
+  $bgimg: File;
 };
 
 const BackGroundWrap = styled.div<ContentWrapData>`
   background-color: #078282;
-  background-image: url(${({ bgImg }) => bgImg.publicURL});
+  background-image: url(${({ $bgimg }) =>
+    $bgimg.publicURL});
   background-repeat: repeat;
 `;
 
 const ContentWrap: React.FC = ({ children }) => {
   const data = useStaticQuery<ContentWrapData>(graphql`
-    query {
-      bgImg: file(relativePath: { eq: "background.svg" }) {
+    query ContentWrapQuery {
+      bgimg: file(relativePath: { eq: "background.svg" }) {
         publicURL
       }
     }
   `);
 
   return (
-    <BackGroundWrap bgImg={data.bgImg}>
+    <BackGroundWrap $bgimg={data.bgimg}>
       {children}
     </BackGroundWrap>
   );

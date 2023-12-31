@@ -37,8 +37,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-eslint',
       options: {
-        test: /\.js$|\.jsx$|\.ts$|\.tsx$/,
-        exclude: /(node_modules|.cache|public)/,
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        exclude: ['node_modules', '.cache', 'public'],
         stages: ['develop'],
       },
     },
@@ -83,7 +83,6 @@ module.exports = {
       },
     },
     `gatsby-transformer-csv`,
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-typescript`,
     {
       resolve: 'gatsby-plugin-graphql-codegen',
@@ -132,6 +131,16 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
+      },
+    }
   ],
 };

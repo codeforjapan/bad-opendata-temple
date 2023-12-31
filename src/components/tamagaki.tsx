@@ -67,7 +67,6 @@ const Tamagaki = () => {
     })
       .then((res) => res.json())
       .then((result: any[]) => {
-        console.log(result);
         const list: TamagakiPropertyType[] = [];
         result.forEach(
           (element: GitHubUserPropertyType) => {
@@ -84,9 +83,9 @@ const Tamagaki = () => {
 
   return (
     <TamagakiWrapper>
-      {items.map((item: TamagakiPropertyType) => (
+      {items.map((item: TamagakiPropertyType, index) => (
         // eslint-disable-next-line react/jsx-key
-        <TamagakiContainer>
+        <TamagakiContainer key={index}>
           <TamagakiImage src={item.image} />
           <span>{item.name}</span>
         </TamagakiContainer>

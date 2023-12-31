@@ -59,22 +59,17 @@ const ItemChildText = styled(ItemChild)`
 `;
 
 const Information = () => {
-  const data: InformationData = useStaticQuery(
-    graphql`
-      query {
-        allInformationCsv(
-          limit: 5
-          sort: { fields: date, order: DESC }
-        ) {
-          nodes {
-            date
-            text
-            url
-          }
+  const data: InformationData = useStaticQuery(graphql`
+    query InformationQuery {
+      allInformationCsv(limit: 5, sort: { date: DESC }) {
+        nodes {
+          date
+          text
+          url
         }
       }
-    `,
-  );
+    }
+  `);
 
   const informationItems = data.allInformationCsv.nodes.map(
     (node, index) => {

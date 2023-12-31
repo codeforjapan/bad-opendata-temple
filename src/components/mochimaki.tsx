@@ -77,15 +77,13 @@ const Mochimaki = () => {
       throwMochi(false);
     },
   };
-  const data = useStaticQuery(
-    graphql`
-      query {
-        jushoku: file(relativePath: { eq: "jushoku.svg" }) {
-          publicURL
-        }
+  const data = useStaticQuery(graphql`
+    query MochimakiQuery {
+      jushoku: file(relativePath: { eq: "jushoku.svg" }) {
+        publicURL
       }
-    `,
-  );
+    }
+  `);
   const mochimaki = () => {
     setFlip(!flip);
   };

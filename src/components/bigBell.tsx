@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
 import { Rnd } from 'react-rnd';
 import Omikuji from './omikuji';
 
-const BigBellContainer = styled.div<{ display: boolean }>`
+const BigBellContainer = styled.div<{ $display: boolean }>`
   position: absolute;
   pointer-events: none;
-  display: ${(props) => (props.display ? 'flex' : 'none')};
+  display: ${(props) => (props.$display ? 'flex' : 'none')};
   justify-content: center;
   width: 100%;
   align-items: flex-end;
@@ -21,17 +21,23 @@ const BigBellContainer = styled.div<{ display: boolean }>`
   }
 `;
 const BigBellImg = styled((props) => (
-  <GatsbyImage {...props} />
+  <GatsbyImage
+    image={getImage(props.image)}
+    alt={props.alt}
+  />
 ))`
   flex: 1 1 auto;
   align-items: flex-end;
 `;
 
 const StickImg = styled((props) => (
-  <GatsbyImage {...props} />
+  <GatsbyImage
+    image={getImage(props.image)}
+    alt={props.alt}
+  />
 ))`
   pointer-events: none;
-  display: ${(props) => (props.display ? 'flex' : 'none')};
+  display: ${(props) => (props.$display ? 'flex' : 'none')};
 `;
 
 const StickContainer = styled.div`
@@ -40,10 +46,10 @@ const StickContainer = styled.div`
 `;
 
 const Counter = styled.p<{
-  margin: number;
+  $margin: number;
   fontSize: number;
 }>`
-  margin-bottom: ${(props) => props.margin}px;
+  margin-bottom: ${(props) => props.$margin}px;
   font-size: ${(props) => props.fontSize}px;
 `;
 
@@ -56,7 +62,7 @@ const NumberText = styled.span`
 `;
 
 const style = {
-  'pointer-events': 'auto',
+  pointerEvents: 'auto',
   alignItems: 'center',
   justifyContent: 'center',
   border: 'solid 0px',
@@ -65,45 +71,38 @@ const style = {
 };
 
 const BigBell = () => {
-  const data = useStaticQuery(
-    graphql`
-      {
-        bigBell: file(
-          relativePath: { eq: "big_bell.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        stick1: file(
-          relativePath: { eq: "kanetukibou_1.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
-        }
-        stick2: file(
-          relativePath: { eq: "kanetukibou_2.png" }
-        ) {
-          childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH)
-          }
+  const data = useStaticQuery(graphql`
+    query BigBellQuery {
+      bigBell: file(relativePath: { eq: "big_bell.png" }) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
         }
       }
-    `,
-  );
+      stick1: file(
+        relativePath: { eq: "kanetukibou_1.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+      stick2: file(
+        relativePath: { eq: "kanetukibou_2.png" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(layout: FULL_WIDTH)
+        }
+      }
+    }
+  `);
   const el = useRef(null);
   const special = useRef(null);
-  const stick1Img = useRef(null);
-  const stick2Img = useRef(null);
+
   const BONNOU_COUNT = 108;
   const [count, setCount] = useState(BONNOU_COUNT);
   const [isSeparated, separate] = useState(true);
   const [isWoundUp, windUp] = useState(false);
-  const [
-    isSpecialContentOpened,
-    openSpecialContent,
-  ] = useState(false);
+  const [isSpecialContentOpened, openSpecialContent] =
+    useState(false);
   const [windowWidth, setWindowWidth] = useState(1080);
   useEffect(() => {
     setWindowWidth(
@@ -113,7 +112,7 @@ const BigBell = () => {
 
   return (
     <>
-      <BigBellContainer display>
+      <BigBellContainer $display>
         <StickContainer>
           <Rnd
             style={style}
@@ -162,16 +161,14 @@ const BigBell = () => {
             }}
           >
             <StickImg
-              ref={stick1Img}
-              display={!isWoundUp}
+              $display={!isWoundUp}
               image={
                 data.stick1.childImageSharp.gatsbyImageData
               }
               alt="鐘付き棒"
             />
             <StickImg
-              ref={stick2Img}
-              display={isWoundUp}
+              $display={isWoundUp}
               image={
                 data.stick2.childImageSharp.gatsbyImageData
               }
@@ -192,7 +189,7 @@ const BigBell = () => {
           </audio>
         </StickContainer>
       </BigBellContainer>
-      <BigBellContainer display>
+      <BigBellContainer $display={true}>
         <div>
           <BigBellImg
             image={
@@ -202,9 +199,9 @@ const BigBell = () => {
           />
         </div>
       </BigBellContainer>
-      <BigBellContainer display>
+      <BigBellContainer $display={true}>
         <Counter
-          margin={windowWidth / 5}
+          $margin={windowWidth / 5}
           fontSize={windowWidth / 50}
         >
           {[...count.toString()].map((str, index) => {
@@ -216,7 +213,7 @@ const BigBell = () => {
           })}
         </Counter>
       </BigBellContainer>
-      <BigBellContainer display={isSpecialContentOpened}>
+      <BigBellContainer $display={isSpecialContentOpened}>
         <Omikuji />
       </BigBellContainer>
     </>
