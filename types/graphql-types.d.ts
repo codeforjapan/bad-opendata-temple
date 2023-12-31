@@ -3367,7 +3367,7 @@ export type AirtableFieldsSortInput = {
 export type BellSoundButtonQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type BellSoundButtonQueryQuery = { orin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stick?: { publicURL?: string | null } | null, stickTaped?: { publicURL?: string | null } | null };
+export type BellSoundButtonQueryQuery = { orin?: { childImageSharp?: { gatsbyImageData: any } | null } | null, stick?: { publicURL?: string | null } | null, sticktaped?: { publicURL?: string | null } | null };
 
 export type BigBellQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3377,7 +3377,7 @@ export type BigBellQueryQuery = { bigBell?: { childImageSharp?: { gatsbyImageDat
 export type ContentWrapQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ContentWrapQueryQuery = { bgImg?: { publicURL?: string | null } | null };
+export type ContentWrapQueryQuery = { bgimg?: { publicURL?: string | null } | null };
 
 export type DownloadMochiQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

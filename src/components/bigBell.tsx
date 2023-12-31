@@ -1,4 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  forwardRef,
+} from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
@@ -92,6 +97,13 @@ const BigBell = () => {
   const special = useRef(null);
   const stick1Img = useRef(null);
   const stick2Img = useRef(null);
+  const StickImgWrapper = forwardRef(
+    function StickImgWrapper(props, ref) {
+      const { ...restProps } = props;
+      return <StickImg ref={ref} {...restProps} />;
+    },
+  );
+
   const BONNOU_COUNT = 108;
   const [count, setCount] = useState(BONNOU_COUNT);
   const [isSeparated, separate] = useState(true);
@@ -155,7 +167,7 @@ const BigBell = () => {
               }
             }}
           >
-            <StickImg
+            <StickImgWrapper
               ref={stick1Img}
               display={!isWoundUp}
               image={
@@ -163,7 +175,7 @@ const BigBell = () => {
               }
               alt="鐘付き棒"
             />
-            <StickImg
+            <StickImgWrapper
               ref={stick2Img}
               display={isWoundUp}
               image={

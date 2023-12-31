@@ -27,7 +27,7 @@ const contents = [
 ];
 
 type Props = {
-  isMobile: boolean;
+  ismobile: boolean;
 };
 
 const MenuList = styled.ul`
@@ -41,10 +41,10 @@ const MenuList = styled.ul`
 `;
 
 const MenuItem = styled.li.attrs((props: Props) => ({
-  isMobile: props.isMobile,
+  ismobile: props.ismobile,
 }))`
   flex: ${(props) =>
-    props.isMobile
+    props.ismobile
       ? '1 0 33%'
       : `0 0 calc(${100 / contents.length}% - 20px)`};
   display: flex;
@@ -56,7 +56,7 @@ const MenuItem = styled.li.attrs((props: Props) => ({
 const GlobalNavigation = () => {
   const breakpoints = useBreakpoint();
   const menuItems = contents.map((item, index) => (
-    <MenuItem key={index} isMobile={breakpoints.sm}>
+    <MenuItem key={index} ismobile={breakpoints.sm}>
       <Button text={item.text} path={item.path} />
     </MenuItem>
   ));

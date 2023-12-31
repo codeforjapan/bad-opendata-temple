@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 type Props = {
   stick: string;
-  stickTaped: string;
+  sticktaped: string;
 };
 
 const Stick = styled.div`
@@ -15,7 +15,7 @@ const Stick = styled.div`
     auto;
   &:active {
     cursor:
-      url('${(props: Props) => props.stickTaped}') 10 20,
+      url('${(props: Props) => props.sticktaped}') 10 20,
       auto;
   }
 `;
@@ -33,7 +33,7 @@ const BellSoundButton = () => {
       stick: file(relativePath: { eq: "orinbou_1.gif" }) {
         publicURL
       }
-      stickTaped: file(
+      sticktaped: file(
         relativePath: { eq: "orinbou_2.gif" }
       ) {
         publicURL
@@ -44,7 +44,7 @@ const BellSoundButton = () => {
   return (
     <Stick
       stick={data.stick.publicURL}
-      stickTaped={data.stickTaped.publicURL}
+      sticktaped={data.sticktaped.publicURL}
     >
       <span onMouseDown={handleClick}>
         <GatsbyImage
