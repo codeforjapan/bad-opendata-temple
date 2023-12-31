@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
-import unified from 'unified';
+import { unified } from 'unified';
 import markdown from 'remark-parse';
 import html from 'remark-html';
 import { Airtable } from '../../types/graphql-types';

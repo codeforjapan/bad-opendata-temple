@@ -84,3 +84,13 @@ exports.createPages = async ({
     });
   });
 };
+
+exports.onCreateWebpackConfig = ({ actions, getConfig }) => {
+    const config = getConfig()
+    if (config.externals && config.externals[0]) {
+        config.externals[0]["node:path"] = require.resolve('path')
+        config.externals[0]["node:process"] = require.resolve('process')
+        config.externals[0]["node:url"] = require.resolve('url')
+    }
+    actions.replaceWebpackConfig(config)
+}
