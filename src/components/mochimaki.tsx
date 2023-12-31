@@ -79,7 +79,7 @@ const Mochimaki = () => {
   };
   const data = useStaticQuery(
     graphql`
-      query {
+      query MochimakiQuery {
         jushoku: file(relativePath: { eq: "jushoku.svg" }) {
           publicURL
         }

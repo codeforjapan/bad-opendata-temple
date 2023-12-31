@@ -61,11 +61,8 @@ const ItemChildText = styled(ItemChild)`
 const Information = () => {
   const data: InformationData = useStaticQuery(
     graphql`
-      query {
-        allInformationCsv(
-          limit: 5
-          sort: { fields: date, order: DESC }
-        ) {
+      query InformationQuery {
+        allInformationCsv(limit: 5, sort: {date: DESC}) {
           nodes {
             date
             text

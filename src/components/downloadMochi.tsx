@@ -24,7 +24,7 @@ const ImgContainer = styled.div`
 
 const DownloadMochi = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query DownloadMochiQuery {
       red: file(
         relativePath: { eq: "mochi_red_kotobuki.gif" }
       ) {

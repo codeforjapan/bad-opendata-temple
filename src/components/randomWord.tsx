@@ -52,7 +52,7 @@ const ParagraphWrap = styled.div.attrs((props: Props) => ({
 const RandomWord = () => {
   const data = useStaticQuery(
     graphql`
-      query {
+      query RandomWordQuery {
         allHitokotoCsv {
           nodes {
             word

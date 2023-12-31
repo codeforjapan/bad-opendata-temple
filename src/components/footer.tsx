@@ -38,7 +38,7 @@ const CopyContainer = styled.div`
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
-    {
+    query FooterQuery {
       temple: file(relativePath: { eq: "temple.png" }) {
         childImageSharp {
           gatsbyImageData(width: 189, layout: FIXED)

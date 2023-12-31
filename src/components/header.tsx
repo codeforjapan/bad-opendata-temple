@@ -51,7 +51,7 @@ interface HeaderPageProps {
 const Header = () => {
   const data: HeaderPageProps = useStaticQuery(
     graphql`
-      query {
+      query HeaderQuery {
         site {
           siteMetadata {
             title

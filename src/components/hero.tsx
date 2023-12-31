@@ -104,7 +104,7 @@ const isActiveJyoyaMode = isLastDay || isSanganichi;
 const Hero = () => {
   const data = useStaticQuery(
     graphql`
-      {
+      query HeroQuery {
         logo: file(relativePath: { eq: "logo.svg" }) {
           publicURL
         }

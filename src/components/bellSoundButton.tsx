@@ -23,7 +23,7 @@ const BellSoundButton = () => {
   const el = useRef(null);
   const handleClick = () => el.current.play();
   const data = useStaticQuery(graphql`
-    {
+    query BellSoundButtonQuery {
       orin: file(relativePath: { eq: "orin.png" }) {
         childImageSharp {
           gatsbyImageData(width: 43, layout: FIXED)

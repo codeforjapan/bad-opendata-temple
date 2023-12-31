@@ -57,7 +57,7 @@ const MochiImg = styled.img.attrs((p: MochiImgProps) => ({
 const Mochi = (props: MochiPropertyType) => {
   const data = useStaticQuery(
     graphql`
-      query {
+      query MochiQuery {
         mochi_red: file(
           relativePath: { eq: "mochi_red_kotobuki.gif" }
         ) {

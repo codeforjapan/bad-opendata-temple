@@ -11,7 +11,7 @@ const OmikujiStyle = styled.div`
 const Omikuji = () => {
   const data = useStaticQuery(
     graphql`
-      {
+      query OmikujiQuery {
         nenga1: file(relativePath: { eq: "nenga1.png" }) {
           childImageSharp {
             gatsbyImageData(layout: FULL_WIDTH)

@@ -15,7 +15,7 @@ const BackGroundWrap = styled.div<ContentWrapData>`
 
 const ContentWrap: React.FC = ({ children }) => {
   const data = useStaticQuery<ContentWrapData>(graphql`
-    query {
+    query ContentWrapQuery {
       bgImg: file(relativePath: { eq: "background.svg" }) {
         publicURL
       }

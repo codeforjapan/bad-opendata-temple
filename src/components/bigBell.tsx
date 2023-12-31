@@ -67,7 +67,7 @@ const style = {
 const BigBell = () => {
   const data = useStaticQuery(
     graphql`
-      {
+      query BigBellQuery {
         bigBell: file(
           relativePath: { eq: "big_bell.png" }
         ) {
